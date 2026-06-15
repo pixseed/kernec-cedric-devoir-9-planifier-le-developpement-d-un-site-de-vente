@@ -12,12 +12,12 @@ Décrire le document à produire ou à mettre à jour.
 
 ## Travaux à réaliser
 
-- []
+- [ ] 
 
 ## Livrables attendus
 
-- []
+- [ ] 
 
 ## Critères d'acceptation
 
-- []
+- [ ] 

@@ -12,12 +12,12 @@ Décrire l'élément de planification concerné.
 
 ## Travaux à réaliser
 
-- []
+- [ ] 
 
 ## Livrables attendus
 
-- []
+- [ ] 
 
 ## Critères d'acceptation
 
-- []
+- [ ] 

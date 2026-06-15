@@ -12,12 +12,12 @@ Décrire le sujet analysé et son importance pour le projet.
 
 ## Travaux à réaliser
 
-- []
+- [ ] 
 
 ## Livrables attendus
 
-- []
+- [ ] 
 
 ## Critères d'acceptation
 
-- []
+- [ ] 

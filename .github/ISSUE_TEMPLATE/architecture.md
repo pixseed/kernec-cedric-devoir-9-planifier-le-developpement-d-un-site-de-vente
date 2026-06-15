@@ -12,12 +12,12 @@ Décrire la décision technique à prendre.
 
 ## Travaux à réaliser
 
-- []
+- [ ] 
 
 ## Décisions attendues
 
-- []
+- [ ] 
 
 ## Critères d'acceptation
 
-- []
+- [ ] 
