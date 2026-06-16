@@ -46,6 +46,8 @@
     - [1.5. Contraintes du projet](#15-contraintes-du-projet)
     - [1.6. Résultats attendus](#16-résultats-attendus)
   - [2. Analyse des besoins](#2-analyse-des-besoins)
+    - [2.1. Identification des acteurs, de leurs rôles et de leurs besoins](#21-identification-des-acteurs-de-leurs-rôles-et-de-leurs-besoins)
+    - [2.2. Priorisation des acteurs](#22-priorisation-des-acteurs)
   - [3. User Stories](#3-user-stories)
   - [4. Architecture technique](#4-architecture-technique)
   - [5. Hébergements et services tiers](#5-hébergements-et-services-tiers)
@@ -184,10 +186,63 @@ L'entreprise **cible principalement une population jeune agée de 20 à 35 ans**
 - d'une solution prête à accueillir un volume de visiteurs plus important
 
 ---
+<div class="page-break"></div>
 
 ## 2. Analyse des besoins
 
+### 2.1. Identification des acteurs, de leurs rôles et de leurs besoins
 
+| Acteur | Rôle | Besoins |
+|--------|------|---------|
+| Visiteurs | Découvrir la marque. | Consulter les produits et les actualités, rechercher un produit, ajouter un articles au panier, contacter l'entreprise. |
+| Clients | Acheter des produits. | Commmander des produits, payer en ligne, suivre ses commandes, gérer son compte client. |
+| Service commerciale | Gérer les ventes : Suivi et gestion des commandes. | Mettre à jour les articles, éditer des informations de la commande à envoyer au service logistique, consulter les commandes et leur statut. |
+| Service comptabilité | Gérer les facturations. | Consulter les commandes, consulter et éditer les factures, exporter les données (format CSV). |
+| Administrateur | Gérer le site : Charger du bon fonctionnement du site. | Accéder à toutes les fonctionnalités du site. |
+
+### 2.2. Priorisation des acteurs
+
+<table>
+  <thead>
+    <tr>
+      <th>Acteur</th>
+      <th>Priorité</th>
+    </tr>
+  </thead>
+
+  </tbody>
+    <tr>
+      <td>Visiteurs</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Clients</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Administrateur</td>
+      <td>
+        <span class="badge badge--high">Haute</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Commerciaux</td>
+      <td>
+        <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Comptables</td>
+      <td>
+        <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ---
 

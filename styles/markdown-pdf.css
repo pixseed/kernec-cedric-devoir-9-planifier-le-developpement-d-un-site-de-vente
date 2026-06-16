@@ -2,12 +2,15 @@
     /* Couleurs */
     --color-primary: #77b099;
     --color-primary-dark: #4e816d;
+    --color-secondary: #f5895D;
+    --color-tertiary: #f6a447;
+    --color-quaternary: #f9dacd;
 
     --color-text: #2b2b2b;
     --color-text-secondary: #38503c;
     --color-text-inverse: #ffffff;
 
-    --color-danger: #f6a447;
+    --color-danger: var(--color-tertiary);
 
     --color-border: #c3d2df;
 
@@ -196,11 +199,7 @@ tbody td:first-child {
 }
 
 th:first-child {
-    width: 30%;
-}
-
-th:last-child {
-    width: auto;
+    width: 20%;
 }
 
 thead {
@@ -286,6 +285,35 @@ img {
 .card__text--with-header {
     padding: var(--space-lg);
     background: var(--color-surface);
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.badge--critical {
+    background-color: var(--color-danger);
+    color: var(--color-text-inverse)
+}
+
+.badge--high {
+    background-color: var(--color-quaternary);
+}
+
+.badge--medium {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse)
+}
+
+.badge--low {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-inverse)
 }
 
 /* Notes */
