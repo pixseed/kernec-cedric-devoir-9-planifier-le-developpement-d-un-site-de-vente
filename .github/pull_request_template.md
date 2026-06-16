@@ -1,5 +1,3 @@
-Décrire les modifications réalisées.
-
 ## Type de modification
 
 - [ ] Analyse
@@ -11,8 +9,8 @@ Décrire les modifications réalisées.
 
 - [ ] Les documents ont été mis à jour
 - [ ] Les liens ont été vérifiés
-- [ ] Les captures ont été ajoutées si necessaire
+- [ ] Les captures ont été ajoutées si nécessaire
 
 ## Notes complémentaires
 
-Ajouter toute information utilise pour la revue.
+Ajouter toute information utile pour la revue.
