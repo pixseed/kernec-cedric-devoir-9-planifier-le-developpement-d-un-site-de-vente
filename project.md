@@ -48,6 +48,12 @@
   - [2. Analyse des besoins](#2-analyse-des-besoins)
     - [2.1. Identification des acteurs, de leurs rôles et de leurs besoins](#21-identification-des-acteurs-de-leurs-rôles-et-de-leurs-besoins)
     - [2.2. Priorisation des acteurs](#22-priorisation-des-acteurs)
+    - [2.3. Identification des besoins fonctionnels](#23-identification-des-besoins-fonctionnels)
+      - [2.3.1. Fonctionnalités visiteurs](#231-fonctionnalités-visiteurs)
+      - [2.3.2. Fonctionnalités clients](#232-fonctionnalités-clients)
+      - [2.3.3. Fonctionnalités commerciales et administratives](#233-fonctionnalités-commerciales-et-administratives)
+      - [2.3.4. Fonctionnalités administrateur](#234-fonctionnalités-administrateur)
+    - [2.4. Priorisation des fonctionnalités](#24-priorisation-des-fonctionnalités)
   - [3. User Stories](#3-user-stories)
   - [4. Architecture technique](#4-architecture-technique)
   - [5. Hébergements et services tiers](#5-hébergements-et-services-tiers)
@@ -239,6 +245,191 @@ L'entreprise **cible principalement une population jeune agée de 20 à 35 ans**
       <td>Comptables</td>
       <td>
         <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+### 2.3. Identification des besoins fonctionnels
+
+#### 2.3.1. Fonctionnalités visiteurs
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Catalogue produits | Consulter les produits |
+| Recherche | Rechercher un produit |
+| Fiche produit | Consulter les détails d'un produit |
+| Panier | Préparer une commande |
+| Formulaire de contact | Contacter l'entreprise |
+| Actualités | Consulter les nouveautés |
+
+#### 2.3.2. Fonctionnalités clients
+
+<ul class="custom-list">
+  <li>
+    En plus des fonctionnalités visiteurs.
+  </li>
+</ul>
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Création de compte | S'inscrire |
+| Connexion | Accéder à son espace |
+| Paiement Stripe | Régler une commande |
+| Historique | Consulter les commandes |
+| Gestion profil | Modifier ses informations personnelles |
+
+#### 2.3.3. Fonctionnalités commerciales et administratives
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Gestion produits | Ajouter, modifier, supprimer |
+| Gestion catégories | Organiser le catalogue |
+| Validation commande | Validation et traitement des commandes |
+| Paiement sécurisé | Stripe |
+| Suivi commandes | État des commandes |
+| Facturation | Édition des factures |
+
+#### 2.3.4. Fonctionnalités administrateur
+
+<ul class="custom-list">
+  <li>
+    En plus des fonctionnalités visiteurs, clients, commerciales et administratives.
+  </li>
+</ul>
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Gestion utilisateurs | Administrer les comptes |
+| Gestion contenus  | Actualités, pages |
+
+<div class="page-break"></div>
+
+### 2.4. Priorisation des fonctionnalités
+
+<table>
+  <thead>
+    <tr>
+      <th>Fonctionnalité</th>
+      <th>Priorité</th>
+    </tr>
+  </thead>
+
+  </tbody>
+    <tr>
+      <td>Catalogue produits</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Fiche produit</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Recherche produit</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Panier</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Formulaire de contact</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Création de compte</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Connexion</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Paiement Stripe</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gestion produit</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gestion catégorie</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Validation commande</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Paiement sécurisé</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gestion utilisateur</td>
+      <td>
+        <span class="badge badge--critical">Critique</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Suivi commande</td>
+      <td>
+        <span class="badge badge--high">Haute</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gestion contenu</td>
+      <td>
+        <span class="badge badge--high">Haute</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Historique</td>
+      <td>
+        <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Gestion profil</td>
+      <td>
+        <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Facturation</td>
+      <td>
+        <span class="badge badge--medium">Moyenne</span>
+      </td>
+    </tr>
+    <tr>
+      <td>Actualité</td>
+      <td>
+        <span class="badge badge--low">Faible</span>
       </td>
     </tr>
   </tbody>
