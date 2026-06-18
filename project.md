@@ -62,6 +62,9 @@
     - [4.4. Flux de données](#44-flux-de-données)
     - [4.5. Schéma d'architecture](#45-schéma-darchitecture)
   - [5. Hébergements et services tiers](#5-hébergements-et-services-tiers)
+    - [5.1. Besoins d'hébergement identifiés](#51-besoins-dhébergement-identifiés)
+    - [5.2. Comparaison des solutions](#52-comparaison-des-solutions)
+    - [5.2. Choix retenus](#52-choix-retenus)
   - [6. Organisation du projet](#6-organisation-du-projet)
     - [6.1. Kanban](#61-kanban)
     - [6.2. Workflow Git](#62-workflow-git)
@@ -469,7 +472,7 @@ L'entreprise **cible principalement une population jeune agée de 20 à 35 ans**
 | Base de données | MySQL | Données relationnelles adaptées aux produits, clients et commandes |
 | Paiement | Stripe | Solution de paiement en ligne sécurisée |
 
-![Technologies principales utilisées](./docs/diagrams/technologies.png)
+![Technologies principales utilisées](./docs/images/technologies.png)
 
 ### 4.3. Structure des données
 
@@ -488,7 +491,7 @@ L'entreprise **cible principalement une population jeune agée de 20 à 35 ans**
 
 Le schéma ci-dessous représente le flux de données entre les composants du système e-commerce.
 
-![Représentation du flux de données](./docs/diagrams/flux-de-donnees.png)
+![Représentation du flux de données](./docs/images/flux-de-donnees.png)
 
 <div class="note">
 Le front-end envoie des requêtes à l’API REST via HTTP/HTTPS.
@@ -501,13 +504,175 @@ L’API traite la logique métier, interagit avec la base de données pour enreg
 
 Le schéma ci-dessous représente l'architecture technique générale du système e-commerce.
 
-![Schéma d'architecture](./docs/diagrams/schema-architecture.png)
+![Schéma d'architecture](./docs/images/schema-architecture.png)
 
 ---
 
+<div class="page-break"></div>
+
 ## 5. Hébergements et services tiers
 
+### 5.1. Besoins d'hébergement identifiés
 
+Le brief ne précise pas le volume exact de produits, de visiteurs ou de clients attendus.
+Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif, adapté à un site e-commerce professionnel de taille intermédiaire, avec possibilité de montée en charge si le trafic augmente après le reportage télévisé.
+
+| Couche | Besoin identifié |
+|--------|------------------|
+| Front-end | Hébergement rapide, HTTPS, CDN, déploiement automatisé depuis GitHub |
+| Back-end | Exécution d'une API Node.js/Express | variables d'environnement, logs, évolutivité |
+| Base de données | Stockage relationnel persistant, sauvegardes, sécurité, montée en capacité possible |
+| Paiement | Paiement sécurisé, conformité, gestion des confirmations de paiement |
+| Maintenance | Supervision, mises à jour, possibilité dévolution selon le trafic réel |
+
+### 5.2. Comparaison des solutions
+
+<table>
+  <colgroup>
+    <col style="width: 100px">
+    <col style="width: auto">
+    <col style="width: 100px">
+    <col style="width: auto">
+    <col style="width: auto">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Solution</th>
+      <th>Description</th>
+      <th>Couche concernée</th>
+      <th>Avantages</th>
+      <th>Inconvénient</th>
+    <tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Netlify</td>
+      <td>Hébergement d'applications front-end statiques et SPA</td>
+      <td>
+        <span class="badge badge--small badge--primary">Front-end</span>
+      </td>
+      <td>Déploiement GitHub automatique, CDN mondial, SSL intégré | Peu adapté à l'exécution de services back-end</td>
+      <td>Peu adapté à l'exécution de services back-end</td>
+    </tr>
+    <tr>
+      <td>Vercel</td>
+      <td>Plateforme cloud optimisée pour les applications web modernes</td>
+      <td>
+        <span class="badge badge--small badge--primary">Front-end</span>
+      </td>
+      <td>Très bonnes performances, intégration React/Next.js</td>
+      <td>Coût pouvant augmenter avec le trafic</td>
+    </tr>
+    <tr>
+      <td>Render</td>
+      <td>Hébergement de services Node.js et APIs</td>
+      <td>
+        <span class="badge badge--small badge--secondary">Back-end</span>
+      </td>
+      <td>Déploiement simple, gestion des variables d'environnement</td>
+      <td>Mise en veille sur certaines offres</td>
+    </tr>
+    <tr>
+      <td>Railway</td>
+      <td>Hébergement d'applications et bases de données managées</td>
+      <td>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span class="badge badge--small badge--secondary">Backend</span>
+        <span class="badge badge--small badge--tertiary">DataBase</span>
+      </div>
+      </td>
+      <td>Mise en place rapide, interface intuitive</td>
+      <td>Ressources limitées selon le plan</td>
+    </tr>
+    <tr>
+      <td>Amazon EC2</td>
+      <td>Serveur virtuel cloud</td>
+      <td>
+        <span class="badge badge--small badge--secondary">Back-end</span>
+      </td>
+      <td>Contrôle total de l'infrastructure</td>
+      <td>Administration plus complexe</td>
+    </tr>
+    <tr>
+      <td>Planet Scale</td>
+      <td>Base de données MySQL managée</td>
+      <td>
+        <span class="badge badge--small badge--tertiary">DataBase</span>
+      </td>
+      <td>Très haute disponibilité</td>
+      <td>Plus complexe pour un projet de taille moyenne |</td>
+    </tr>
+    <tr>
+      <td>Amazon RDS</td>
+      <td>Base de données relationnelle managée</td>
+      <td>
+        <span class="badge badge--small badge--tertiary">DataBase</span>
+      </td>
+      <td>Sauvegarde et haute disponibilité</td>
+      <td>Coût plus élevé</td>
+    </tr>
+    <tr>
+      <td>Stripe</td>
+      <td>Solution de paiement en ligne</td>
+      <td>
+        <span class="badge badge--small badge--quaternary">Tiers</span>
+      </td>
+      <td>Sécurisé, documentation complète, leader du marché</td>
+      <td>Commission sur les transactions</td>
+    </tr>
+  </tbody>
+</table>
+
+### 5.3. Choix retenus
+
+<table>
+  <colgroup>
+    <col style="width: 150px">
+    <col style="width: 80px">
+    <col style="width: auto">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Besoin</th>
+      <th>Solution</th>
+      <th>Justification</th>
+    <tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Front-end</td>
+      <td>
+        <span class="badge badge--small badge--primary">Netlify</span>
+      </td>
+      <td>Déploiement automatisé, CDN mondial et excellente compatiilité React</td>
+    </tr>
+    <tr>
+      <td>Back-end</td>
+      <td>
+        <span class="badge badge--small badge--secondary">Render</span>
+      </td>
+      <td>Compatible Node.js/Express et administration simplifiée</td>
+    </tr>
+    <tr>
+      <td>Base de données</td>
+      <td>
+        <span class="badge badge--small badge--tertiary">Railway</span>
+      </td>
+      <td>Hébergement MySQL managé simple à maintenir</td>
+    </tr>
+    <tr>
+      <td>Paiement en ligne</td>
+      <td>
+        <span class="badge badge--small badge--quaternary">Stripe</span>
+      </td>
+      <td>Solution sécurisée et adaptée à un site e-commerce professionnel</td>
+    </tr>
+  </tbody>
+</table>
+
+![Hébergement des couches](./docs/images/hebergements.png)
 
 ---
 
