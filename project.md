@@ -56,6 +56,11 @@
     - [2.4. Priorisation des fonctionnalités](#24-priorisation-des-fonctionnalités)
   - [3. User Stories](#3-user-stories)
   - [4. Architecture technique](#4-architecture-technique)
+    - [4.1. Architecture générale](#41-architecture-générale)
+    - [4.2. Technologies retenues](#42-technologies-retenues)
+    - [4.3. Structure des données](#43-structure-des-données)
+    - [4.4. Flux de données](#44-flux-de-données)
+    - [4.5. Schéma d'architecture](#45-schéma-darchitecture)
   - [5. Hébergements et services tiers](#5-hébergements-et-services-tiers)
   - [6. Organisation du projet](#6-organisation-du-projet)
     - [6.1. Kanban](#61-kanban)
@@ -445,7 +450,58 @@ L'entreprise **cible principalement une population jeune agée de 20 à 35 ans**
 
 ## 4. Architecture technique
 
+### 4.1. Architecture générale
 
+| Couche | Rôle |
+|--------|------|
+| Front-end | Afficher l'interface utilisateur et permettre les interactions |
+| Back-end | Gérér la logique métier, les règles de sécurité et l'API |
+| Base de données | Stockage des données : utilisateurs, produits, commandes et factures |
+| Services tiers | Gérer les fonctionnalités externes comme le paiement |
+
+### 4.2. Technologies retenues
+
+| Couche | Technologie | Justification |
+|--------|-------------|---------------|
+| Front-end | React + Vite | Interface dynamique adaptée à un site e-commerce |
+| Back-end | Node.js + Express | Création d'une API REST légère et maintenable |
+| ORM | Sequelize | Communication strcuturée avec la base MySQL |
+| Base de données | MySQL | Données relationnelles adaptées aux produits, clients et commandes |
+| Paiement | Stripe | Solution de paiement en ligne sécurisée |
+
+![Technologies principales utilisées](./docs/diagrams/technologies.png)
+
+### 4.3. Structure des données
+
+| Entité | Description |
+|--------|-------------|
+| Utilisateur | Compte client |
+| Produit | Article vendu sur la boutique |
+| Catégorie | Classement des produits |
+| Commande | Achat réalisé par un client |
+| DétailCommande | Détail des produits achetés par un client |
+| Facture | Document lié à une commande validée |
+
+<div class="page-break"></div>
+
+### 4.4. Flux de données
+
+Le schéma ci-dessous représente le flux de données entre les composants du système e-commerce.
+
+![Représentation du flux de données](./docs/diagrams/flux-de-donnees.png)
+
+<div class="note">
+Le front-end envoie des requêtes à l’API REST via HTTP/HTTPS.
+L’API traite la logique métier, interagit avec la base de données pour enregistrer ou récupérer les informations et communique avec Stripe pour gérer les paiements. Stripe renvoie ensuite la confirmation de paiement à l’API qui renvoie la réponse au front-end.
+</div>
+
+<div class="page-break"></div>
+
+### 4.5. Schéma d'architecture
+
+Le schéma ci-dessous représente l'architecture technique générale du système e-commerce.
+
+![Schéma d'architecture](./docs/diagrams/schema-architecture.png)
 
 ---
 
