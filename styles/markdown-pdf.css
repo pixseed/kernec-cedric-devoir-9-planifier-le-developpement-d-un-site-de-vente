@@ -1021,6 +1021,33 @@ img {
     display: block;
 } */
 
+/* Gantt */
+.gantt-rules {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.gantt-rule {
+    padding: var(--space-md);
+    border: var(--border-thin) solid var(--color-border);
+    border-left: var(--border-thick) solid var(--color-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    page-break-inside: avoid;
+}
+
+.gantt-rule__title {
+    margin-bottom: var(--space-sm);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.gantt-rule p {
+    margin: 0;
+}
+
 /* Ligne horizontale */
 hr {
     border: none;
