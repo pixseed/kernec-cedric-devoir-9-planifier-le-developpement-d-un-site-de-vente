@@ -6494,6 +6494,66 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
 
 ## 9 Diagramme de Gantt
 
+Le diagramme de Gantt a été réalisé à partir des tâches définies dans le WBS et planifiées dans GitHub Project. Les dates présentées constituent une planification prévisionnelle du projet et tiennent compte des dépendances entre les tâches, de leur durée estimée et de la disponibilité des différents collaborateurs.
+
+GitHub Project utilisant des dates calendaires sans permettre de représenter précisément des fractions de journée ou d'exclure certains jours intermédiaires d'une période, plusieurs conventions de lecture ont été retenues.
+
+<div class="section-label">Conventions de lecture du diagramme</div>
+
+<div class="gantt-rules">
+  <div class="gantt-rule">
+    <div class="gantt-rule__title">Week-ends</div>
+    <p>Les week-ends peuvent apparaître dans la période d'une tâche lorsque celle-ci débute avant un week-end et se poursuit la semaine suivante. Ces journées ne correspondent pas à du temps de travail planifié et ne sont pas comptabilisées dans la charge prévisionnelle de la tâche.</p>
+  </div>
+  <div class="gantt-rule">
+    <div class="gantt-rule__title">Fractions de journée</div>
+    <p>Les durées du WBS sont exprimées en fractions de journée (0,25 j, 0,50 j, 0,75 j ou 1 j). Plusieurs tâches peuvent donc être planifiées sur une même date lorsqu'elles sont réalisées successivement au cours d'une journée.</p>
+  </div>
+  <div class="gantt-rule">
+    <div class="gantt-rule__title">Chevauchement visuel</div>
+    <p>GitHub Project ne permettant pas de représenter les horaires de début et de fin, certaines tâches peuvent apparaître comme se chevauchant alors qu'elles correspondent à une répartition successive de la charge au sein d'une même journée.</p>
+  </div>
+  <div class="gantt-rule">
+    <div class="gantt-rule__title">Disponibilité à 80 %</div>
+    <p>Les développeurs Front-end et Back-end sont considérés comme indisponibles le vendredi. Cédric, chef de projet et développeur Full Stack, peut intervenir en relais sur les travaux Front-end ou Back-end afin d'assurer la continuité du projet.</p>
+  </div>
+</div>
+
+<div class="section-label">Capacité de renfort</div>
+
+Les développeurs freelances constituent une capacité de renfort mobilisable en cas de dérive du planning ou de surcharge ponctuelle.
+
+<div class="layout-grid layout-grid--2">
+  <div class="card card--variant-2">
+    <div class="card__title">Omar — Renfort Front-end</div>
+    <div class="card__text">
+      <span class="bold">Mobilisation prévisionnelle :</span> 0,75 j / 5 j<br>
+      <span class="bold">Capacité résiduelle :</span> 4,25 j
+    </div>
+  </div>
+  <div class="card card--variant-2">
+    <div class="card__title">Fred — Renfort technique</div>
+    <div class="card__text">
+      <span class="bold">Mobilisation prévisionnelle :</span> 4 j / 5 j<br>
+      <span class="bold">Capacité résiduelle :</span> 1 j
+    </div>
+  </div>
+</div>
+
+Ces capacités résiduelles pourront être mobilisées sur des travaux Front-end, Back-end, d'intégration ou d'optimisation en fonction des besoins identifiés au cours du projet.
+
+<div class="note">
+  Le diagramme de Gantt doit être interprété conjointement avec les durées prévisionnelles définies dans le WBS. Les barres de planification représentent des périodes calendaires de réalisation et non systématiquement une charge de travail continue sur l'ensemble des jours affichés.
+</div>
+
+[Lien du diagramme de Gantt : https://github.com/users/pixseed/projects/3/views/3](https://github.com/users/pixseed/projects/3/views/3)
+![Screenshot du diagramme de Gantt (1) "La Socketterie ─ Planification du projet"](./docs/images/gantt-1.png)
+![Screenshot du diagramme de Gantt (2) "La Socketterie ─ Planification du projet"](./docs/images/gantt-2.png)
+
+Une vue du diagramme de Gantt est également disponible en groupement par responsable de chaque tâche afin de faciliter la lecture individuelle du planning.
+
+[Lien du diagramme de Gantt (par responsable) : https://github.com/users/pixseed/projects/3/views/8](https://github.com/users/pixseed/projects/3/views/8)
+![Screenshot du diagramme de Gantt par responsable "La Socketterie ─ Planification du projet"](./docs/images/gantt-responsable.png)
 
 ---
 
