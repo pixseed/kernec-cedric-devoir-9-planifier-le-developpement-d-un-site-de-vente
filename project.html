@@ -1,117 +1,540 @@
-# Projet : Trouve ton artisan
+<!DOCTYPE html>
+<html>
+<head>
+<title>project.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #24292e;
+  background: #ffffff
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #d73a49
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #6f42c1
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #032f62
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #e36209
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file://d:\Utilisateur\Cedric\Projets\CEF\kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente\styles\markdown-pdf.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="projet--trouve-ton-artisan">Projet : Trouve ton artisan</h1>
 <h2>
   Devoir #9 :<br>
   Planifier le développement d'un site de vente
 </h2>
-
 <div class="panel panel--grid-2-col panel--center" style="margin-top: 32px">
-
   <div class="panel__label">Auteur</div>
   <div class="panel__value">Cédric Kernec</div>
-
   <div class="panel__label">GitHub</div>
   <div class="panel__value"><a href="https://github.com/pixseed" target="_blank" rel="noopener noreferrer">https://github.com/pixseed</a></div>
-
   <div class="panel__label">Formation</div>
   <div class="panel__value">Développeur Web & Web Mobile - Centre Européen de Formation</div>
-
   <div class="panel__label">Technologies</div>
   <div class="panel__value"></div>
-
   <div class="panel__label">Date</div>
   <div class="panel__value">06/2026</div>
-
   <div class="panel__label">Version</div>
   <div class="panel__value">1.0.0</div>
-
   <div class="panel__label">Liens utiles</div>
   <div class="panel__value"><a href="" target="_blank" rel="noopener noreferrer"></a></div>
-
 </div>
-
-![Logo - La Socketterie](./assets/logos/logo-complet-la-socketterie.png)
-
+<p><img src="./assets/logos/logo-complet-la-socketterie.png" alt="Logo - La Socketterie"></p>
 <div class="page-break"></div>
-
-## Sommaire
-
-- [Projet : Trouve ton artisan](#projet--trouve-ton-artisan)
-  - [Sommaire](#sommaire)
-  - [1. Présentation du projet](#1-présentation-du-projet)
-    - [1.1. Contexte du projet](#11-contexte-du-projet)
-    - [1.2. Objectif du projet](#12-objectif-du-projet)
-    - [1.3. Enjeux du projet](#13-enjeux-du-projet)
-    - [1.4. Parties prenantes](#14-parties-prenantes)
-    - [1.5. Contraintes du projet](#15-contraintes-du-projet)
-    - [1.6. Résultats attendus](#16-résultats-attendus)
-  - [2. Analyse des besoins](#2-analyse-des-besoins)
-    - [2.1. Identification des acteurs, de leurs rôles et de leurs besoins](#21-identification-des-acteurs-de-leurs-rôles-et-de-leurs-besoins)
-    - [2.2. Priorisation des acteurs](#22-priorisation-des-acteurs)
-    - [2.3. Identification des besoins fonctionnels](#23-identification-des-besoins-fonctionnels)
-      - [2.3.1. Fonctionnalités visiteurs](#231-fonctionnalités-visiteurs)
-      - [2.3.2. Fonctionnalités clients](#232-fonctionnalités-clients)
-      - [2.3.3. Fonctionnalités commerciales et administratives](#233-fonctionnalités-commerciales-et-administratives)
-      - [2.3.4. Fonctionnalités administrateur](#234-fonctionnalités-administrateur)
-    - [2.4. Priorisation des fonctionnalités](#24-priorisation-des-fonctionnalités)
-  - [3. Product Backlog](#3-product-backlog)
-    - [3.1. Personas](#31-personas)
-      - [3.1.1. Qui est le visiteur ?](#311-qui-est-le-visiteur-)
-      - [3.1.2. Qui est le client ?](#312-qui-est-le-client-)
-      - [3.1.3. Qui est l'administrateur ?](#313-qui-est-ladministrateur-)
-      - [3.1.4. Qui est le commercial ?](#314-qui-est-le-commercial-)
-      - [3.1.5. Qui est le comptable ?](#315-qui-est-le-comptable-)
-    - [3.4. Backlog fonctionnel (Epics)](#34-backlog-fonctionnel-epics)
-    - [3.5. User Stories](#35-user-stories)
-      - [3.5.1. Estimation des User Stories selon la suite de Fibonacci](#351-estimation-des-user-stories-selon-la-suite-de-fibonacci)
-      - [3.5.2. Matrice Valeur/Effort des User Stories](#352-matrice-valeureffort-des-user-stories)
-      - [3.5.3. Détails des User Stories (Critique = niveau 5)](#353-détails-des-user-stories-critique--niveau-5)
-    - [3.6. Use Cases](#36-use-cases)
-      - [3.6.1. Diagrammes des cas d'utilisation](#361-diagrammes-des-cas-dutilisation)
-      - [3.6.2. Description des cas d'utilisation](#362-description-des-cas-dutilisation)
-  - [4. Sprint Backlog prévisionnel](#4-sprint-backlog-prévisionnel)
-  - [5. Matrice de traçabilité fonctionnelle](#5-matrice-de-traçabilité-fonctionnelle)
-  - [6. Architecture technique](#6-architecture-technique)
-    - [6.1. Architecture générale](#61-architecture-générale)
-    - [6.2. Technologies retenues](#62-technologies-retenues)
-    - [6.3. Structure des données](#63-structure-des-données)
-    - [6.4. Flux de données](#64-flux-de-données)
-    - [6.5. Schéma d'architecture](#65-schéma-darchitecture)
-  - [7. Hébergements et services tiers](#7-hébergements-et-services-tiers)
-    - [7.1. Besoins d'hébergement identifiés](#71-besoins-dhébergement-identifiés)
-    - [7.2. Comparaison des solutions](#72-comparaison-des-solutions)
-    - [7.3. Choix retenus](#73-choix-retenus)
-  - [8. Organisation du projet](#8-organisation-du-projet)
-    - [8.1. Équipe projet et répartition des rôles](#81-équipe-projet-et-répartition-des-rôles)
-    - [8.2. Work Breakdown Structure (WBS)](#82-work-breakdown-structure-wbs)
-    - [8.3. Kanban](#83-kanban)
-  - [9 Diagramme de Gantt](#9-diagramme-de-gantt)
-  - [10. Estimation des coûts](#10-estimation-des-coûts)
-  - [11. Conclusion](#11-conclusion)
-
----
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li><a href="#projet--trouve-ton-artisan">Projet : Trouve ton artisan</a>
+<ul>
+<li><a href="#sommaire">Sommaire</a></li>
+<li><a href="#1-pr%C3%A9sentation-du-projet">1. Présentation du projet</a>
+<ul>
+<li><a href="#11-contexte-du-projet">1.1. Contexte du projet</a></li>
+<li><a href="#12-objectif-du-projet">1.2. Objectif du projet</a></li>
+<li><a href="#13-enjeux-du-projet">1.3. Enjeux du projet</a></li>
+<li><a href="#14-parties-prenantes">1.4. Parties prenantes</a></li>
+<li><a href="#15-contraintes-du-projet">1.5. Contraintes du projet</a></li>
+<li><a href="#16-r%C3%A9sultats-attendus">1.6. Résultats attendus</a></li>
+</ul>
+</li>
+<li><a href="#2-analyse-des-besoins">2. Analyse des besoins</a>
+<ul>
+<li><a href="#21-identification-des-acteurs-de-leurs-r%C3%B4les-et-de-leurs-besoins">2.1. Identification des acteurs, de leurs rôles et de leurs besoins</a></li>
+<li><a href="#22-priorisation-des-acteurs">2.2. Priorisation des acteurs</a></li>
+<li><a href="#23-identification-des-besoins-fonctionnels">2.3. Identification des besoins fonctionnels</a>
+<ul>
+<li><a href="#231-fonctionnalit%C3%A9s-visiteurs">2.3.1. Fonctionnalités visiteurs</a></li>
+<li><a href="#232-fonctionnalit%C3%A9s-clients">2.3.2. Fonctionnalités clients</a></li>
+<li><a href="#233-fonctionnalit%C3%A9s-commerciales-et-administratives">2.3.3. Fonctionnalités commerciales et administratives</a></li>
+<li><a href="#234-fonctionnalit%C3%A9s-administrateur">2.3.4. Fonctionnalités administrateur</a></li>
+</ul>
+</li>
+<li><a href="#24-priorisation-des-fonctionnalit%C3%A9s">2.4. Priorisation des fonctionnalités</a></li>
+</ul>
+</li>
+<li><a href="#3-product-backlog">3. Product Backlog</a>
+<ul>
+<li><a href="#31-personas">3.1. Personas</a>
+<ul>
+<li><a href="#311-qui-est-le-visiteur-">3.1.1. Qui est le visiteur ?</a></li>
+<li><a href="#312-qui-est-le-client-">3.1.2. Qui est le client ?</a></li>
+<li><a href="#313-qui-est-ladministrateur-">3.1.3. Qui est l'administrateur ?</a></li>
+<li><a href="#314-qui-est-le-commercial-">3.1.4. Qui est le commercial ?</a></li>
+<li><a href="#315-qui-est-le-comptable-">3.1.5. Qui est le comptable ?</a></li>
+</ul>
+</li>
+<li><a href="#34-backlog-fonctionnel-epics">3.4. Backlog fonctionnel (Epics)</a></li>
+<li><a href="#35-user-stories">3.5. User Stories</a>
+<ul>
+<li><a href="#351-estimation-des-user-stories-selon-la-suite-de-fibonacci">3.5.1. Estimation des User Stories selon la suite de Fibonacci</a></li>
+<li><a href="#352-matrice-valeureffort-des-user-stories">3.5.2. Matrice Valeur/Effort des User Stories</a></li>
+<li><a href="#353-d%C3%A9tails-des-user-stories-critique--niveau-5">3.5.3. Détails des User Stories (Critique = niveau 5)</a></li>
+</ul>
+</li>
+<li><a href="#36-use-cases">3.6. Use Cases</a>
+<ul>
+<li><a href="#361-diagrammes-des-cas-dutilisation">3.6.1. Diagrammes des cas d'utilisation</a></li>
+<li><a href="#362-description-des-cas-dutilisation">3.6.2. Description des cas d'utilisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-sprint-backlog-pr%C3%A9visionnel">4. Sprint Backlog prévisionnel</a></li>
+<li><a href="#5-matrice-de-tra%C3%A7abilit%C3%A9-fonctionnelle">5. Matrice de traçabilité fonctionnelle</a></li>
+<li><a href="#6-architecture-technique">6. Architecture technique</a>
+<ul>
+<li><a href="#61-architecture-g%C3%A9n%C3%A9rale">6.1. Architecture générale</a></li>
+<li><a href="#62-technologies-retenues">6.2. Technologies retenues</a></li>
+<li><a href="#63-structure-des-donn%C3%A9es">6.3. Structure des données</a></li>
+<li><a href="#64-flux-de-donn%C3%A9es">6.4. Flux de données</a></li>
+<li><a href="#65-sch%C3%A9ma-darchitecture">6.5. Schéma d'architecture</a></li>
+</ul>
+</li>
+<li><a href="#7-h%C3%A9bergements-et-services-tiers">7. Hébergements et services tiers</a>
+<ul>
+<li><a href="#71-besoins-dh%C3%A9bergement-identifi%C3%A9s">7.1. Besoins d'hébergement identifiés</a></li>
+<li><a href="#72-comparaison-des-solutions">7.2. Comparaison des solutions</a></li>
+<li><a href="#73-choix-retenus">7.3. Choix retenus</a></li>
+</ul>
+</li>
+<li><a href="#8-organisation-du-projet">8. Organisation du projet</a>
+<ul>
+<li><a href="#81-%C3%A9quipe-projet-et-r%C3%A9partition-des-r%C3%B4les">8.1. Équipe projet et répartition des rôles</a></li>
+<li><a href="#82-work-breakdown-structure-wbs">8.2. Work Breakdown Structure (WBS)</a></li>
+<li><a href="#83-kanban">8.3. Kanban</a></li>
+<li><a href="#84-workflow-git">8.4. Workflow Git</a></li>
+</ul>
+</li>
+<li><a href="#9-diagramme-de-gantt">9 Diagramme de Gantt</a></li>
+<li><a href="#10-estimation-des-co%C3%BBts">10. Estimation des coûts</a></li>
+<li><a href="#11-conclusion">11. Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<hr>
 <div class="page-break"></div>
-
-## 1. Présentation du projet
-
-### 1.1. Contexte du projet
-
-**La Socketterie** est une entreprise française créée en 2019 et **spécialisée dans la vente de chaussettes dépareillées tricotées**.
-
-L'entreprise dispose actuellement d'une boutique physique située à Nice et **souhaite développer sa présence numérique afin d'augmenter sa visibilité et de commercialiser ses produits en ligne**.
-
-Cette demande intervient dans un contexte particulier puisque l'entreprise participera prochainement à un reprotage télévisé. **Le tournage est prévu dans un délai de trois mois et la diffusion un mois plus tard**.
-
+<h2 id="1-présentation-du-projet">1. Présentation du projet</h2>
+<h3 id="11-contexte-du-projet">1.1. Contexte du projet</h3>
+<p><strong>La Socketterie</strong> est une entreprise française créée en 2019 et <strong>spécialisée dans la vente de chaussettes dépareillées tricotées</strong>.</p>
+<p>L'entreprise dispose actuellement d'une boutique physique située à Nice et <strong>souhaite développer sa présence numérique afin d'augmenter sa visibilité et de commercialiser ses produits en ligne</strong>.</p>
+<p>Cette demande intervient dans un contexte particulier puisque l'entreprise participera prochainement à un reprotage télévisé. <strong>Le tournage est prévu dans un délai de trois mois et la diffusion un mois plus tard</strong>.</p>
 <div class="card card--danger">
   Le site internet devra donc être suffisamment avancé pour être présenté lors du tournage et totalement opérationnel avant la diffusion du reportage afin de tirer profit de cette visibilité médiatique.
 </div>
-
-L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans**. Le futur site devra donc proposer une expérience moderne, intuitive et adaptée aux usages actuels du commerce en ligne.
-
-### 1.2. Objectif du projet
-
+<p>L'entreprise <strong>cible principalement une population jeune âgée de 20 à 35 ans</strong>. Le futur site devra donc proposer une expérience moderne, intuitive et adaptée aux usages actuels du commerce en ligne.</p>
+<h3 id="12-objectif-du-projet">1.2. Objectif du projet</h3>
 <div class="underline">Les objectifs du projet sont les suivants :</div>
-
 <ul class="custom-list">
   <li>Augmenter la visibilité de l'entreprise sur internet.</li>
   <li>Développer les ventes grâce à une boutique en ligne.</li>
@@ -121,11 +544,8 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
   <li>Offrir aux clients un espace personnel pour suivre leurs commandes.</li>
   <li>Fournir aux équipes internes des outils de gestions adaptés.</li>
 </ul>
-
-### 1.3. Enjeux du projet
-
+<h3 id="13-enjeux-du-projet">1.3. Enjeux du projet</h3>
 <div class="underline">Le projet présente plusieurs enjeux majeurs :</div>
-
 <div class="layout-grid layout-grid--3">
   <div class="card card--center card--with-header">
     <div class="card__title--with-header">Enjeu commercial</div>
@@ -158,24 +578,51 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
     </div>
   </div>
 </div>
-
 <div class="page-break"></div>
-
-### 1.4. Parties prenantes
-
-| Acteur | Rôle |
-|--------|------|
-| La Socketterie | Client |
-| Lead Developer | Validation métier et technique |
-| UX/UI designers | Maquettes & expérience utilisateur |
-| Développeurs | Réalisation / Développement (2 alternants disponible à 80%) |
-| Freelances | Renfort ponctuel (2 freelances en contrat de 5 jours max.) |
-| Équipe commerciale | Gestion produits & commandes |
-| Comptabilité | Facturation & export comptable |
-| Administrateur | Administration globales du site |
-
-### 1.5. Contraintes du projet
-
+<h3 id="14-parties-prenantes">1.4. Parties prenantes</h3>
+<table>
+<thead>
+<tr>
+<th>Acteur</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La Socketterie</td>
+<td>Client</td>
+</tr>
+<tr>
+<td>Lead Developer</td>
+<td>Validation métier et technique</td>
+</tr>
+<tr>
+<td>UX/UI designers</td>
+<td>Maquettes &amp; expérience utilisateur</td>
+</tr>
+<tr>
+<td>Développeurs</td>
+<td>Réalisation / Développement (2 alternants disponible à 80%)</td>
+</tr>
+<tr>
+<td>Freelances</td>
+<td>Renfort ponctuel (2 freelances en contrat de 5 jours max.)</td>
+</tr>
+<tr>
+<td>Équipe commerciale</td>
+<td>Gestion produits &amp; commandes</td>
+</tr>
+<tr>
+<td>Comptabilité</td>
+<td>Facturation &amp; export comptable</td>
+</tr>
+<tr>
+<td>Administrateur</td>
+<td>Administration globales du site</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-contraintes-du-projet">1.5. Contraintes du projet</h3>
 <div class="layout-grid layout-grid--3">
   <div class="card card--center card--danger">
     Délai de 3 mois avant tournage
@@ -205,34 +652,56 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
     Conformité règlementaire
   </div>
 </div>
-
-### 1.6. Résultats attendus
-
+<h3 id="16-résultats-attendus">1.6. Résultats attendus</h3>
 <div class="underline">À l'issue du projet, La Socketterie disposera :</div>
-
-- d'un site vitrine moderne
-- d'une boutique e-commerce fonctionnelle
-- d'un espace client sécurisé
-- d'un espace d'administration
-- d'une solution prête à accueillir un volume de visiteurs plus important
-
----
+<ul>
+<li>d'un site vitrine moderne</li>
+<li>d'une boutique e-commerce fonctionnelle</li>
+<li>d'un espace client sécurisé</li>
+<li>d'un espace d'administration</li>
+<li>d'une solution prête à accueillir un volume de visiteurs plus important</li>
+</ul>
+<hr>
 <div class="page-break"></div>
-
-## 2. Analyse des besoins
-
-### 2.1. Identification des acteurs, de leurs rôles et de leurs besoins
-
-| Acteur | Rôle | Besoins |
-|--------|------|---------|
-| Visiteurs | Découvrir la marque. | Consulter les produits et les actualités, rechercher un produit, ajouter un articles au panier, contacter l'entreprise. |
-| Clients | Acheter des produits. | Commmander des produits, payer en ligne, suivre ses commandes, gérer son compte client. |
-| Service commerciale | Gérer les ventes : Suivi et gestion des commandes. | Mettre à jour les articles, éditer des informations de la commande à envoyer au service logistique, consulter les commandes et leur statut. |
-| Service comptabilité | Gérer les facturations. | Consulter les commandes, consulter et éditer les factures, exporter les données (format CSV). |
-| Administrateur | Gérer le site : Charger du bon fonctionnement du site. | Accéder à toutes les fonctionnalités du site. |
-
-### 2.2. Priorisation des acteurs
-
+<h2 id="2-analyse-des-besoins">2. Analyse des besoins</h2>
+<h3 id="21-identification-des-acteurs-de-leurs-rôles-et-de-leurs-besoins">2.1. Identification des acteurs, de leurs rôles et de leurs besoins</h3>
+<table>
+<thead>
+<tr>
+<th>Acteur</th>
+<th>Rôle</th>
+<th>Besoins</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visiteurs</td>
+<td>Découvrir la marque.</td>
+<td>Consulter les produits et les actualités, rechercher un produit, ajouter un articles au panier, contacter l'entreprise.</td>
+</tr>
+<tr>
+<td>Clients</td>
+<td>Acheter des produits.</td>
+<td>Commmander des produits, payer en ligne, suivre ses commandes, gérer son compte client.</td>
+</tr>
+<tr>
+<td>Service commerciale</td>
+<td>Gérer les ventes : Suivi et gestion des commandes.</td>
+<td>Mettre à jour les articles, éditer des informations de la commande à envoyer au service logistique, consulter les commandes et leur statut.</td>
+</tr>
+<tr>
+<td>Service comptabilité</td>
+<td>Gérer les facturations.</td>
+<td>Consulter les commandes, consulter et éditer les factures, exporter les données (format CSV).</td>
+</tr>
+<tr>
+<td>Administrateur</td>
+<td>Gérer le site : Charger du bon fonctionnement du site.</td>
+<td>Accéder à toutes les fonctionnalités du site.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-priorisation-des-acteurs">2.2. Priorisation des acteurs</h3>
 <table>
   <thead>
     <tr>
@@ -240,7 +709,6 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       <th>Priorité</th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
       <td>Visiteurs</td>
@@ -274,66 +742,140 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
     </tr>
   </tbody>
 </table>
-
 <div class="page-break"></div>
-
-### 2.3. Identification des besoins fonctionnels
-
-#### 2.3.1. Fonctionnalités visiteurs
-
-| Fonctionnalité | Description |
-|----------------|-------------|
-| Catalogue produits | Consulter les produits |
-| Recherche | Rechercher un produit |
-| Fiche produit | Consulter les détails d'un produit |
-| Panier | Préparer une commande |
-| Formulaire de contact | Contacter l'entreprise |
-| Actualités | Consulter les nouveautés |
-
-#### 2.3.2. Fonctionnalités clients
-
+<h3 id="23-identification-des-besoins-fonctionnels">2.3. Identification des besoins fonctionnels</h3>
+<h4 id="231-fonctionnalités-visiteurs">2.3.1. Fonctionnalités visiteurs</h4>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalogue produits</td>
+<td>Consulter les produits</td>
+</tr>
+<tr>
+<td>Recherche</td>
+<td>Rechercher un produit</td>
+</tr>
+<tr>
+<td>Fiche produit</td>
+<td>Consulter les détails d'un produit</td>
+</tr>
+<tr>
+<td>Panier</td>
+<td>Préparer une commande</td>
+</tr>
+<tr>
+<td>Formulaire de contact</td>
+<td>Contacter l'entreprise</td>
+</tr>
+<tr>
+<td>Actualités</td>
+<td>Consulter les nouveautés</td>
+</tr>
+</tbody>
+</table>
+<h4 id="232-fonctionnalités-clients">2.3.2. Fonctionnalités clients</h4>
 <ul class="custom-list">
   <li>
     En plus des fonctionnalités visiteurs.
   </li>
 </ul>
-
-| Fonctionnalité | Description |
-|----------------|-------------|
-| Création de compte | S'inscrire |
-| Connexion | Accéder à son espace |
-| Paiement Stripe | Régler une commande |
-| Historique | Consulter les commandes |
-| Gestion profil | Modifier ses informations personnelles |
-
-#### 2.3.3. Fonctionnalités commerciales et administratives
-
-| Fonctionnalité | Description |
-|----------------|-------------|
-| Gestion produits | Ajouter, modifier, supprimer |
-| Gestion catégories | Organiser le catalogue |
-| Validation commande | Validation et traitement des commandes |
-| Paiement sécurisé | Stripe |
-| Suivi commandes | État des commandes |
-| Facturation | Édition des factures |
-
-#### 2.3.4. Fonctionnalités administrateur
-
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Création de compte</td>
+<td>S'inscrire</td>
+</tr>
+<tr>
+<td>Connexion</td>
+<td>Accéder à son espace</td>
+</tr>
+<tr>
+<td>Paiement Stripe</td>
+<td>Régler une commande</td>
+</tr>
+<tr>
+<td>Historique</td>
+<td>Consulter les commandes</td>
+</tr>
+<tr>
+<td>Gestion profil</td>
+<td>Modifier ses informations personnelles</td>
+</tr>
+</tbody>
+</table>
+<h4 id="233-fonctionnalités-commerciales-et-administratives">2.3.3. Fonctionnalités commerciales et administratives</h4>
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gestion produits</td>
+<td>Ajouter, modifier, supprimer</td>
+</tr>
+<tr>
+<td>Gestion catégories</td>
+<td>Organiser le catalogue</td>
+</tr>
+<tr>
+<td>Validation commande</td>
+<td>Validation et traitement des commandes</td>
+</tr>
+<tr>
+<td>Paiement sécurisé</td>
+<td>Stripe</td>
+</tr>
+<tr>
+<td>Suivi commandes</td>
+<td>État des commandes</td>
+</tr>
+<tr>
+<td>Facturation</td>
+<td>Édition des factures</td>
+</tr>
+</tbody>
+</table>
+<h4 id="234-fonctionnalités-administrateur">2.3.4. Fonctionnalités administrateur</h4>
 <ul class="custom-list">
   <li>
     En plus des fonctionnalités visiteurs, clients, commerciales et administratives.
   </li>
 </ul>
-
-| Fonctionnalité | Description |
-|----------------|-------------|
-| Gestion utilisateurs | Administrer les comptes |
-| Gestion contenus  | Actualités, pages |
-
+<table>
+<thead>
+<tr>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gestion utilisateurs</td>
+<td>Administrer les comptes</td>
+</tr>
+<tr>
+<td>Gestion contenus</td>
+<td>Actualités, pages</td>
+</tr>
+</tbody>
+</table>
 <div class="page-break"></div>
-
-### 2.4. Priorisation des fonctionnalités
-
+<h3 id="24-priorisation-des-fonctionnalités">2.4. Priorisation des fonctionnalités</h3>
 <table>
   <thead>
     <tr>
@@ -341,7 +883,6 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       <th>Priorité</th>
     </tr>
   </thead>
-
   <tbody>
     <tr>
       <td>Catalogue produits</td>
@@ -459,55 +1000,48 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
     </tr>
   </tbody>
 </table>
-
----
-
+<hr>
 <div class="page-break"></div>
-
-## 3. Product Backlog
-
-### 3.1. Personas
-
-#### 3.1.1. Qui est le visiteur ?
-
-Un utilisateur :
-- non connecté;
-- qui découvre la marque;
-- qui recherche éventuellement un produit;
-- qui n'a jamais acheté.
-  
-#### 3.1.2. Qui est le client ?
-
-Un utilisateur :
-- possédant un compte;
-- ayant déjà effectué ou souhaitant effectuer une commande;
-- pouvant accéder à son espace personnel;
-- pouvant suivre ses commandes.
-  
-#### 3.1.3. Qui est l'administrateur ?
-
-Un collaborateur interne :
-- disposant des droits complets d'administration;
-- responsable du bon fonctionnement du site;
-- chargé de la gestion du catalogue, du contenu et des utilisateurs.
-
-#### 3.1.4. Qui est le commercial ?
-
-Un collaborateur interne :
-- chargé du traitement des ventes;
-- responsable du suivi des commandes;
-- en relation avec les clients et le service expédition.
-  
-#### 3.1.5. Qui est le comptable ?
-
-Un collaborateur interne :
-- chargé du suivi financier;
-- responsable de la facturation;
-
+<h2 id="3-product-backlog">3. Product Backlog</h2>
+<h3 id="31-personas">3.1. Personas</h3>
+<h4 id="311-qui-est-le-visiteur-">3.1.1. Qui est le visiteur ?</h4>
+<p>Un utilisateur :</p>
+<ul>
+<li>non connecté;</li>
+<li>qui découvre la marque;</li>
+<li>qui recherche éventuellement un produit;</li>
+<li>qui n'a jamais acheté.</li>
+</ul>
+<h4 id="312-qui-est-le-client-">3.1.2. Qui est le client ?</h4>
+<p>Un utilisateur :</p>
+<ul>
+<li>possédant un compte;</li>
+<li>ayant déjà effectué ou souhaitant effectuer une commande;</li>
+<li>pouvant accéder à son espace personnel;</li>
+<li>pouvant suivre ses commandes.</li>
+</ul>
+<h4 id="313-qui-est-ladministrateur-">3.1.3. Qui est l'administrateur ?</h4>
+<p>Un collaborateur interne :</p>
+<ul>
+<li>disposant des droits complets d'administration;</li>
+<li>responsable du bon fonctionnement du site;</li>
+<li>chargé de la gestion du catalogue, du contenu et des utilisateurs.</li>
+</ul>
+<h4 id="314-qui-est-le-commercial-">3.1.4. Qui est le commercial ?</h4>
+<p>Un collaborateur interne :</p>
+<ul>
+<li>chargé du traitement des ventes;</li>
+<li>responsable du suivi des commandes;</li>
+<li>en relation avec les clients et le service expédition.</li>
+</ul>
+<h4 id="315-qui-est-le-comptable-">3.1.5. Qui est le comptable ?</h4>
+<p>Un collaborateur interne :</p>
+<ul>
+<li>chargé du suivi financier;</li>
+<li>responsable de la facturation;</li>
+</ul>
 <div class="page-break"></div>
-
 <div class="split-layout">
-
   <div>
     <h3>3.2. Tableau des points d'effort</h3>
     <table class="custom-table custom-table--effort">
@@ -569,7 +1103,6 @@ Un collaborateur interne :
       </tbody>
     </table>
   </div>
-
   <div>
     <h3>3.3. Tableau des valeurs métier</h3>
     <table class="custom-table custom-table--value">
@@ -617,11 +1150,8 @@ Un collaborateur interne :
       </tbody>
     </table>
   </div>
-
 </div>
-
-### 3.4. Backlog fonctionnel (Epics)
-
+<h3 id="34-backlog-fonctionnel-epics">3.4. Backlog fonctionnel (Epics)</h3>
 <table class="custom-table custom-table--epics">
   <colgroup>
     <col class="col-id">
@@ -768,11 +1298,8 @@ Un collaborateur interne :
     </tr>
   </tbody>
 </table>
-
 <div class="page-break"></div>
-
-### 3.5. User Stories
-
+<h3 id="35-user-stories">3.5. User Stories</h3>
 <table class="custom-table custom-table--us">
   <colgroup>
     <col class="col-id">
@@ -1436,13 +1963,9 @@ Un collaborateur interne :
     </tr>
   </tbody>
 </table>
-
 <div class="page-break"></div>
-
-#### 3.5.1. Estimation des User Stories selon la suite de Fibonacci
-
-Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 21...) afin de prendre en compte la complexité et l'incertitude croissance.
-
+<h4 id="351-estimation-des-user-stories-selon-la-suite-de-fibonacci">3.5.1. Estimation des User Stories selon la suite de Fibonacci</h4>
+<p>Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 21...) afin de prendre en compte la complexité et l'incertitude croissance.</p>
 <table class="custom-table custom-table--fibo">
   <colgroup>
     <col style="width: 14%">
@@ -1575,7 +2098,6 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
     </tr>
   </tbody>
 </table>
-
 <div class="fibo-legend">
   <span class="legend-title">Légende :</span>
   <span class="badge badge--small badge--role-visitor">Visiteur</span>
@@ -1584,15 +2106,10 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
   <span class="badge badge--small badge--role-accounting">Comptable</span>
   <span class="badge badge--small badge--role-admin">Administrateur</span>
 </div>
-
 <div class="page-break"></div>
-
-#### 3.5.2. Matrice Valeur/Effort des User Stories
-
-La matrice Valeur / Effort permet de visualiser les User Stories selon deux critèes : leur **valeur métier** (axe vertical) et leur **effort de développement estimé** (axe horizontal, selon la suite Fibonacci). Cette représentation facilite la priorisation des fonctionnalités en mettant en évidence les tâches offrant le meilleur rapport entre valeur apportée et coût de réalisation.
-
-![Matrice Valeur/Effort](./docs/images/matrice-valeur-effort-us.png)
-
+<h4 id="352-matrice-valeureffort-des-user-stories">3.5.2. Matrice Valeur/Effort des User Stories</h4>
+<p>La matrice Valeur / Effort permet de visualiser les User Stories selon deux critèes : leur <strong>valeur métier</strong> (axe vertical) et leur <strong>effort de développement estimé</strong> (axe horizontal, selon la suite Fibonacci). Cette représentation facilite la priorisation des fonctionnalités en mettant en évidence les tâches offrant le meilleur rapport entre valeur apportée et coût de réalisation.</p>
+<p><img src="./docs/images/matrice-valeur-effort-us.png" alt="Matrice Valeur/Effort"></p>
 <div class="fibo-legend">
   <span class="legend-title">Légende :</span>
   <span class="badge badge--small badge--role-visitor">Visiteur</span>
@@ -1601,24 +2118,19 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
   <span class="badge badge--small badge--role-accounting">Comptable</span>
   <span class="badge badge--small badge--role-admin">Administrateur</span>
 </div>
-
 <div class="bold underline" style="margin-top: 16px">Lecture de la la matrice</div>
-
-- Les User Stories situées en **haut à gauche** présentent une **forte valeur pour un faible effort**. Elles constituent les fonctionnalités à développer en priorité (Quick Wins).
-- Les User Stories **en haut à droite** aportent **une forte valeur** mais nécessitent **un effort important**. Elles représentent des investissements stratégiques à planifier.
-- Les User Stories **en bas à gauche** demandent **peu d'effort** mais apportent **une valeur limitée**. Elles peuvent être intégrées en fonction des ressources disponibles.
-- Les User Stories **en bas à droite** combinent **un effort élevé et une faible valeur**. Elles sont généralement reportées ou réévaluées.
-
+<ul>
+<li>Les User Stories situées en <strong>haut à gauche</strong> présentent une <strong>forte valeur pour un faible effort</strong>. Elles constituent les fonctionnalités à développer en priorité (Quick Wins).</li>
+<li>Les User Stories <strong>en haut à droite</strong> aportent <strong>une forte valeur</strong> mais nécessitent <strong>un effort important</strong>. Elles représentent des investissements stratégiques à planifier.</li>
+<li>Les User Stories <strong>en bas à gauche</strong> demandent <strong>peu d'effort</strong> mais apportent <strong>une valeur limitée</strong>. Elles peuvent être intégrées en fonction des ressources disponibles.</li>
+<li>Les User Stories <strong>en bas à droite</strong> combinent <strong>un effort élevé et une faible valeur</strong>. Elles sont généralement reportées ou réévaluées.</li>
+</ul>
 <div class="page-break"></div>
-
-#### 3.5.3. Détails des User Stories (Critique = niveau 5)
-
+<h4 id="353-détails-des-user-stories-critique--niveau-5">3.5.3. Détails des User Stories (Critique = niveau 5)</h4>
 <div class="us-card">
-
   <div class="us-card__header">
     US-V01 - Consulter le catalogue des produits
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -1633,7 +2145,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -1683,17 +2194,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité faible à moyenne : page catalogue, récupération des produits et affichage des cartes produits.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-V02 - Rechercher un produit par mot-clé
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -1708,7 +2214,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -1756,17 +2261,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : mise en place d'un champ de recherche, filtrage des produits, gestion des résultats et des cas sans correspondance.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-V04 - Consulter la fiche détaillée d'un produit
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -1781,7 +2281,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -1829,17 +2328,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité faible à moyenne : création d'une page produit, affichage des informations détaillées et gestion de la disponibilité.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-V08 - Ajouter un produit au panier
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -1854,7 +2348,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -1903,18 +2396,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : gestion du panier, ajout d'article et conservation des données utilisateur.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-V11 - Consulter le contenu de son panier
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -1929,7 +2416,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -1978,17 +2464,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité faible : affichage des produits, calcul du montant total et gestion du panier vide.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-V16 - Créer un compte client
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2003,7 +2484,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2050,17 +2530,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : gestion des comptes, validation des données et contrôle des doublons.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-C01 - Valider une commande
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2075,7 +2550,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2123,17 +2597,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : vérification métier, création de commande et gestion des états.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-C02 - Régler une commande via Stripe
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2148,7 +2617,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2196,17 +2664,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité élevée : intégration Stripe, sécurisation des échanges et gestion des erreurs de paiement.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-C04 - Se connecter à son compte
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2221,7 +2684,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2269,17 +2731,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité faible à moyenne : authentification, gestion des sessions et contrôle des accès.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-S01 - Ajouter un produit
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2294,7 +2751,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2342,17 +2798,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : formulaire d'administration, validation des données et gestion des images.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-S02 - Modifier un produit
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2367,7 +2818,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2415,17 +2865,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : chargement des données existantes, validation des modifications et mise à jour des informations.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-S06 - Modifier le statut d'une commande
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2440,7 +2885,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2490,17 +2934,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : gestion des états, historisation et mise à jour des informations client.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-F02 - Générer une facture
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2515,7 +2954,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2565,17 +3003,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : génération du document, association avec une commande et gestion des références uniques.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-A08 - Paramétrer les catégories de produits
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2590,7 +3023,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2640,17 +3072,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : gestion CRUD des catégories, association avec les produits et contrôle des doublons.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-A09 - Paramétrer les modes de livraison
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2665,7 +3092,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2714,17 +3140,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne à élevée : gestion des coûts, activation des modes et intégration au tunnel de commande.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="us-card">
-
   <div class="us-card__header">
     US-A10 - Accéder aux paramètres techniques du site
   </div>
-
   <div class="us-card__meta">
     <div class="us-card__meta-item">
       <div class="us-card__meta-label">Acteur</div>
@@ -2739,7 +3160,6 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <span class="badge badge--number badge--value-5">5</span>
     </div>
   </div>
-
   <div class="us-card__body">
     <div class="us-section">
       <h3 class="us-section__title">Description</h3>
@@ -2789,27 +3209,16 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Complexité moyenne : gestion des droits d'accès, centralisation des paramètres et traçabilité des modifications.</li>
       </ul>
     </div>
-
   </div>
-
 </div>
-
 <div class="page-break"></div>
-
-### 3.6. Use Cases
-
-Les cas d'utilisation (Use Cases) décrivent les intéractions entre les différents acteurs et le système d'information de La Socketterie.
-
-Ils permettent de représenter les principales fonctionnalités offertes par l'application en précisant les actions réalisées par chaque utilisateur ainsi que les réponses attendues du système.
-
-Complémentaires aux User Stories, les Use Cases apportent une vision plus fonctionnelle du comportement de l'application et constituent un support de référence pour la conception, le développement et les phases de tests.
-
-#### 3.6.1. Diagrammes des cas d'utilisation
-
-![Diagrammes des cas d'utilisation](./docs/images/diagramme-use-cases.png)
-
-#### 3.6.2. Description des cas d'utilisation
-
+<h3 id="36-use-cases">3.6. Use Cases</h3>
+<p>Les cas d'utilisation (Use Cases) décrivent les intéractions entre les différents acteurs et le système d'information de La Socketterie.</p>
+<p>Ils permettent de représenter les principales fonctionnalités offertes par l'application en précisant les actions réalisées par chaque utilisateur ainsi que les réponses attendues du système.</p>
+<p>Complémentaires aux User Stories, les Use Cases apportent une vision plus fonctionnelle du comportement de l'application et constituent un support de référence pour la conception, le développement et les phases de tests.</p>
+<h4 id="361-diagrammes-des-cas-dutilisation">3.6.1. Diagrammes des cas d'utilisation</h4>
+<p><img src="./docs/images/diagramme-use-cases.png" alt="Diagrammes des cas d'utilisation"></p>
+<h4 id="362-description-des-cas-dutilisation">3.6.2. Description des cas d'utilisation</h4>
 <div class="layout-grid layout-grid--3">
   <div class="use-case">
     <div class="use-case__header">
@@ -2843,7 +3252,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-02</div>
@@ -2876,7 +3284,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-03</div>
@@ -2909,7 +3316,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-04</div>
@@ -2943,7 +3349,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-05</div>
@@ -2976,7 +3381,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-06</div>
@@ -3010,7 +3414,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-07</div>
@@ -3044,7 +3447,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-08</div>
@@ -3078,7 +3480,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-09</div>
@@ -3112,7 +3513,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-10</div>
@@ -3146,7 +3546,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-11</div>
@@ -3179,7 +3578,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-12</div>
@@ -3213,7 +3611,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-13</div>
@@ -3247,7 +3644,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-14</div>
@@ -3280,7 +3676,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-15</div>
@@ -3314,7 +3709,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-16</div>
@@ -3348,7 +3742,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-17</div>
@@ -3382,7 +3775,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-18</div>
@@ -3415,7 +3807,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-19</div>
@@ -3449,7 +3840,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-20</div>
@@ -3482,7 +3872,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-21</div>
@@ -3516,7 +3905,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-22</div>
@@ -3550,8 +3938,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-23</div>
@@ -3585,7 +3971,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-24</div>
@@ -3618,7 +4003,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-25</div>
@@ -3651,7 +4035,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-26</div>
@@ -3684,7 +4067,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-27</div>
@@ -3717,7 +4099,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-28</div>
@@ -3750,7 +4131,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-29</div>
@@ -3784,20 +4164,13 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
     </div>
   </div>
 </div>
-
----
-
-## 4. Sprint Backlog prévisionnel
-
-Les User Stories ont été regroupées dans des sprints en suivant une démarche Agile Scrum.
-
-L'ordre de réalisation respecte la logique d'un Produit Minimum Viable (MVP) :
-Les fonctionnalités indispensables à la consultation du catalogue, à la préparation d'une commande et au paiement sont développées en priorité, tandis que les fonctionnalités d'administration et les contenus complémentaires sont planifiés dans les derniers sprint.
-
-![Logique du sprint backlog](./docs/images/roadmap-developpement-agile-scrum.png)
-
+<hr>
+<h2 id="4-sprint-backlog-prévisionnel">4. Sprint Backlog prévisionnel</h2>
+<p>Les User Stories ont été regroupées dans des sprints en suivant une démarche Agile Scrum.</p>
+<p>L'ordre de réalisation respecte la logique d'un Produit Minimum Viable (MVP) :
+Les fonctionnalités indispensables à la consultation du catalogue, à la préparation d'une commande et au paiement sont développées en priorité, tandis que les fonctionnalités d'administration et les contenus complémentaires sont planifiés dans les derniers sprint.</p>
+<p><img src="./docs/images/roadmap-developpement-agile-scrum.png" alt="Logique du sprint backlog"></p>
 <div class="layout-grid layout-grid--2">
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 1 - Découverte du catalogue et du site</div>
     <div class="sprint-card__body">
@@ -3820,7 +4193,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">7 US • 23 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 2 - Préparer une commande</div>
     <div class="sprint-card__body">
@@ -3840,7 +4212,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">4 US • 8 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 3 - Compte client</div>
     <div class="sprint-card__body">
@@ -3860,7 +4231,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">4 US • 16 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 4 - Commande et paiement</div>
     <div class="sprint-card__body">
@@ -3879,7 +4249,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">3 US • 16 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 5 - Gestion commerciale</div>
     <div class="sprint-card__body">
@@ -3901,7 +4270,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">6 US • 15 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 6 - Gestion comptable</div>
     <div class="sprint-card__body">
@@ -3920,7 +4288,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">3 US • 10 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 7 - Administration interne</div>
     <div class="sprint-card__body">
@@ -3942,7 +4309,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">6 US • 19 points d'effort</div>
   </div>
-  
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 8 - Gestion du contenu</div>
     <div class="sprint-card__body">
@@ -3962,7 +4328,6 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">4 US • 9 points d'effort</div>
   </div>
-
   <div class="sprint-card">
     <div class="sprint-card__header">Sprint 9 - Finalisation</div>
     <div class="sprint-card__body">
@@ -3982,19 +4347,13 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
     </div>
     <div class="sprint-card__footer">4 US • 6 points d'effort</div>
   </div>
-
 </div>
-
----
-
+<hr>
 <div class="page-break"></div>
-
-## 5. Matrice de traçabilité fonctionnelle
-
-Cette matrice permet de faire le lien entre les Epics, les User Stories, les Use Cases
+<h2 id="5-matrice-de-traçabilité-fonctionnelle">5. Matrice de traçabilité fonctionnelle</h2>
+<p>Cette matrice permet de faire le lien entre les Epics, les User Stories, les Use Cases
 et les sprints prévisionnels. Elle assure la cohérence entre les besoins fonctionnels
-identifiés et l'organisation du développement.
-
+identifiés et l'organisation du développement.</p>
 <table class="custom-table custom-table--traceability">
   <colgroup>
     <col style="width: 10%">
@@ -4245,85 +4604,157 @@ identifiés et l'organisation du développement.
     </tr>
   </tbody>
 </table>
-
----
-
-## 6. Architecture technique
-
-### 6.1. Architecture générale
-
-| Couche | Rôle |
-|--------|------|
-| Front-end | Afficher l'interface utilisateur et permettre les interactions |
-| Back-end | Gérér la logique métier, les règles de sécurité et l'API |
-| Base de données | Stockage des données : utilisateurs, produits, commandes et factures |
-| Services tiers | Gérer les fonctionnalités externes comme le paiement |
-
-### 6.2. Technologies retenues
-
-| Couche | Technologie | Justification |
-|--------|-------------|---------------|
-| Front-end | React + Vite | Interface dynamique adaptée à un site e-commerce |
-| Back-end | Node.js + Express | Création d'une API REST légère et maintenable |
-| ORM | Sequelize | Communication strcuturée avec la base MySQL |
-| Base de données | MySQL | Données relationnelles adaptées aux produits, clients et commandes |
-| Paiement | Stripe | Solution de paiement en ligne sécurisée |
-
-![Technologies principales utilisées](./docs/images/technologies.png)
-
-### 6.3. Structure des données
-
-| Entité | Description |
-|--------|-------------|
-| Utilisateur | Compte client |
-| Produit | Article vendu sur la boutique |
-| Catégorie | Classement des produits |
-| Commande | Achat réalisé par un client |
-| DétailCommande | Détail des produits achetés par un client |
-| Facture | Document lié à une commande validée |
-
+<hr>
+<h2 id="6-architecture-technique">6. Architecture technique</h2>
+<h3 id="61-architecture-générale">6.1. Architecture générale</h3>
+<table>
+<thead>
+<tr>
+<th>Couche</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Front-end</td>
+<td>Afficher l'interface utilisateur et permettre les interactions</td>
+</tr>
+<tr>
+<td>Back-end</td>
+<td>Gérér la logique métier, les règles de sécurité et l'API</td>
+</tr>
+<tr>
+<td>Base de données</td>
+<td>Stockage des données : utilisateurs, produits, commandes et factures</td>
+</tr>
+<tr>
+<td>Services tiers</td>
+<td>Gérer les fonctionnalités externes comme le paiement</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-technologies-retenues">6.2. Technologies retenues</h3>
+<table>
+<thead>
+<tr>
+<th>Couche</th>
+<th>Technologie</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Front-end</td>
+<td>React + Vite</td>
+<td>Interface dynamique adaptée à un site e-commerce</td>
+</tr>
+<tr>
+<td>Back-end</td>
+<td>Node.js + Express</td>
+<td>Création d'une API REST légère et maintenable</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>Sequelize</td>
+<td>Communication strcuturée avec la base MySQL</td>
+</tr>
+<tr>
+<td>Base de données</td>
+<td>MySQL</td>
+<td>Données relationnelles adaptées aux produits, clients et commandes</td>
+</tr>
+<tr>
+<td>Paiement</td>
+<td>Stripe</td>
+<td>Solution de paiement en ligne sécurisée</td>
+</tr>
+</tbody>
+</table>
+<p><img src="./docs/images/technologies.png" alt="Technologies principales utilisées"></p>
+<h3 id="63-structure-des-données">6.3. Structure des données</h3>
+<table>
+<thead>
+<tr>
+<th>Entité</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Utilisateur</td>
+<td>Compte client</td>
+</tr>
+<tr>
+<td>Produit</td>
+<td>Article vendu sur la boutique</td>
+</tr>
+<tr>
+<td>Catégorie</td>
+<td>Classement des produits</td>
+</tr>
+<tr>
+<td>Commande</td>
+<td>Achat réalisé par un client</td>
+</tr>
+<tr>
+<td>DétailCommande</td>
+<td>Détail des produits achetés par un client</td>
+</tr>
+<tr>
+<td>Facture</td>
+<td>Document lié à une commande validée</td>
+</tr>
+</tbody>
+</table>
 <div class="page-break"></div>
-
-### 6.4. Flux de données
-
-Le schéma ci-dessous représente le flux de données entre les composants du système e-commerce.
-
-![Représentation du flux de données](./docs/images/flux-de-donnees.png)
-
+<h3 id="64-flux-de-données">6.4. Flux de données</h3>
+<p>Le schéma ci-dessous représente le flux de données entre les composants du système e-commerce.</p>
+<p><img src="./docs/images/flux-de-donnees.png" alt="Représentation du flux de données"></p>
 <div class="note">
 Le front-end envoie des requêtes à l’API REST via HTTP/HTTPS.
 L’API traite la logique métier, interagit avec la base de données pour enregistrer ou récupérer les informations et communique avec Stripe pour gérer les paiements. Stripe renvoie ensuite la confirmation de paiement à l’API qui renvoie la réponse au front-end.
 </div>
-
 <div class="page-break"></div>
-
-### 6.5. Schéma d'architecture
-
-Le schéma ci-dessous représente l'architecture technique générale du système e-commerce.
-
-![Schéma d'architecture](./docs/images/schema-architecture.png)
-
----
-
+<h3 id="65-schéma-darchitecture">6.5. Schéma d'architecture</h3>
+<p>Le schéma ci-dessous représente l'architecture technique générale du système e-commerce.</p>
+<p><img src="./docs/images/schema-architecture.png" alt="Schéma d'architecture"></p>
+<hr>
 <div class="page-break"></div>
-
-## 7. Hébergements et services tiers
-
-### 7.1. Besoins d'hébergement identifiés
-
-Le brief ne précise pas le volume exact de produits, de visiteurs ou de clients attendus.
-Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif, adapté à un site e-commerce professionnel de taille intermédiaire, avec possibilité de montée en charge si le trafic augmente après le reportage télévisé.
-
-| Couche | Besoin identifié |
-|--------|------------------|
-| Front-end | Hébergement rapide, HTTPS, CDN, déploiement automatisé depuis GitHub |
-| Back-end | Exécution d'une API Node.js/Express | variables d'environnement, logs, évolutivité |
-| Base de données | Stockage relationnel persistant, sauvegardes, sécurité, montée en capacité possible |
-| Paiement | Paiement sécurisé, conformité, gestion des confirmations de paiement |
-| Maintenance | Supervision, mises à jour, possibilité dévolution selon le trafic réel |
-
-### 7.2. Comparaison des solutions
-
+<h2 id="7-hébergements-et-services-tiers">7. Hébergements et services tiers</h2>
+<h3 id="71-besoins-dhébergement-identifiés">7.1. Besoins d'hébergement identifiés</h3>
+<p>Le brief ne précise pas le volume exact de produits, de visiteurs ou de clients attendus.
+Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif, adapté à un site e-commerce professionnel de taille intermédiaire, avec possibilité de montée en charge si le trafic augmente après le reportage télévisé.</p>
+<table>
+<thead>
+<tr>
+<th>Couche</th>
+<th>Besoin identifié</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Front-end</td>
+<td>Hébergement rapide, HTTPS, CDN, déploiement automatisé depuis GitHub</td>
+</tr>
+<tr>
+<td>Back-end</td>
+<td>Exécution d'une API Node.js/Express</td>
+</tr>
+<tr>
+<td>Base de données</td>
+<td>Stockage relationnel persistant, sauvegardes, sécurité, montée en capacité possible</td>
+</tr>
+<tr>
+<td>Paiement</td>
+<td>Paiement sécurisé, conformité, gestion des confirmations de paiement</td>
+</tr>
+<tr>
+<td>Maintenance</td>
+<td>Supervision, mises à jour, possibilité dévolution selon le trafic réel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-comparaison-des-solutions">7.2. Comparaison des solutions</h3>
 <table>
   <colgroup>
     <col style="width: 100px">
@@ -4341,7 +4772,6 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <th>Inconvénient</th>
     <tr>
   </thead>
-
   <tbody>
     <tr>
       <td>Netlify</td>
@@ -4420,9 +4850,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
-
-### 7.3. Choix retenus
-
+<h3 id="73-choix-retenus">7.3. Choix retenus</h3>
 <table>
   <colgroup>
     <col style="width: 150px">
@@ -4436,7 +4864,6 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <th>Justification</th>
     <tr>
   </thead>
-
   <tbody>
     <tr>
       <td>Front-end</td>
@@ -4468,30 +4895,74 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
-
-![Hébergement des couches](./docs/images/hebergements.png)
-
----
-
-## 8. Organisation du projet
-
-### 8.1. Équipe projet et répartition des rôles
-
-| Collaborateur | Rôle | Missions principales | Disponibilité |
-|---------------|------|----------------------|---------------|
-| Cédric | Chef de projet / Développeur Full Stack | Coordination du projet, développement des fonctionnalités, intégration, tests | 100% |
-| David | Développeur Front-end | Interfaces utilisateur (UI), intégration HTML/CSS/JS, responsive | 80% |
-| Jonathan | Développeur Back-end | API, database, logique métier, sécurité | 80% |
-| Jack | UX Designer | Analyse des besoins utilisateurs, conception de parcours utilisateurs, réalisation des wireframes, validation de l'UX | Intervention ponctuelle |
-| Rose | UI Designer | Création des maquettes graphiques, Définition de l'identité visuelle, design système, création des composants graphiques | Intervention ponctuelle |
-| Omar | Freelance | Renfort Front-end (optimisation, intégration, responsive) | 5 jours maximum |
-| Fred | Freelance | Renfort Back-end (API, database, optimisation) | 5 jours maximum |
-| Lead developer | Validation technique & relation client | Validation des livrables, arbitrage technique et relation client | Selon les besoins |
-
+<p><img src="./docs/images/hebergements.png" alt="Hébergement des couches"></p>
+<hr>
+<h2 id="8-organisation-du-projet">8. Organisation du projet</h2>
+<h3 id="81-équipe-projet-et-répartition-des-rôles">8.1. Équipe projet et répartition des rôles</h3>
+<table>
+<thead>
+<tr>
+<th>Collaborateur</th>
+<th>Rôle</th>
+<th>Missions principales</th>
+<th>Disponibilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cédric</td>
+<td>Chef de projet / Développeur Full Stack</td>
+<td>Coordination du projet, développement des fonctionnalités, intégration, tests</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>David</td>
+<td>Développeur Front-end</td>
+<td>Interfaces utilisateur (UI), intégration HTML/CSS/JS, responsive</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>Jonathan</td>
+<td>Développeur Back-end</td>
+<td>API, database, logique métier, sécurité</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>Jack</td>
+<td>UX Designer</td>
+<td>Analyse des besoins utilisateurs, conception de parcours utilisateurs, réalisation des wireframes, validation de l'UX</td>
+<td>Intervention ponctuelle</td>
+</tr>
+<tr>
+<td>Rose</td>
+<td>UI Designer</td>
+<td>Création des maquettes graphiques, Définition de l'identité visuelle, design système, création des composants graphiques</td>
+<td>Intervention ponctuelle</td>
+</tr>
+<tr>
+<td>Omar</td>
+<td>Freelance</td>
+<td>Renfort Front-end (optimisation, intégration, responsive)</td>
+<td>5 jours maximum</td>
+</tr>
+<tr>
+<td>Fred</td>
+<td>Freelance</td>
+<td>Renfort Back-end (API, database, optimisation)</td>
+<td>5 jours maximum</td>
+</tr>
+<tr>
+<td>Lead developer</td>
+<td>Validation technique &amp; relation client</td>
+<td>Validation des livrables, arbitrage technique et relation client</td>
+<td>Selon les besoins</td>
+</tr>
+</tbody>
+</table>
 <div class="page-break"></div>
-
-### 8.2. Work Breakdown Structure (WBS)
-
+<h3 id="82-work-breakdown-structure-wbs">8.2. Work Breakdown Structure (WBS)</h3>
+<p>Le Work Breakdown Structure (WBS) est une méthode de planification consistant à décomposer le projet en tâches élémentaires afin d'en faciliter l'organisation, le suivi et l'estimation. Pour chaque tâche sont définis un responsable, des dépendances et une durée prévisionnelle. Ce découpage servira ensuite de référence pour la création du backlog GitHub, la mise en place du Kanban, la planification du diagramme de Gantt ainsi que le suivi de l'avancement du projet.</p>
+<p>Les assignations présentées dans ce WBS constituent une première répartition des responsabilités. Elles pourront être ajustées lors de la planification détaillée en fonction des disponibilités de chaque collaborateur, des dépendances entre les tâches et de l'équilibrage de la charge de travail. Les développeurs freelances ne sont volontairement pas mobilisés à ce stade. Leur intervention sera décidée ultérieurement si la planification met en évidence un besoin de renfort afin de respecter les contraintes du projet et les délais fixés.</p>
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -4640,8 +5111,6 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
-
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -4706,7 +5175,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W2-2</td>
-      <td>0,50 j</td>
+      <td>0,25 j</td>
     </tr>
     <tr>
       <td>W2-4</td>
@@ -4753,7 +5222,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W2-5, W2-6</td>
+      <td>W2-4</td>
       <td>0,50 j</td>
     </tr>
     <tr>
@@ -4789,11 +5258,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Environnement de développement validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">4 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">3,75 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -4834,7 +5302,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W2-4</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W3-2</td>
@@ -4846,19 +5314,19 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W3-1</td>
-      <td>1,5 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W3-3</td>
       <td>Réaliser les wireframes mobiles</td>
-      <td>Réaliser les wireframes basse fidélité des écrans en approche Mobile First.</td>
+      <td>Réaliser les wireframes basse fidélité des principaux écrans en approche Mobile First.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ux">Jack</span>
         </div>
       </td>
       <td>W3-2</td>
-      <td>3 j</td>
+      <td>2 j</td>
     </tr>
     <tr>
       <td>W3-4</td>
@@ -4870,7 +5338,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W3-3</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W3-5</td>
@@ -4882,7 +5350,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W3-4</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W3-6</td>
@@ -4918,7 +5386,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W3-7</td>
-      <td>1 j</td>
+      <td>0,25 j</td>
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
@@ -4939,11 +5407,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Wireframes validés</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">8,25 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">5,25 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -4984,7 +5451,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W3-8</td>
-      <td>0,50 j</td>
+      <td>0,25 j</td>
     </tr>
     <tr>
       <td>W4-2</td>
@@ -4996,19 +5463,19 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W4-1</td>
-      <td>1,50 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W4-3</td>
       <td>Concevoir les maquettes mobiles</td>
-      <td>Réaliser les maquettes haute fidélité des écrans en appliquant le Design System.</td>
+      <td>Réaliser les maquettes haute fidélité des principaux écrans en appliquant le Design System.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ui">Rose</span>
         </div>
       </td>
       <td>W4-2</td>
-      <td>4 j</td>
+      <td>2 j</td>
     </tr>
     <tr>
       <td>W4-4</td>
@@ -5020,7 +5487,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W4-3</td>
-      <td>2 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W4-5</td>
@@ -5032,7 +5499,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W4-4</td>
-      <td>2 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W4-6</td>
@@ -5068,7 +5535,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W4-7</td>
-      <td>1 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
@@ -5088,11 +5555,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Maquettes validées</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">12,25 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">6,50 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5181,7 +5647,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W5-4</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W5-6</td>
@@ -5193,7 +5659,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W5-5</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W5-7</td>
@@ -5226,11 +5692,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Base de données validée</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">3,25 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">2,75 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5283,7 +5748,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W6-1</td>
-      <td>1,50 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W6-3</td>
@@ -5295,7 +5760,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W6-1</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W6-4</td>
@@ -5319,7 +5784,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W6-2, W6-3, W6-4</td>
-      <td>1,50 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W6-6</td>
@@ -5331,22 +5796,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W6-5</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W6-7</td>
-      <td>Développer l'API Contact</td>
-      <td>Développer l'endpoint de contact permettant l'envoi sécurisé des messages utilisateurs avec validation des données et traitement des demandes.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-backend">Jonathan</span>
-        </div>
-      </td>
-      <td>W6-1</td>
-      <td>0,75 j</td>
-    </tr>
-    <tr>
-      <td>W6-8</td>
       <td>Ajouter les validations et la gestion des erreurs</td>
       <td>Implémenter les validations métier et centraliser la gestion des erreur.</td>
       <td>
@@ -5354,11 +5807,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W6-7</td>
+      <td>W6-6</td>
       <td>0,75 j</td>
     </tr>
     <tr>
-      <td>W6-9</td>
+      <td>W6-8</td>
       <td>Documenter et tester l'API</td>
       <td>Documenter les endpoints (OpenAPI/Swagger) et réaliser les tests avec Postman.</td>
       <td>
@@ -5366,11 +5819,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W6-8</td>
-      <td>0,75 j</td>
+      <td>W6-7</td>
+      <td>1 j</td>
     </tr>
     <tr>
-      <td>W6-10</td>
+      <td>W6-9</td>
       <td>Valider le Back-end MVP</td>
       <td>Vérifier que le Back-end MVP est conforme aux exigences fonctionnelles et techniques avant son intégration avec le Front-end.</td>
       <td>
@@ -5378,7 +5831,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
         </div>
       </td>
-      <td>W6-9</td>
+      <td>W6-8</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -5397,18 +5850,16 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>API Catalogue</li>
           <li>API Panier</li>
           <li>API Commandes</li>
-          <li>API Contact</li>
           <li>Intégration Stripe</li>
           <li>Documentation OpenAPI</li>
           <li>Collection Postman</li>
           <li>Back-end MVP validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">9,75 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">7,75 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5461,7 +5912,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W7-1</td>
-      <td>2 j</td>
+      <td>1,50 j</td>
     </tr>
     <tr>
       <td>W7-3</td>
@@ -5473,7 +5924,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W7-1</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W7-4</td>
@@ -5485,7 +5936,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W7-1</td>
-      <td>2 j</td>
+      <td>1,50 j</td>
     </tr>
     <tr>
       <td>W7-5</td>
@@ -5497,22 +5948,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W7-3, W7-4</td>
-      <td>1,50 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W7-6</td>
-      <td>Développer la page de contact</td>
-      <td>Développer l'écran de contact et intégrer le formulaire permettant aux utilisateurs d'envoyer une demande via l'API Contact.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-frontend">David</span>
-        </div>
-      </td>
-      <td>W7-1</td>
-      <td>0,75 j</td>
-    </tr>
-    <tr>
-      <td>W7-7</td>
       <td>Intégrer le Front-end au Back-end</td>
       <td>Connecter le Front-end aux différents endpoints du Back-end (authentification, catalogue, panier, commandes...).</td>
       <td>
@@ -5520,11 +5959,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-frontend">David</span>
         </div>
       </td>
-      <td>W6-9, W7-2, W7-5, W7-6</td>
-      <td>1,50 j</td>
+      <td>W6-9, W7-2, W7-5</td>
+      <td>1 j</td>
     </tr>
     <tr>
-      <td>W7-8</td>
+      <td>W7-7</td>
       <td>Optimiser l'expérience utilisateur</td>
       <td>Finaliser le responsive, les états de chargement, les messages d'erreur et les interactions utilisateur.</td>
       <td>
@@ -5532,23 +5971,23 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-frontend">David</span>
         </div>
       </td>
-      <td>W7-7</td>
-      <td>1,25 j</td>
+      <td>W7-6</td>
+      <td>1 j</td>
     </tr>
     <tr>
-      <td>W7-9</td>
+      <td>W7-8</td>
       <td>Tester le Front-end</td>
-      <td>Vérifier le fonctionnement des interfaces et des parcours utilisateurs ainsi que le responsive design.</td>
+      <td>Vérifier le fonctionnement des interfaces et des parcours utilisateurs.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W7-8</td>
+      <td>W7-7</td>
       <td>0,75 j</td>
     </tr>
     <tr>
-      <td>W7-10</td>
+      <td>W7-9</td>
       <td>Valider le Front-end MVP</td>
       <td>Vérifier que le Front-end MVP est conforme aux exigences fonctionnelles et techniques avant l'intégration finale.</td>
       <td>
@@ -5556,8 +5995,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
         </div>
       </td>
-      <td>W7-9</td>
-      <td>0,50 j</td>
+      <td>W7-8</td>
+      <td>0,25 j</td>
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
@@ -5580,11 +6019,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Front-end MVP validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">12,50 J</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">9 J</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5649,7 +6087,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-2</td>
-      <td>1 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
@@ -5669,11 +6107,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>MVP validé pour le tournage</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">2,50 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">2 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5714,7 +6151,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-3</td>
-      <td>1,50 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W9-2</td>
@@ -5726,7 +6163,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-3</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W9-3</td>
@@ -5738,7 +6175,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-3</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W9-4</td>
@@ -5750,7 +6187,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-3</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W9-5</td>
@@ -5762,7 +6199,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W8-3</td>
-      <td>1 j</td>
+      <td>0,75 j</td>
     </tr>
     <tr>
       <td>W9-6</td>
@@ -5774,7 +6211,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W9-1 à W9-5</td>
-      <td>0,75 j</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
       <td>W9-7</td>
@@ -5821,11 +6258,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Back-end Back-office validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">7,25 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">5,50 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -5902,7 +6338,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W10-1</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W10-5</td>
@@ -5914,7 +6350,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W10-1</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W10-6</td>
@@ -5926,7 +6362,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W10-1</td>
-      <td>1,25 j</td>
+      <td>1 j</td>
     </tr>
     <tr>
       <td>W10-7</td>
@@ -5938,12 +6374,12 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         </div>
       </td>
       <td>W9-8, W10-1 à W10-6</td>
-      <td>1 j</td>
+      <td>0,75 j</td>
     </tr>
     <tr>
       <td>W10-8</td>
       <td>Tester le Back-office</td>
-      <td>Vérifier le bon fonctionnement des interfaces et des parcours d'administration ainsi que le responsive design.</td>
+      <td>Vérifier le bon fonctionnement des interfaces et des parcours d'administration.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
@@ -5985,11 +6421,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Back-office validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">8,50 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">7,50 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -6012,271 +6447,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
   <tbody>
     <tr class="table-section">
       <td colspan="4" class="table-section--label">
-        W11 ─ Développer les pages règlementaires
-      </td>
-      <td colspan="2" class="table-section--phase">
-        <div class="badge badge--small badge--white">
-          Phase : <span class="bold">Front-end</span>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>W11-1</td>
-      <td>Créer la page Mentions légales</td>
-      <td>Développer la page Mentions légales et intégrer le contenu juridique fourni par le client.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
-        </div>
-      </td>
-      <td>W8-3</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W11-2</td>
-      <td>Créer la page Conditions Générales de Vente (CGV)</td>
-      <td>Développer la page CGV et intégrer le contenu juridique fourni par le client.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
-        </div>
-      </td>
-      <td>W8-3</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W11-3</td>
-      <td>Créer la page Politique de confidentialité</td>
-      <td>Développer la page Politique de confidentialité et intégrer le contenu juridique fourni par le client.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
-        </div>
-      </td>
-      <td>W8-3</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W11-4</td>
-      <td>Présenter et valider les pages réglementaires avec le client</td>
-      <td>Présenter les pages réglementaires au client, recueillir ses retours et obtenir sa validation avant la mise en production.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
-        </div>
-      </td>
-      <td>W11-1 à W11-3</td>
-      <td>0,50 j</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
-      </td>
-      <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
-        Charge de travail
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4" class="cell-left cell-list cell-highlight">
-        <ul>
-          <li>Page Mentions légales</li>
-          <li>Page Conditions Générales de vente</li>
-          <li>Page Politique de confidentialité</li>
-          <li>Validation client</li>
-        </ul>
-      </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">1,25 j</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="custom-table custom-table--wbs">
-  <colgroup>
-      <col class="col-id">
-      <col class="col-task">
-      <col class="col-description">
-      <col class="col-assigned">
-      <col class="col-dependency">
-      <col class="col-duration">
-  </colgroup>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Tâche</th>
-      <th>Description</th>
-      <th>Assigné à</th>
-      <th>Dépend de</th>
-      <th>Durée</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="table-section">
-      <td colspan="4" class="table-section--label">
-        W12 ─ Valider la qualité et la conformité Web
-      </td>
-      <td colspan="2" class="table-section--phase">
-        <div class="badge badge--small badge--white">
-          Phase : <span class="bold">Qualité</span>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>W12-1</td>
-      <td>Vérifier la conformité RGPD</td>
-      <td>Vérifier que le traitement des données personnelles, les formulaires et les consentements respectent les exigences du RGPD.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>0,50 j</td>
-    </tr>
-    <tr>
-      <td>W12-2</td>
-      <td>Vérifier les obligations légales du site</td>
-      <td>Contrôler la présence et la conformité des mentions légales, des CGV, de la politique de confidentialité et des informations obligatoires.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W12-3</td>
-      <td>Vérifier les informations de paiement et de livraison</td>
-      <td>Vérifier la cohérence des informations relatives aux moyens de paiement, aux délais, aux frais et aux modalités de livraison.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W12-4</td>
-      <td>Vérifier les emails transactionnels</td>
-      <td>Contrôler le contenu et le bon fonctionnement des emails automatiques envoyés aux utilisateurs (confirmation de commande, création de compte, contact...).</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td>W12-5</td>
-      <td>Optimiser le référencement naturel (SEO)</td>
-      <td>Optimiser le référencement naturel en améliorant les balises HTML, les métadonnées, la structure des pages et les performances favorisant l'indexation.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>1 j</td>
-    </tr>
-    <tr>
-      <td>W12-6</td>
-      <td>Optimiser les performances, l'accessibilité et les bonnes pratiques</td>
-      <td>Corriger les points d'amélioration identifiés par Lighthouse afin d'optimiser les performances, l'accessibilité, le SEO et les bonnes pratiques.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W11-4</td>
-      <td>0,75 j</td>
-    </tr>
-    <tr>
-      <td>W12-7</td>
-      <td>Valider la conformité W3C</td>
-      <td>Vérifier la conformité du code HTML et CSS à l'aide des validateurs W3C et corriger les éventuelles erreurs détectées.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W12-1 à W12-6</td>
-      <td>0,50 j</td>
-    </tr>
-    <tr>
-      <td>W12-8</td>
-      <td>Tester le responsive design</td>
-      <td>Vérifier le bon fonctionnement et l'affichage du site sur les principaux format d'écran (mobile, tablette et desktop).</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
-        </div>
-      </td>
-      <td>W12-7</td>
-      <td>0,50 j</td>
-    </tr>
-    <tr>
-      <td>W12-9</td>
-      <td>Valider la qualité Web</td>
-      <td>Valider les résultats des contrôles qualité.</td>
-      <td>
-        <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
-        </div>
-      </td>
-      <td>W12-8</td>
-      <td>0,25 j</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
-      </td>
-      <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
-        Charge de travail
-      </td>
-    </tr>
-    <tr>
-      <td colspan="4" class="cell-left cell-list cell-highlight">
-        <ul>
-          <li>Validation RGPD</li>
-          <li>Validation des obligations légales</li>
-          <li>Rapport d'optimisation SEO</li>
-          <li>Rapport Lighthouse</li>
-          <li>Validation W3C</li>
-          <li>Validation de l'accessibilité</li>
-          <li>Validation Responsive</li>
-          <li>Validation finale qualité</li>
-        </ul>
-      </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">4,25 j</td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="custom-table custom-table--wbs">
-  <colgroup>
-      <col class="col-id">
-      <col class="col-task">
-      <col class="col-description">
-      <col class="col-assigned">
-      <col class="col-dependency">
-      <col class="col-duration">
-  </colgroup>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Tâche</th>
-      <th>Description</th>
-      <th>Assigné à</th>
-      <th>Dépend de</th>
-      <th>Durée</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="table-section">
-      <td colspan="4" class="table-section--label">
-        W13 ─ Préparer la mise en production
+        W11 ─ Préparer la mise en production
       </td>
       <td colspan="2" class="table-section--phase">
         <div class="badge badge--small badge--white">
@@ -6285,7 +6456,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       </td>
     </tr>
     <tr>
-      <td>W13-1</td>
+      <td>W11-1</td>
       <td>Configurer l'environnement de production</td>
       <td>Configurer les variables d'environnement, le nom de domaine, les certificats SSL, les services externes et vérifier la sécurité de la configuration de production.</td>
       <td>
@@ -6293,11 +6464,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W10-9, W9-8, W11-4, W12-9</td>
+      <td>W10-9, W9-8</td>
       <td>0,50 j</td>
     </tr>
     <tr>
-      <td>W13-2</td>
+      <td>W11-2</td>
       <td>Déployer l'application en production</td>
       <td>Déployer le Front-end, le Back-end et la base de données sur les environnements de production définitifs.</td>
       <td>
@@ -6305,11 +6476,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W13-1</td>
-      <td>1 j</td>
+      <td>W11-1</td>
+      <td>0,75 j</td>
     </tr>
     <tr>
-      <td>W13-3</td>
+      <td>W11-3</td>
       <td>Réaliser la recette fonctionnelle</td>
       <td>Vérifier l'ensemble des fonctionnalités sur l'environnement de production et corriger toutes les anomalies détectées avant la recette client.</td>
       <td>
@@ -6317,11 +6488,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W13-2</td>
+      <td>W11-2</td>
       <td>1 j</td>
     </tr>
     <tr>
-      <td>W13-4</td>
+      <td>W11-4</td>
       <td>Réaliser la recette client</td>
       <td>Présenter la version finale, recueillir ses retours et obtenir sa validation avant la mise en service officielle.</td>
       <td>
@@ -6329,11 +6500,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
         </div>
       </td>
-      <td>W13-3</td>
-      <td>1 j</td>
+      <td>W11-3</td>
+      <td>0,50 j</td>
     </tr>
     <tr>
-      <td>W13-5</td>
+      <td>W11-5</td>
       <td>Mise en service de l'application</td>
       <td>Baculer la version validée en exploitation, vérifier les derniers points de contrôle et ouvrir officiellement l'application aux utilisateurs.</td>
       <td>
@@ -6341,7 +6512,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W13-4</td>
+      <td>W11-4</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -6363,11 +6534,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Site mis en production</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">3,75 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">3 j</td>
     </tr>
   </tbody>
 </table>
-
 <table class="custom-table custom-table--wbs">
   <colgroup>
       <col class="col-id">
@@ -6390,7 +6560,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
   <tbody>
     <tr class="table-section">
       <td colspan="4" class="table-section--label">
-        W14 ─ Clôturer le projet
+        W12 ─ Clôturer le projet
       </td>
       <td colspan="2" class="table-section--phase">
         <div class="badge badge--small badge--white">
@@ -6399,7 +6569,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       </td>
     </tr>
     <tr>
-      <td>W14-1</td>
+      <td>W12-1</td>
       <td>Rédiger le README du projet</td>
       <td>Rédiger le README (installation, configuration, lancement, structure du projet et technologies utilisées).</td>
       <td>
@@ -6407,11 +6577,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W13-5</td>
+      <td>W11-5</td>
       <td>0,50 j</td>
     </tr>
     <tr>
-      <td>W14-2</td>
+      <td>W12-2</td>
       <td>Finaliser la documentation technique</td>
       <td>Rédiger et mettre à jour la documentation technique destinée aux développeurs (architecture, API, base de données, déploiement, sécurité, maintenance...).</td>
       <td>
@@ -6419,11 +6589,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W14-1</td>
-      <td>1 j</td>
+      <td>W12-1</td>
+      <td>0,75 j</td>
     </tr>
     <tr>
-      <td>W14-3</td>
+      <td>W12-3</td>
       <td>Rédiger la documentation utilisateur</td>
       <td>Rédiger les guides d'utilisation destinés aux administrateurs, commerciaux et comptables.</td>
       <td>
@@ -6431,11 +6601,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W14-2</td>
+      <td>W12-2</td>
       <td>0,75 j</td>
     </tr>
     <tr>
-      <td>W14-4</td>
+      <td>W12-4</td>
       <td>Former les utilisateurs</td>
       <td>Présenter le fonctionnement du Back-office, accompagner les utilisateurs dans sa prise en main et répondre à leurs questions.</td>
       <td>
@@ -6443,11 +6613,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W14-3</td>
+      <td>W12-3</td>
       <td>0,50 j</td>
     </tr>
     <tr>
-      <td>W14-5</td>
+      <td>W12-5</td>
       <td>Clôturer le projet</td>
       <td>Réaliser le bilan du projet, archiver les livrables, clôturer officiellement le projet et préparer le passage en maintenance.</td>
       <td>
@@ -6455,7 +6625,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
         </div>
       </td>
-      <td>W14-4</td>
+      <td>W12-4</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -6477,30 +6647,18 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Projet clôturé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">3 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">2,25 j</td>
     </tr>
   </tbody>
 </table>
+<h3 id="83-kanban">8.3. Kanban</h3>
+<h3 id="84-workflow-git">8.4. Workflow Git</h3>
+<hr>
+<h2 id="9-diagramme-de-gantt">9 Diagramme de Gantt</h2>
+<hr>
+<h2 id="10-estimation-des-coûts">10. Estimation des coûts</h2>
+<hr>
+<h2 id="11-conclusion">11. Conclusion</h2>
 
-<div class="page-break"></div>
-
-### 8.3. Kanban
-
-[Lien du Kanban : https://github.com/users/pixseed/projects/3/views/2](https://github.com/users/pixseed/projects/3/views/2)
-
-![Screenshot du Kanban "La Socketterie ─ Planification de projet"](./docs/images/kanban.png)
-
----
-
-## 9 Diagramme de Gantt
-
-
----
-
-## 10. Estimation des coûts
-
-
-
----
-
-## 11. Conclusion
+</body>
+</html>

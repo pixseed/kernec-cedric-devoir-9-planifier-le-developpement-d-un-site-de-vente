@@ -1,5 +1,8 @@
 :root {
     /* Couleurs */
+    --color-black: #2b2b2b;
+    --color-gray: #666666;
+    --color-white: #ffffff;
     --color-primary: #77b099;
     --color-primary-dark: #4e816d;
     --color-primary-extra-dark: #38503c;
@@ -7,19 +10,18 @@
     --color-secondary-light: #f9dacd;
     --color-tertiary: #f6a447;
 
-    --color-text: #2b2b2b;
+    --color-text: var(--color-black);
     --color-text-secondary: var(--color-primary-extra-dark);
-    --color-text-inverse: #ffffff;
+    --color-text-inverse: var(--color-white);
 
     --color-danger: var(--color-tertiary);
 
     --color-border: #c3d2df;
+    --color-border-hard: #a9b7c6;
 
     --color-surface: #f8fafc;
     --color-surface-alt: #f1f8fc;
     --color-surface-danger: #fff8f2;
-
-    --color-white: #ffffff;
 
     /* Rayons */
     --radius-xs: 1px;
@@ -212,19 +214,11 @@ thead {
     background-color: var(--color-primary-dark);
 }
 
+table ul {
+    margin-top: 0;
+}
+
 /* Tableaux : Personnalisé */
-.custom-table {
-    table-layout: auto;
-}
-
-.custom-table--fibo {
-    table-layout: fixed;
-}
-
-.custom-table th:first-child {
-    width: auto;
-}
-
 .custom-table--effort th:first-child,
 .custom-table--effort td:first-child,
 .custom-table--value th:first-child,
@@ -238,11 +232,23 @@ thead {
     text-align: center;
 }
 
-.custom-table--us .us-story {
+.custom-table--us .us-story,
+.custom-table--traceability th:nth-child(4),
+.custom-table--traceability td:nth-child(4),
+.custom-table--wbs th:nth-child(2),
+.custom-table--wbs td:nth-child(2),
+.custom-table--wbs th:nth-child(3),
+.custom-table--wbs td:nth-child(3) {
     text-align: left;
 }
 
-.custom-table--us .epic-column {
+.custom-table--traceability th:nth-child(2),
+.custom-table--traceability td:nth-child(2) {
+    border-right: 2px solid var(--color-border-hard);
+}
+
+.custom-table--us .epic-column,
+.custom-table--wbs .task-column {
     background-color: var(--color-surface-alt);
 }
 
@@ -252,10 +258,22 @@ thead {
 }
 
 .custom-table--fibo th,
-.custom-table--fibo td {
+.custom-table--fibo td,
+.custom-table--traceability th,
+.custom-table--traceability td,
+.custom-table--wbs th,
+.custom-table--wbs td {
     padding: 10px 8px;
     text-align: center;
     vertical-align: middle;
+}
+
+.custom-table--wbs:not(:last-of-type) {
+    margin-bottom: 12px;
+}
+
+.custom-table--wbs tr {
+    page-break-inside: avoid;
 }
 
 .col-number {
@@ -278,6 +296,45 @@ thead {
     width: 136px;
 }
 
+.custom-table--wbs .col-id {
+    width: 10%;
+}
+
+.custom-table--wbs .col-task {
+    width: 20%;
+}
+
+.custom-table--wbs .col-description {
+    width: 30%;
+}
+
+.custom-table--wbs .col-assigned {
+    width: 15%;
+}
+
+.custom-table--wbs .col-dependency {
+    width: 15%;
+}
+
+.custom-table--wbs .col-duration {
+    width: 10%;
+}
+
+.table-section {
+    background-color: var(--color-secondary-light) !important;
+}
+
+.table-section--label {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.table-section--phase,
+.custom-table--wbs .duration-cell {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
 .stack-cell {
     display: flex;
     flex-direction: column;
@@ -285,13 +342,52 @@ thead {
 }
 
 .cell-center {
-    align-items: center;
+    align-items: center !important;
 }
 
-.grid-cell--2-col {
-    display: grid;
-    grid-template-columns: repeat(2, max-content);
-    gap: 6px;
+.cell-left {
+    text-align: left !important;
+}
+
+.cell-list {
+    vertical-align: top !important;
+    font-weight: 400;
+}
+
+.cell-highlight {
+    background-color: var(--color-surface-alt);
+}
+
+.cell-highlight--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+}
+
+.cell-highlight--secondary {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-inverse);
+}
+
+.cell-highlight--tertiary {
+    background-color: var(--color-primary-extra-dark);
+    color: var(--color-text-inverse);
+}
+
+.cell-highlight--warning {
+    background-color: var(--color-tertiary);
+    color: var(--color-text-inverse);
+}
+
+.cell-highlight--warning-light {
+    background-color: var(--color-secondary-light);
+}
+
+.empty-cell {
+    vertical-align: middle !important;
+    color: #666;
+    font-style: italic;
+    font-size: 10px;
+    line-height: 1.4;
 }
 
 .epic-number {
@@ -299,11 +395,11 @@ thead {
     text-decoration: underline var(--color-text);
 }
 
-.fibo-title {
+.fibo-point {
     font-weight: 700;
 }
 
-.fibo-subtitle {
+.fibo-label {
     font-weight: 400;
 }
 
@@ -324,12 +420,10 @@ thead {
     margin-right: var(--space-xs);
 }
 
-.empty-cell {
-    vertical-align: middle !important;
-    color: #666;
-    font-style: italic;
-    font-size: 10px;
-    line-height: 1.4;
+.grid-cell--2-col {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 6px;
 }
 
 .grid-cell--5-col {
@@ -441,6 +535,12 @@ img {
     padding: 2px 8px;
 }
 
+.badge--white {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: var(--border-thin) solid var(--color-border);
+}
+
 /* Badges : Priorité */
 .badge--priority-critical {
     background-color: var(--color-danger);
@@ -525,24 +625,37 @@ img {
     background-color: var(--color-tertiary);
 }
 
-/* Badges : Rôle */
-.badge--role-visitor {
+/* Badges : Collaborateur */
+.badge--colleague-lead {
+    background-color: var(--color-black);
+}
+
+.badge--colleague-manager {
+    background-color: var(--color-gray);
+}
+
+.badge--colleague-frontend {
+    background-color: var(--color-primary-extra-dark);
+}
+
+.badge--colleague-backend {
     background-color: var(--color-primary-dark);
 }
 
-.badge--role-customer {
+.badge--colleague-ux {
     background-color: var(--color-primary);
 }
 
-.badge--role-sales {
+.badge--colleague-ui {
     background-color: var(--color-secondary-light);
+    color: var(--color-text);
 }
 
-.badge--role-accounting {
+.badge--colleague-freelance-frontend {
     background-color: var(--color-secondary);
 }
 
-.badge--role-admin {
+.badge--colleague-freelance-backend {
     background-color: var(--color-tertiary);
 }
 
