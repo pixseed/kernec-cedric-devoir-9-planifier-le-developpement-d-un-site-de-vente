@@ -7034,4 +7034,71 @@ La surveillance de l'infrastructure, le certificat SSL et les services d'héberg
 
 ---
 
+<div class="page-break"></div>
+
 ## 11. Conclusion
+
+La planification du projet **La Socketterie** a permis de transformer les besoins exprimés par le client en une organisation structurée et exploitable pour le développement du futur site e-commerce.
+
+<div class="section-label">Une démarche structurée autour des besoins</div>
+
+<div class="layout-grid layout-grid--2">
+  <div class="card card--variant-2">
+    <div class="card__title">Périmètre fonctionnel</div>
+
+L'analyse des acteurs et de leurs besoins a permis de définir les fonctionnalités attendues et de les organiser dans un **Product Backlog**.
+
+Les User Stories ont été priorisées selon leur **valeur métier** et leur **effort prévisionnel** afin de construire un Sprint Backlog cohérent avec les objectifs du projet.
+
+  </div>
+
+<div class="card card--variant-2">
+  <div class="card__title">Solution technique</div>
+
+L'application reposera sur une architecture séparant le **Front-end React et Vite**, le **Back-end Node.js et Express** et la base de données relationnelle **MySQL avec Sequelize**.
+
+**Stripe** assurera la gestion des paiements en ligne et les solutions d'hébergement retenues répondent aux besoins techniques identifiés.
+
+  </div>
+</div>
+
+<div class="section-label">Une organisation prévisionnelle du développement</div>
+
+<div class="card card--variant-1">
+
+La **Work Breakdown Structure**, le **Kanban** et le **diagramme de Gantt** permettent de décomposer les travaux, de répartir les responsabilités et de visualiser les dépendances entre les tâches.
+
+</div>
+
+La planification prend notamment en compte la présentation d'une **première version destinée au tournage**, avant la poursuite du développement des fonctionnalités de gestion.
+
+<div class="section-label">Une vision financière du projet</div>
+
+<div class="key-figures">
+    <div class="key-figure">
+        <div class="key-figure__label">Investissement initial</div>
+        <div class="key-figure__value">16 210,75 €</div>
+    </div>
+    <div class="key-figure">
+        <div class="key-figure__label">Fonctionnement annuel</div>
+        <div class="key-figure__value">4 323,00 €</div>
+    </div>
+    <div class="key-figure key-figure--primary">
+        <div class="key-figure__label">Budget de première année</div>
+        <div class="key-figure__value">20 533,75 €</div>
+    </div>
+</div>
+
+L'estimation des ressources humaines, des coûts techniques et de la maintenance permet d'établir une vision financière globale du projet. Les frais liés aux transactions **Stripe** restent variables et dépendront du volume de ventes réalisé sur la plateforme.
+
+<div class="section-label">Une base de référence pour le développement</div>
+
+<div class="note">
+
+Cette phase de planification constitue une **base de référence pour le lancement du développement de La Socketterie**.
+
+L'équipe projet dispose désormais d'un périmètre fonctionnel identifié, d'une architecture technique définie, d'une répartition des responsabilités et d'un calendrier prévisionnel.
+
+La planification pourra évoluer en fonction des retours du client et des contraintes rencontrées au cours du projet.
+
+</div>
