@@ -17,16 +17,24 @@
   <div class="panel__value">Développeur Web & Web Mobile - Centre Européen de Formation</div>
 
   <div class="panel__label">Technologies</div>
-  <div class="panel__value"></div>
+  <div class="panel__value">React • Vite • SCSS • Node.js • Express • Sequelize • MySQL</div>
+
+  <div class="panel__label">Services et outils</div>
+  <div class="panel__value">GitHub • Stripe • Netlify • Render • Railway</div>
 
   <div class="panel__label">Date</div>
-  <div class="panel__value">06/2026</div>
+  <div class="panel__value">07/2026</div>
 
   <div class="panel__label">Version</div>
   <div class="panel__value">1.0.0</div>
 
   <div class="panel__label">Liens utiles</div>
-  <div class="panel__value"><a href="" target="_blank" rel="noopener noreferrer"></a></div>
+  <div class="panel__value">
+      <span class="underline">Dépôt GitHub de la documentation du projet :</span><br>
+      <a href="https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente.git" target="_blank" rel="noopener noreferrer">https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente.git</a><br>
+      <span class="underline">Dépôt GitHub de la planification du projet :</span><br>
+      <a href="https://github.com/pixseed/la-socketterie" target="_blank" rel="noopener noreferrer">https://github.com/pixseed/la-socketterie</a>
+  </div>
 
 </div>
 
@@ -6583,7 +6591,7 @@ L'estimation financière du projet repose sur les charges prévisionnelles défi
   <div class="card__title">Estimation détaillée des coûts</div>
   <div class="card__text">
     Le détail des estimations, des charges et des coûts du projet est disponible
-    dans le <a href="">tableur d'estimation des coûts</a> disponible dans les sources du projet.
+    dans le <a href="https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente/blob/main/docs/sources/estimation-couts.xlsx">tableur d'estimation des coûts</a> disponible dans les sources du projet.
   </div>
 </div>
 
