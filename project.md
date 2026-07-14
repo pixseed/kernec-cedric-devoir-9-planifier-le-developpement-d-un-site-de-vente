@@ -87,6 +87,11 @@
     - [8.3. Kanban](#83-kanban)
   - [9 Diagramme de Gantt](#9-diagramme-de-gantt)
   - [10. Estimation des coûts](#10-estimation-des-coûts)
+    - [10.1. Coûts des ressources humaines](#101-coûts-des-ressources-humaines)
+    - [10.2. Coûts techniques](#102-coûts-techniques)
+    - [10.3. Coûts des services tiers](#103-coûts-des-services-tiers)
+    - [10.4. Coûts de maintenance annuelle](#104-coûts-de-maintenance-annuelle)
+    - [10.5. Synthèse financière](#105-synthèse-financière)
   - [11. Conclusion](#11-conclusion)
 
 ---
@@ -4481,11 +4486,11 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
 |---------------|------|----------------------|---------------|
 | Cédric | Chef de projet / Développeur Full Stack | Coordination du projet, développement des fonctionnalités, intégration, tests | 100% |
 | David | Développeur Front-end | Interfaces utilisateur (UI), intégration HTML/CSS/JS, responsive | 80% |
-| Jonathan | Développeur Back-end | API, database, logique métier, sécurité | 80% |
+| Jonathan | Développeur Back-end | API, database, logique métier, sécurité, déploiement | 80% |
 | Jack | UX Designer | Analyse des besoins utilisateurs, conception de parcours utilisateurs, réalisation des wireframes, validation de l'UX | Intervention ponctuelle |
-| Rose | UI Designer | Création des maquettes graphiques, Définition de l'identité visuelle, design système, création des composants graphiques | Intervention ponctuelle |
-| Omar | Freelance | Renfort Front-end (optimisation, intégration, responsive) | 5 jours maximum |
-| Fred | Freelance | Renfort Back-end (API, database, optimisation) | 5 jours maximum |
+| Rose | UI Designer | Création des maquettes graphiques, Définition de l'identité visuelle, Design Système, création des composants graphiques | Intervention ponctuelle |
+| Omar | Développeur freelance Full Stack | Intégration du paiement Stripe Front-end et Back-end, pages réglementaires | 5 jours maximum |
+| Fred | Développeur freelance Full Stack | Conformité Web, RGPD, obligations légales, SEO, accessibilité, performances et responsive design | 5 jours maximum |
 | Lead developer | Validation technique & relation client | Validation des livrables, arbitrage technique et relation client | Selon les besoins |
 
 <div class="page-break"></div>
@@ -5088,7 +5093,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Maquettes validées</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">12,25 j</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">11,75 j</td>
     </tr>
   </tbody>
 </table>
@@ -5327,7 +5332,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Mettre en place le paiement sécurisé et la confirmation de commande.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-backend">Jonathan</span>
+          <span class="badge badge--small badge--colleague-freelance">Omar</span>
         </div>
       </td>
       <td>W6-5</td>
@@ -5493,10 +5498,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Développer les écrans de validation de commande et l'intégration du paiement Stripe côté Front-end</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-frontend">David</span>
+          <span class="badge badge--small badge--colleague-freelance">Omar</span>
         </div>
       </td>
-      <td>W7-3, W7-4</td>
+      <td>W6-6, W7-3, W7-4</td>
       <td>1,50 j</td>
     </tr>
     <tr>
@@ -6026,7 +6031,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Développer la page Mentions légales et intégrer le contenu juridique fourni par le client.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
+          <span class="badge badge--small badge--colleague-freelance">Omar</span>
         </div>
       </td>
       <td>W8-3</td>
@@ -6038,7 +6043,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Développer la page CGV et intégrer le contenu juridique fourni par le client.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
+          <span class="badge badge--small badge--colleague-freelance">Omar</span>
         </div>
       </td>
       <td>W8-3</td>
@@ -6050,7 +6055,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Développer la page Politique de confidentialité et intégrer le contenu juridique fourni par le client.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-frontend">Omar</span>
+          <span class="badge badge--small badge--colleague-freelance">Omar</span>
         </div>
       </td>
       <td>W8-3</td>
@@ -6126,7 +6131,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Vérifier que le traitement des données personnelles, les formulaires et les consentements respectent les exigences du RGPD.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6138,7 +6143,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Contrôler la présence et la conformité des mentions légales, des CGV, de la politique de confidentialité et des informations obligatoires.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6150,7 +6155,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Vérifier la cohérence des informations relatives aux moyens de paiement, aux délais, aux frais et aux modalités de livraison.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6162,7 +6167,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Contrôler le contenu et le bon fonctionnement des emails automatiques envoyés aux utilisateurs (confirmation de commande, création de compte, contact...).</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6174,7 +6179,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Optimiser le référencement naturel en améliorant les balises HTML, les métadonnées, la structure des pages et les performances favorisant l'indexation.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6186,7 +6191,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Corriger les points d'amélioration identifiés par Lighthouse afin d'optimiser les performances, l'accessibilité, le SEO et les bonnes pratiques.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W11-4</td>
@@ -6198,7 +6203,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Vérifier la conformité du code HTML et CSS à l'aide des validateurs W3C et corriger les éventuelles erreurs détectées.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W12-1 à W12-6</td>
@@ -6210,7 +6215,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Vérifier le bon fonctionnement et l'affichage du site sur les principaux format d'écran (mobile, tablette et desktop).</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-freelance-backend">Fred</span>
+          <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
       <td>W12-7</td>
@@ -6486,9 +6491,19 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
 
 ### 8.3. Kanban
 
-[Lien du Kanban : https://github.com/users/pixseed/projects/3/views/2](https://github.com/users/pixseed/projects/3/views/2)
+Le suivi opérationnel du projet est réalisé à l'aide de deux vues Kanban complémentaires configurées dans GitHub Project.
+
+La vue Kanban principale organise les tâches selon leur statut d'avancement : Ready, In Progress, In Review et Done. Les éléments sont regroupés en swimlanes par milestone et triés selon leur identifiant WBS croissant afin de conserver une lecture cohérente avec la décomposition du projet. Chaque colonne indique le nombre d'éléments correspondant au statut concerné. Un filtre par sprint permet également d'isoler les tâches d'une période de travail donnée et de suivre l'avancement des différentes phases du projet.
+
+Une seconde vue Kanban regroupe les tâches par responsable. Au sein de chaque colonne, les éléments sont triés par date de début croissante puis selon leur identifiant WBS. Le nombre de tâches et la charge de travail prévisionnelle (exprimée en jours) sont totalisés pour chaque responsable. Cette vue facilite ainsi la lecture de la répartition de la charge entre les collaborateurs. Les Epics, qui ne sont pas attribués individuellement, sont regroupés dans la colonne No Responsable.
+
+[Lien du Kanban : https://github.com/users/pixseed/projects/3/views/2](https://github.com/users/pixseed/projects/3/views/2)  
+[Lien du Kanban (par responsable) : https://github.com/users/pixseed/projects/3/views/7](https://github.com/users/pixseed/projects/3/views/7)
 
 ![Screenshot du Kanban "La Socketterie ─ Planification de projet"](./docs/images/kanban.png)
+![Screenshot du Kanban par responsable "La Socketterie ─ Planification de projet"](./docs/images/kanban-responsable.png)
+
+L'utilisation conjointe de ces deux vues permet ainsi de suivre l'état d'avancement du projet tout en conservant une visibilité sur la répartition prévisionnelle de la charge de travail au sein de l'équipe.
 
 ---
 
@@ -6521,18 +6536,18 @@ GitHub Project utilisant des dates calendaires sans permettre de représenter pr
 
 <div class="section-label">Capacité de renfort</div>
 
-Les développeurs freelances constituent une capacité de renfort mobilisable en cas de dérive du planning ou de surcharge ponctuelle.
+Les développeurs freelances disposent d'une capacité maximale d'intervention de 5 jours chacun. Une partie de cette capacité est mobilisée dès la lanification prévisionnelle sur des travaux ciblés correspondant aux besoins du projet. La capacité résiduelle constitue une marge de renfort mobilisable en cas de dérive du planning ou de surcharge ponctuelle.
 
 <div class="layout-grid layout-grid--2">
   <div class="card card--variant-2">
-    <div class="card__title">Omar — Renfort Front-end</div>
+    <div class="card__title">Omar — Développement Full Stack</div>
     <div class="card__text">
-      <span class="bold">Mobilisation prévisionnelle :</span> 0,75 j / 5 j<br>
-      <span class="bold">Capacité résiduelle :</span> 4,25 j
+      <span class="bold">Mobilisation prévisionnelle :</span> 3,5 j / 5 j<br>
+      <span class="bold">Capacité résiduelle :</span> 1,5 j
     </div>
   </div>
   <div class="card card--variant-2">
-    <div class="card__title">Fred — Renfort technique</div>
+    <div class="card__title">Fred — Développement Full Stack</div>
     <div class="card__text">
       <span class="bold">Mobilisation prévisionnelle :</span> 4 j / 5 j<br>
       <span class="bold">Capacité résiduelle :</span> 1 j
@@ -6540,15 +6555,16 @@ Les développeurs freelances constituent une capacité de renfort mobilisable en
   </div>
 </div>
 
-Ces capacités résiduelles pourront être mobilisées sur des travaux Front-end, Back-end, d'intégration ou d'optimisation en fonction des besoins identifiés au cours du projet.
+La capacité résiduelle des freelances représente un total de 2,5 jours. Elle pourra être mobilisée sur des travaux de développement, d'intégration, d'optimisation ou de conformité en fonction des besoins identifiés au cours du projet.
 
 <div class="note">
   Le diagramme de Gantt doit être interprété conjointement avec les durées prévisionnelles définies dans le WBS. Les barres de planification représentent des périodes calendaires de réalisation et non systématiquement une charge de travail continue sur l'ensemble des jours affichés.
 </div>
 
+<div class="page-break"></div>
+
 [Lien du diagramme de Gantt : https://github.com/users/pixseed/projects/3/views/3](https://github.com/users/pixseed/projects/3/views/3)
 ![Screenshot du diagramme de Gantt (1) "La Socketterie ─ Planification du projet"](./docs/images/gantt-1.png)
-![Screenshot du diagramme de Gantt (2) "La Socketterie ─ Planification du projet"](./docs/images/gantt-2.png)
 
 Une vue du diagramme de Gantt est également disponible en groupement par responsable de chaque tâche afin de faciliter la lecture individuelle du planning.
 
@@ -6557,9 +6573,456 @@ Une vue du diagramme de Gantt est également disponible en groupement par respon
 
 ---
 
+<div class="page-break"></div>
+
 ## 10. Estimation des coûts
 
+L'estimation financière du projet repose sur les charges prévisionnelles définies dans le WBS et consolidées à partir du champ `Time` du GitHub Project. La charge totale prévisionnelle du projet est estimée à **84 jours**.
 
+<div class="card card--variant-2">
+  <div class="card__title">Estimation détaillée des coûts</div>
+  <div class="card__text">
+    Le détail des estimations, des charges et des coûts du projet est disponible
+    dans le <a href="">tableur d'estimation des coûts</a> disponible dans les sources du projet.
+  </div>
+</div>
+
+### 10.1. Coûts des ressources humaines
+
+Les coûts journaliers des salariés sont estimés à partir des moyennes nationales publiées sur Indeed France. Les prestations des freelances sont estimées à partir des tarifs journaliers moyens observés sur Malt pour des développeurs Full Stack. Ces valeurs constituent des estimations destinées à établir un budget prévisionnel.
+
+<table class="custom-table--costs">
+  <colgroup>
+    <col style="width: 13%">
+    <col style="width: 23%">
+    <col style="width: 15%">
+    <col style="width: 10%">
+    <col style="width: 15%">
+    <col style="width: 14%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Collaborateur</th>
+      <th>Profil</th>
+      <th>Statut</th>
+      <th>Charge</th>
+      <th>Coût journalier</th>
+      <th>Coût projet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cédric</td>
+      <td class="cell-center">Développeur Full Stack</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salarié 
+        </span>
+      </td>
+      <td class="cost-number">13,50 j</td>
+      <td class="cost-number">163,00 €</td>
+      <td class="cost-number">2 200,50 €</td>
+    </tr>
+    <tr>
+      <td>Jack</td>
+      <td class="cell-center">UX Designer</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salarié
+        </span>
+      </td>
+      <td class="cost-number">6,75 j</td>
+      <td class="cost-number">156,00 €</td>
+      <td class="cost-number">1 053,00 €</td>
+    </tr>
+    <tr>
+      <td>Rose</td>
+      <td class="cell-center">UI Designer</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salariée
+        </span>
+      </td>
+      <td class="cost-number">10,00 j</td>
+      <td class="cost-number">156,00 €</td>
+      <td class="cost-number">1 560,00 €</td>
+    </tr>
+    <tr>
+      <td>David</td>
+      <td class="cell-center">Développeur Front-end</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salarié
+        </span>
+      </td>
+      <td class="cost-number">17,75 j</td>
+      <td class="cost-number">163,00 €</td>
+      <td class="cost-number">2 893,25 €</td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+      <td class="cell-center">Développeur Back-end</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salarié
+        </span>
+      </td>
+      <td class="cost-number">20,75 j</td>
+      <td class="cost-number">163,00 €</td>
+      <td class="cost-number">3 382,25 €</td>
+    </tr>
+    <tr>
+      <td>Omar</td>
+      <td class="cell-center">Développeur Full Stack</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-freelance">
+          Freelance
+        </span>
+      </td>
+      <td class="cost-number">3,50 j</td>
+      <td class="cost-number">500,00 €</td>
+      <td class="cost-number">1 750,00 €</td>
+    </tr>
+    <tr>
+      <td>Fred</td>
+      <td class="cell-center">Développeur Full Stack</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-freelance">
+          Freelance
+        </span>
+      </td>
+      <td class="cost-number">4,00 j</td>
+      <td class="cost-number">500,00 €</td>
+      <td class="cost-number">2 000,00 €</td>
+    </tr>
+    <tr>
+      <td>Lead developer</td>
+      <td class="cell-center">Lead developer</td>
+      <td class="cell-center">
+        <span class="badge badge--small badge--colleague-employee">
+          Salarié
+        </span>
+      </td>
+      <td class="cost-number">7,75 j</td>
+      <td class="cost-number">177,00 €</td>
+      <td class="cost-number">1 371,75 €</td>
+    </tr>
+    <tr class="cost-total">
+      <td colspan="3">Total des ressources humaines</td>
+      <td class="cost-number">84,00 j</td>
+      <td></td>
+      <td class="cost-number">16 210,75 €</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+### 10.2. Coûts techniques
+
+Les coûts techniques regroupent les services nécessaires à l'hébergement, au déploiement et à l'accessibilité publique de l'application.
+
+Les coûts sont estimés sur la base des tarifs publics en vigueur au moment de la réalisation du dossier. Les montants peuvent évoluer selon les besoins réels du projet (trafic, stockage, puissance serveur, etc.).
+
+<table class="custom-table--costs">
+  <colgroup>
+    <col style="width: 18%">
+    <col style="width: 16%">
+    <col style="width: 12%">
+    <col style="width: 12%">
+    <col style="width: 12%">
+    <col style="width: 30%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Élément</th>
+      <th class="cell-center">Fournisseur</th>
+      <th>Coût mensuel</th>
+      <th>Coût annuel</th>
+      <th>Convers°</th>
+      <th>Justification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hébergement Front-end</td>
+      <td class="cell-center">Netlify Free</td>
+      <td class="cost-number">0,00 $</td>
+      <td class="cost-number">0,00 $</td>
+      <td class="cost-free">0,00 €</td>
+      <td class="cost-description">
+        Déploiement de l'application React. Les fonctionnalités métier sont assurées séparément par l'API Express.
+      </td>
+    </tr>
+    <tr>
+      <td>Hébergement Back-end</td>
+      <td class="cell-center">Render Starter</td>
+      <td class="cost-number">25,00 $</td>
+      <td class="cost-number">300,00 $</td>
+      <td class="cost-number">264,00 €</td>
+      <td class="cost-description">
+        L'API Express nécessite un serveur disponible en permanence afin d'éviter les mises en veille et de garantir des performances adaptées à un environnement de production.
+      </td>
+    </tr>
+    <tr>
+      <td>Base de données</td>
+      <td class="cell-center">Railway Hobby</td>
+      <td class="cost-number">5,00 $</td>
+      <td class="cost-number">60,00 $</td>
+      <td class="cost-number">53,00 €</td>
+      <td class="cost-description">
+        Hébergement de la base de données MySQL avec une capacité adaptée au lancement du site e-commerce.
+      </td>
+    </tr>
+    <tr>
+      <td>Nom de domaine</td>
+      <td class="cell-center">OVHcloud (.fr)</td>
+      <td class="cost-number">0,50 €</td>
+      <td class="cost-number">6,00 €</td>
+      <td class="cost-number">6,00 €</td>
+      <td class="cost-description">
+        Utilisation du tarif annuel standard d'un domaine en <code>.fr</code>, plutôt que d'une offre promotionnelle, afin d'obtenir une estimation réaliste sur le long terme.
+      </td>
+    </tr>
+    <tr>
+      <td>Certificat SSL</td>
+      <td class="cell-center">Netlify et Render</td>
+      <td class="cost-number">0,00 $</td>
+      <td class="cost-number">0,00 $</td>
+      <td class="cost-free">0,00 €</td>
+      <td class="cost-description">
+        Le certificat SSL est inclus avec les plateformes d'hébergement et permet de sécuriser les échanges en HTTPS.
+      </td>
+    </tr>
+    <tr class="cost-total">
+      <td colspan="4">Total annuel des coûts techniques</td>
+      <td class="cost-number">323,00 €</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+### 10.3. Coûts des services tiers
+
+Certains services externes sont nécessaires au fonctionnement du site.
+Leur coût peut être nul au lancement ou évoluer en fonction de l'activité.
+
+<table class="custom-table--costs">
+  <colgroup>
+    <col style="width: 20%">
+    <col style="width: 15%">
+    <col style="width: 19%">
+    <col style="width: 13%">
+    <col style="width: 31%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Fournisseur</th>
+      <th>Modèle tarifaire</th>
+      <th>Coût annuel fixe</th>
+      <th>Justification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Paiement en ligne</td>
+      <td class="cell-center">Stripe</td>
+      <td class="cell-center">Commission par transaction</td>
+      <td class="cost-variable">Variable</td>
+      <td class="cost-description">
+        Aucun abonnement fixe. Une commission est prélevée uniquement lorsqu'un paiement est effectivement réalisé sur la plateforme. Ce coût dépend donc du volume et du montant des commandes.
+      </td>
+    </tr>
+    <tr>
+      <td>Envoi d'e-mails transactionnels</td>
+      <td class="cell-center">Brevo</td>
+      <td class="cell-center">Offre gratuite</td>
+      <td class="cost-free">0,00 €</td>
+      <td class="cost-description">
+        Permet l'envoi des confirmations de commande, changements de statut, créations de compte, réinitialisations de mot de passe et messages issus du formulaire de contact. L'offre pourra évoluer selon le volume d'e-mails.
+      </td>
+    </tr>
+    <tr>
+      <td>Protection des formulaires</td>
+      <td class="cell-center">Google reCAPTCHA</td>
+      <td class="cell-center">Gratuit</td>
+      <td class="cost-free">0,00 €</td>
+      <td class="cost-description">
+        Protection des formulaires contre les robots, les envois indésirables et les tentatives d'abus.
+      </td>
+    </tr>
+    <tr class="cost-total">
+      <td colspan="3">Total annuel fixe des services tiers</td>
+      <td class="cost-number">0,00 €</td>
+      <td>
+        Hors commissions variables Stripe
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Coût variable :</strong>
+  les commissions Stripe ne sont pas intégrées au total fixe du projet.
+  Elles devront être calculées à partir du nombre réel de transactions, de leur montant et de l'origine des cartes bancaires utilisées.
+</div>
+
+<div class="page-break"></div>
+
+### 10.4. Coûts de maintenance annuelle
+
+Une enveloppe annuelle de maintenance est prévue afin d'assurer la pérennité, la sécurité et l'évolution mineure de l'application après sa mise en production.
+
+La maintenance est estimée sur la base d'un TJM de 500€/jour correspondant au coût moyen d'un développeur freelance retenu pour le projet. Un contrat de maintenance préventive et corrective de 8 jours par an a été considéré.
+
+La surveillance de l'infrastructure, le certificat SSL et les services d'hébergement sont pris en charge par Netlify, Render et Railway. L'estimation de maintenance concerne uniquement les interventions de développement (maintenance corrective, préventive et évolutive).
+
+<table class="custom-table--costs">
+  <colgroup>
+    <col style="width: 23%">
+    <col style="width: 14%">
+    <col style="width: 12%">
+    <col style="width: 13%">
+    <col style="width: 13%">
+    <col style="width: 25%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Intervention</th>
+      <th>Fréquence</th>
+      <th>Estimation</th>
+      <th>Coût journalier</th>
+      <th>Total</th>
+      <th>Justification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mises à jour de sécurité</td>
+      <td class="cell-center">Mensuelle</td>
+      <td class="cost-number">4 j/an</td>
+      <td class="cost-number">500,00 €</td>
+      <td class="cost-number">2 000,00 €</td>
+      <td class="cost-description">
+        Mise à jour des bibliothèques React, Node.js et Express, vérification de leur compatibilité et correction des éventuelles vulnérabilités de sécurité.
+      </td>
+    </tr>
+    <tr>
+      <td>Corrections de bugs</td>
+      <td class="cell-center">Selon besoin</td>
+      <td class="cost-number">2 j/an</td>
+      <td class="cost-number">500,00 €</td>
+      <td class="cost-number">1 000,00 €</td>
+      <td class="cost-description">
+        Correction des anomalies signalées par les utilisateurs ou identifiées après la mise en production.
+      </td>
+    </tr>
+    <tr>
+      <td>Évolutions mineures</td>
+      <td class="cell-center">Ponctuelle</td>
+      <td class="cost-number">2 j/an</td>
+      <td class="cost-number">500,00 €</td>
+      <td class="cost-number">1 000,00 €</td>
+      <td class="cost-description">
+        Ajout de petites fonctionnalités, ajustements métier ou améliorations ergonomiques demandées par le client.
+      </td>
+    </tr>
+    <tr class="cost-total">
+      <td colspan="2">Total annuel de maintenance</td>
+      <td class="cost-number">8 j/an</td>
+      <td></td>
+      <td class="cost-number">4 000,00 €</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+### 10.5. Synthèse financière
+
+<div class="key-figures">
+  <div class="key-figure">
+    <div class="key-figure__label">Investissement initial</div>
+    <div class="key-figure__value">16 210,75 €</div>
+  </div>
+  <div class="key-figure">
+    <div class="key-figure__label">Fonctionnement annuel</div>
+    <div class="key-figure__value">4 323,00 €</div>
+  </div>
+  <div class="key-figure key-figure--primary">
+    <div class="key-figure__label">Budget de première année</div>
+    <div class="key-figure__value">20 533,75 €</div>
+  </div>
+</div>
+
+<h4 class="center underline">Répartition par catégorie</h4>
+
+<table class="custom-table--costs custom-table--summary">
+  <colgroup>
+    <col style="width: 65%">
+    <col style="width: 35%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th class="col-category">Catégorie</th>
+      <th class="col-amount">Montant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ressources humaines</td>
+      <td class="cost-number">16 210,75 €</td>
+    </tr>
+    <tr>
+      <td>Coûts techniques annuels</td>
+      <td class="cost-number">323,00 €</td>
+    </tr>
+    <tr>
+      <td>Services tiers à coût fixe</td>
+      <td class="cost-number">0,00 €</td>
+    </tr>
+    <tr>
+      <td>Maintenance annuelle</td>
+      <td class="cost-number">4 000,00 €</td>
+    </tr>
+    <tr class="cost-total">
+      <td>Budget prévisionnel de la première année</td>
+      <td class="cost-number">20 533,75 €</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="card card--with-header">
+  <div class="card__title--with-header">
+    Hypothèses de l'estimation
+  </div>
+  <div class="card__text--with-header">
+    <ul>
+      <li>
+        Les coûts humains sont calculés à partir de la charge prévisionnelle définie dans le WBS.
+      </li>
+      <li>
+        Les tarifs techniques correspondent aux offres publiques sélectionnées pour une première année d'exploitation.
+      </li>
+      <li>
+        Les conversions en euros sont des estimations et peuvent varier selon le taux de change appliqué.
+      </li>
+      <li>
+        Les commissions Stripe sont exclues du coût fixe, car elles dépendent du volume réel des transactions.
+      </li>
+      <li>
+        L'offre gratuite de Brevo pourra être remplacée par une offre payante si le volume d'e-mails dépasse les limites prévues.
+      </li>
+      <li>
+        La maintenance correspond à une enveloppe annuelle prévisionnelle de huit journées d'intervention.
+      </li>
+    </ul>
+  </div>
+</div>
 
 ---
 
