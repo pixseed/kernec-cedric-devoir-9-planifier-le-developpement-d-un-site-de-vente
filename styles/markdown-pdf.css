@@ -6,7 +6,7 @@
     --color-primary: #77b099;
     --color-primary-dark: #4e816d;
     --color-primary-extra-dark: #38503c;
-    --color-secondary: #f5895D;
+    --color-secondary: #f5895d;
     --color-secondary-light: #f9dacd;
     --color-tertiary: #f6a447;
 
@@ -22,6 +22,17 @@
     --color-surface: #f8fafc;
     --color-surface-alt: #f1f8fc;
     --color-surface-danger: #fff8f2;
+
+    /* Typographie */
+    --font-size-xs: 10px;
+    --font-size-sm: 11px;
+    --font-size-md: 12px;
+    --font-size-md-alt: 12.5px;
+    --font-size-lg: 14px;
+    --font-size-lg-alt: 15px;
+    --font-size-xl: 17px;
+    --font-size-2xl: 22px;
+    --font-size-3xl: 34px;
 
     /* Rayons */
     --radius-xs: 1px;
@@ -54,14 +65,14 @@
 /* Style global */
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: var(--font-size-sm);
     line-height: 1.5;
     color: var(--color-text);
 }
 
 /* Titres */
 h1 {
-    font-size: 34px;
+    font-size: var(--font-size-3xl);
     font-weight: bold;
     color: var(--color-primary-dark);
     margin-top: 60px;
@@ -69,7 +80,7 @@ h1 {
 }
 
 h2 {
-    font-size: 22px;
+    font-size: var(--font-size-2xl);
     color: var(--color-primary-dark);
     border-bottom: var(--border-medium) solid var(--color-primary);
     margin-top: var(--space-xl);
@@ -77,21 +88,21 @@ h2 {
 }
 
 h3 {
-    font-size: 17px;
+    font-size: var(--font-size-xl);
     color: var(--color-primary);
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
 }
 
 h4 {
-    font-size: 14px;
+    font-size: var(--font-size-lg);
     color: var(--color-text-secondary);
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
 }
 
 h5 {
-    font-size: 12.5px;
+    font-size: var(--font-size-md-alt);
     color: var(--color-text-secondary);
     margin-top: var(--space-xl);
     margin-bottom: var(--space-md);
@@ -197,8 +208,9 @@ table {
     border-collapse: collapse;
 }
 
-table, td {
-    border: 1px solid var(--color-border);
+table,
+td {
+    border: var(--border-thin) solid var(--color-border);
 }
 
 tbody tr:nth-child(odd) {
@@ -222,7 +234,7 @@ table ul {
     margin-top: 0;
 }
 
-/* Tableaux : Personnalisé */
+/* Tableaux : Alignements */
 .custom-table--effort th:first-child,
 .custom-table--effort td:first-child,
 .custom-table--value th:first-child,
@@ -252,9 +264,10 @@ table ul {
     text-align: right;
 }
 
+/* Tableaux : Bordures et fonds spécifiques */
 .custom-table--traceability th:nth-child(2),
 .custom-table--traceability td:nth-child(2) {
-    border-right: 2px solid var(--color-border-hard);
+    border-right: var(--border-medium) solid var(--color-border-hard);
 }
 
 .custom-table--us .epic-column,
@@ -262,11 +275,13 @@ table ul {
     background-color: var(--color-surface-alt);
 }
 
+/* Tableaux : Contraintes de contenu */
 .custom-table--epics td:nth-child(1),
 .custom-table--epics td:nth-child(2) {
     white-space: nowrap;
 }
 
+/* Tableaux : Espacement des cellules */
 .custom-table--fibo th,
 .custom-table--fibo td,
 .custom-table--traceability th,
@@ -275,11 +290,12 @@ table ul {
 .custom-table--wbs td,
 .custom-table--costs th,
 .custom-table--costs td {
-    padding: 10px 8px;
+    padding: 10px var(--space-sm);
     text-align: center;
     vertical-align: middle;
 }
 
+/* Tableaux : Espacement vertical */
 .custom-table--costs {
     margin-bottom: var(--space-xl);
 }
@@ -288,11 +304,14 @@ table ul {
     margin-bottom: var(--space-md);
 }
 
+/* Tableaux : Prévention des coupures de lignes à l'impression */
 .custom-table--wbs tr,
-.custom-table--costs tr {
+.custom-table--costs tr,
+.custom-table--us tr {
     page-break-inside: avoid;
 }
 
+/* Tableaux : Coûts */
 .custom-table--costs .cost-number {
     text-align: right;
     white-space: nowrap;
@@ -329,6 +348,7 @@ table ul {
     margin-right: auto;
 }
 
+/* Tableaux : Largeurs de colonnes génériques */
 .col-number {
     width: 56px;
 }
@@ -349,6 +369,7 @@ table ul {
     width: 136px;
 }
 
+/* Tableaux : Largeurs des colonnes WBS */
 .custom-table--wbs .col-id {
     width: 10%;
 }
@@ -373,6 +394,7 @@ table ul {
     width: 10%;
 }
 
+/* Tableaux : Sections WBS */
 .table-section {
     background-color: var(--color-secondary-light) !important;
     color: var(--color-text) !important;
@@ -380,7 +402,7 @@ table ul {
 
 .table-section--label {
     font-weight: 700;
-    font-size: 14px;
+    font-size: var(--font-size-lg);
 }
 
 .table-section--phase,
@@ -389,10 +411,11 @@ table ul {
     vertical-align: middle !important;
 }
 
+/* Tableaux : Utilitaires de cellules */
 .stack-cell {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-xs);
 }
 
 .cell-center {
@@ -439,12 +462,13 @@ table ul {
 
 .empty-cell {
     vertical-align: middle !important;
-    color: #666;
+    color: var(--color-gray);
     font-style: italic;
-    font-size: 10px;
+    font-size: var(--font-size-xs);
     line-height: 1.4;
 }
 
+/* Tableaux : Contenus spécifiques */
 .epic-number {
     font-weight: 700;
     text-decoration: underline var(--color-text);
@@ -458,12 +482,13 @@ table ul {
     font-weight: 400;
 }
 
+/* Tableaux : Légende Fibonacci */
 .fibo-legend {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 8px;
+    gap: var(--space-sm);
     margin-top: var(--space-md);
     padding-top: var(--space-md);
     border-top: var(--border-thin) solid var(--color-border);
@@ -475,6 +500,7 @@ table ul {
     margin-right: var(--space-xs);
 }
 
+/* Tableaux : Grilles internes aux cellules */
 .grid-cell--2-col {
     display: grid;
     grid-template-columns: repeat(2, max-content);
@@ -526,7 +552,7 @@ img {
     border-left: var(--border-thick) solid var(--color-primary);
     background: var(--color-surface-alt);
     font-family: Consolas, monospace;
-    font-size: 14px;
+    font-size: var(--font-size-lg);
     color: var(--color-primary-dark) !important;
 }
 
@@ -552,7 +578,7 @@ img {
 
 .card__title--with-header {
     font-weight: bold;
-    font-size: 12px;
+    font-size: var(--font-size-md);
     text-transform: uppercase;
     padding: var(--space-md) var(--space-lg);
     background: var(--color-primary-dark);
@@ -560,7 +586,7 @@ img {
 }
 
 .card__text {
-    font-size: 12px;
+    font-size: var(--font-size-md);
 }
 
 .card__text--with-header {
@@ -574,20 +600,20 @@ img {
     width: fit-content;
     min-width: 80px;
     text-align: center;
-    padding: 4px 12px;
+    padding: var(--space-xs) var(--space-md);
     border-radius: 999px;
     font-weight: 700;
-    color: var(--color-text-inverse)
+    color: var(--color-text-inverse);
 }
 
 .badge--small {
     min-width: 40px;
-    padding: 2px 8px;
+    padding: 2px var(--space-sm);
 }
 
 .badge--number {
     min-width: 20px;
-    padding: 2px 8px;
+    padding: 2px var(--space-sm);
 }
 
 .badge--white {
@@ -731,12 +757,12 @@ img {
     background-color: var(--color-secondary);
 }
 
-/* Badge : Couleur négative */
+/* Badges : Contraste des fonds clairs */
 .badge--priority-high,
 .badge--effort-5,
 .badge--value-3,
 .badge--role-sales {
-    color: var(--color-text)
+    color: var(--color-text);
 }
 
 /* User Story Card */
@@ -799,14 +825,14 @@ img {
 
 .us-section__title {
     margin: 0 0 var(--space-sm);
-    font-size: 15px;
+    font-size: var(--font-size-lg-alt);
     color: var(--color-primary-dark);
 }
 
 .us-scenarios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: var(--space-md);
 }
 
 .us-scenario {
@@ -846,7 +872,7 @@ img {
     text-transform: uppercase;
     justify-content: center;
     text-align: center;
-    font-size: 12px;
+    font-size: var(--font-size-md);
     min-height: 52px;
 }
 
@@ -859,10 +885,10 @@ img {
 }
 
 .use-case__label {
-    margin-bottom: 4px;
+    margin-bottom: var(--space-xs);
     font-weight: 700;
     color: var(--color-primary-dark);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: var(--border-thin) solid var(--color-border);
 }
 
 .use-case__section p {
@@ -876,7 +902,7 @@ img {
 }
 
 .use-case__steps li {
-    margin-bottom: 4px;
+    margin-bottom: var(--space-xs);
     padding-left: 0;
 }
 
@@ -970,7 +996,7 @@ img {
 
 .key-figure__value {
     color: var(--color-primary-dark);
-    font-size: 17px;
+    font-size: var(--font-size-xl);
     font-weight: 700;
 }
 
@@ -989,11 +1015,11 @@ img {
     color: var(--color-text-secondary);
     border-left: var(--border-thick) solid var(--color-text-secondary);
     padding: var(--space-md);
-    margin-top: var(--space-lg);
+    margin-block: var(--space-lg);
     background: var(--color-surface);
 }
 
-/* Grille de disposition */
+/* Grilles de disposition */
 .layout-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1017,7 +1043,7 @@ img {
     grid-template-columns: repeat(4, 1fr);
 }
 
-/* Panneau */
+/* Panneaux */
 .panel {
     gap: var(--space-md);
     padding: var(--space-lg) var(--space-xl);
@@ -1060,7 +1086,7 @@ img {
     line-height: 1.3;
 }
 
-/* Section label */
+/* Labels de section */
 .section-label {
     margin: var(--space-lg) 0 var(--space-md);
     padding: var(--space-sm) var(--space-lg);
@@ -1073,11 +1099,12 @@ img {
     border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
-/* Layout divisé (2 colonnes) */
+/* Layout divisé en deux colonnes */
 .split-layout {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-rows: auto auto;
+    gap: 0 2rem;
     align-items: start;
 }
 
@@ -1115,7 +1142,7 @@ hr {
     margin: var(--space-xl) 0;
 }
 
-/* Saut de page */
+/* Sauts de page */
 .page-break {
     page-break-after: always;
 }
