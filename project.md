@@ -1,4 +1,4 @@
-# Projet : Trouve ton artisan
+# Projet : La Socketterie
 
 <h2>
   Devoir #9 :<br>
@@ -17,16 +17,24 @@
   <div class="panel__value">Développeur Web & Web Mobile - Centre Européen de Formation</div>
 
   <div class="panel__label">Technologies</div>
-  <div class="panel__value"></div>
+  <div class="panel__value">React • Vite • SCSS • Node.js • Express • Sequelize • MySQL</div>
+
+  <div class="panel__label">Services et outils</div>
+  <div class="panel__value">GitHub • Stripe • Netlify • Render • Railway</div>
 
   <div class="panel__label">Date</div>
-  <div class="panel__value">06/2026</div>
+  <div class="panel__value">07/2026</div>
 
   <div class="panel__label">Version</div>
   <div class="panel__value">1.0.0</div>
 
   <div class="panel__label">Liens utiles</div>
-  <div class="panel__value"><a href="" target="_blank" rel="noopener noreferrer"></a></div>
+  <div class="panel__value">
+      <span class="underline">Dépôt GitHub de la documentation du projet :</span><br>
+      <a href="https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente.git" target="_blank" rel="noopener noreferrer">https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente.git</a><br>
+      <span class="underline">Dépôt GitHub de la planification du projet :</span><br>
+      <a href="https://github.com/pixseed/la-socketterie" target="_blank" rel="noopener noreferrer">https://github.com/pixseed/la-socketterie</a>
+  </div>
 
 </div>
 
@@ -36,7 +44,7 @@
 
 ## Sommaire
 
-- [Projet : Trouve ton artisan](#projet--trouve-ton-artisan)
+- [Projet : La Socketterie](#projet--la-socketterie)
   - [Sommaire](#sommaire)
   - [1. Présentation du projet](#1-présentation-du-projet)
     - [1.1. Contexte du projet](#11-contexte-du-projet)
@@ -51,8 +59,9 @@
     - [2.3. Identification des besoins fonctionnels](#23-identification-des-besoins-fonctionnels)
       - [2.3.1. Fonctionnalités visiteurs](#231-fonctionnalités-visiteurs)
       - [2.3.2. Fonctionnalités clients](#232-fonctionnalités-clients)
-      - [2.3.3. Fonctionnalités commerciales et administratives](#233-fonctionnalités-commerciales-et-administratives)
-      - [2.3.4. Fonctionnalités administrateur](#234-fonctionnalités-administrateur)
+      - [2.3.3. Fonctionnalités commerciales](#233-fonctionnalités-commerciales)
+      - [2.3.4. Fonctionnalités comptables](#234-fonctionnalités-comptables)
+      - [2.3.5. Fonctionnalités administrateur](#235-fonctionnalités-administrateur)
     - [2.4. Priorisation des fonctionnalités](#24-priorisation-des-fonctionnalités)
   - [3. Product Backlog](#3-product-backlog)
     - [3.1. Personas](#31-personas)
@@ -61,6 +70,8 @@
       - [3.1.3. Qui est l'administrateur ?](#313-qui-est-ladministrateur-)
       - [3.1.4. Qui est le commercial ?](#314-qui-est-le-commercial-)
       - [3.1.5. Qui est le comptable ?](#315-qui-est-le-comptable-)
+    - [3.2. Tableau des points d'effort](#32-tableau-des-points-deffort)
+    - [3.3. Tableau des valeurs métier](#33-tableau-des-valeurs-métier)
     - [3.4. Backlog fonctionnel (Epics)](#34-backlog-fonctionnel-epics)
     - [3.5. User Stories](#35-user-stories)
       - [3.5.1. Estimation des User Stories selon la suite de Fibonacci](#351-estimation-des-user-stories-selon-la-suite-de-fibonacci)
@@ -77,6 +88,7 @@
     - [6.3. Structure des données](#63-structure-des-données)
     - [6.4. Flux de données](#64-flux-de-données)
     - [6.5. Schéma d'architecture](#65-schéma-darchitecture)
+    - [6.6. Démarche d'écoconception](#66-démarche-décoconception)
   - [7. Hébergements et services tiers](#7-hébergements-et-services-tiers)
     - [7.1. Besoins d'hébergement identifiés](#71-besoins-dhébergement-identifiés)
     - [7.2. Comparaison des solutions](#72-comparaison-des-solutions)
@@ -85,7 +97,7 @@
     - [8.1. Équipe projet et répartition des rôles](#81-équipe-projet-et-répartition-des-rôles)
     - [8.2. Work Breakdown Structure (WBS)](#82-work-breakdown-structure-wbs)
     - [8.3. Kanban](#83-kanban)
-  - [9 Diagramme de Gantt](#9-diagramme-de-gantt)
+  - [9. Diagramme de Gantt](#9-diagramme-de-gantt)
   - [10. Estimation des coûts](#10-estimation-des-coûts)
     - [10.1. Coûts des ressources humaines](#101-coûts-des-ressources-humaines)
     - [10.2. Coûts techniques](#102-coûts-techniques)
@@ -95,6 +107,7 @@
   - [11. Conclusion](#11-conclusion)
 
 ---
+
 <div class="page-break"></div>
 
 ## 1. Présentation du projet
@@ -105,7 +118,7 @@
 
 L'entreprise dispose actuellement d'une boutique physique située à Nice et **souhaite développer sa présence numérique afin d'augmenter sa visibilité et de commercialiser ses produits en ligne**.
 
-Cette demande intervient dans un contexte particulier puisque l'entreprise participera prochainement à un reprotage télévisé. **Le tournage est prévu dans un délai de trois mois et la diffusion un mois plus tard**.
+Cette demande intervient dans un contexte particulier puisque l'entreprise participera prochainement à un reportage télévisé. **Le tournage est prévu dans un délai de trois mois et la diffusion un mois plus tard**.
 
 <div class="card card--danger">
   Le site internet devra donc être suffisamment avancé pour être présenté lors du tournage et totalement opérationnel avant la diffusion du reportage afin de tirer profit de cette visibilité médiatique.
@@ -124,7 +137,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
   <li>Présenter les produits et les actualités de l'entreprise.</li>
   <li>Permettre aux visiteurs/clients de contacter facilement l'entreprise.</li>
   <li>Offrir aux clients un espace personnel pour suivre leurs commandes.</li>
-  <li>Fournir aux équipes internes des outils de gestions adaptés.</li>
+  <li>Fournir aux équipes internes des outils de gestion adaptés.</li>
 </ul>
 
 ### 1.3. Enjeux du projet
@@ -164,8 +177,6 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
   </div>
 </div>
 
-<div class="page-break"></div>
-
 ### 1.4. Parties prenantes
 
 | Acteur | Rôle |
@@ -173,11 +184,11 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
 | La Socketterie | Client |
 | Lead Developer | Validation métier et technique |
 | UX/UI designers | Maquettes & expérience utilisateur |
-| Développeurs | Réalisation / Développement (2 alternants disponible à 80%) |
-| Freelances | Renfort ponctuel (2 freelances en contrat de 5 jours max.) |
+| Développeurs | Réalisation / Développement (2 alternants disponibles à 80%) |
+| Freelances | Renfort ponctuel (2 freelances mobilisables 5 jours maximum) |
 | Équipe commerciale | Gestion produits & commandes |
 | Comptabilité | Facturation & export comptable |
-| Administrateur | Administration globales du site |
+| Administrateur | Administration globale du site |
 
 ### 1.5. Contraintes du projet
 
@@ -207,7 +218,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
     Éco-conception
   </div>
   <div class="card card--center card--danger">
-    Conformité règlementaire
+    Conformité réglementaire
   </div>
 </div>
 
@@ -215,26 +226,61 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
 
 <div class="underline">À l'issue du projet, La Socketterie disposera :</div>
 
-- d'un site vitrine moderne
-- d'une boutique e-commerce fonctionnelle
-- d'un espace client sécurisé
-- d'un espace d'administration
-- d'une solution prête à accueillir un volume de visiteurs plus important
+- d'un site moderne présentant la marque et ses actualités  ;
+- d'une boutique e-commerce fonctionnelle  ;
+- d'un espace client sécurisé  ;
+- d'un espace d'administration  ;
+- d'une solution prête à accueillir un volume de visiteurs plus important.
 
 ---
+
 <div class="page-break"></div>
 
 ## 2. Analyse des besoins
 
 ### 2.1. Identification des acteurs, de leurs rôles et de leurs besoins
 
-| Acteur | Rôle | Besoins |
-|--------|------|---------|
-| Visiteurs | Découvrir la marque. | Consulter les produits et les actualités, rechercher un produit, ajouter un articles au panier, contacter l'entreprise. |
-| Clients | Acheter des produits. | Commmander des produits, payer en ligne, suivre ses commandes, gérer son compte client. |
-| Service commerciale | Gérer les ventes : Suivi et gestion des commandes. | Mettre à jour les articles, éditer des informations de la commande à envoyer au service logistique, consulter les commandes et leur statut. |
-| Service comptabilité | Gérer les facturations. | Consulter les commandes, consulter et éditer les factures, exporter les données (format CSV). |
-| Administrateur | Gérer le site : Charger du bon fonctionnement du site. | Accéder à toutes les fonctionnalités du site. |
+<table>
+  <colgroup>
+    <col style="width: 20%"/>
+    <col style="width: 35%"/>
+    <col style="width: 45%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Acteur</th>
+      <th>Rôle</th>
+      <th>Besoins</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Visiteurs</td>
+      <td>Découvrir la marque.</td>
+      <td>Consulter les produits et les actualités, rechercher un produit, ajouter un article au panier, contacter l'entreprise.</td>
+    </tr>
+    <tr>
+      <td>Clients</td>
+      <td>Acheter des produits.</td>
+      <td>Commander des produits, payer en ligne, suivre ses commandes, gérer son compte client.</td>
+    </tr>
+    <tr>
+      <td>Service commercial</td>
+      <td>Gérer les ventes : suivi et gestion des commandes.</td>
+      <td>Mettre à jour les articles, préparer des informations de la commande destinées au service logistique et consulter les commandes ainsi que leur statut.</td>
+    </tr>
+    <tr>
+      <td>Service comptabilité</td>
+      <td>Gérer la facturation.</td>
+      <td>Consulter les commandes et les factures, éditer les factures et exporter les données au format CSV.</td>
+    </tr>
+    <tr>
+      <td>Administrateur</td>
+      <td>Administrer le site et veiller à son bon fonctionnement.</td>
+      <td>Accéder à l'ensemble des fonctionnalités d'administration du site.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 2.2. Priorisation des acteurs
 
@@ -266,13 +312,13 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       </td>
     </tr>
     <tr>
-      <td>Commerciaux</td>
+      <td>Service commercial</td>
       <td>
         <span class="badge badge--priority-medium">Moyenne</span>
       </td>
     </tr>
     <tr>
-      <td>Comptables</td>
+      <td>Service comptabilité</td>
       <td>
         <span class="badge badge--priority-medium">Moyenne</span>
       </td>
@@ -280,60 +326,61 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
   </tbody>
 </table>
 
-<div class="page-break"></div>
-
 ### 2.3. Identification des besoins fonctionnels
 
 #### 2.3.1. Fonctionnalités visiteurs
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| Catalogue produits | Consulter les produits |
-| Recherche | Rechercher un produit |
-| Fiche produit | Consulter les détails d'un produit |
-| Panier | Préparer une commande |
-| Formulaire de contact | Contacter l'entreprise |
-| Actualités | Consulter les nouveautés |
+| Catalogue produits | Consulter les produits. |
+| Recherche | Rechercher un produit. |
+| Fiche produit | Consulter les détails d'un produit. |
+| Panier | Préparer une commande. |
+| Formulaire de contact | Contacter l'entreprise. |
+| Actualités | Consulter les nouveautés. |
+
+<div class="page-break"></div>
 
 #### 2.3.2. Fonctionnalités clients
 
-<ul class="custom-list">
-  <li>
-    En plus des fonctionnalités visiteurs.
-  </li>
-</ul>
+<div class="note">
+  Les clients disposent également des fonctionnalités accessibles aux visiteurs.
+</div>
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| Création de compte | S'inscrire |
-| Connexion | Accéder à son espace |
-| Paiement Stripe | Régler une commande |
-| Historique | Consulter les commandes |
-| Gestion profil | Modifier ses informations personnelles |
+| Création de compte | S'inscrire. |
+| Connexion | Accéder à son espace. |
+| Paiement Stripe | Régler une commande. |
+| Historique | Consulter les commandes. |
+| Gestion de profil | Modifier ses informations personnelles. |
 
-#### 2.3.3. Fonctionnalités commerciales et administratives
-
-| Fonctionnalité | Description |
-|----------------|-------------|
-| Gestion produits | Ajouter, modifier, supprimer |
-| Gestion catégories | Organiser le catalogue |
-| Validation commande | Validation et traitement des commandes |
-| Paiement sécurisé | Stripe |
-| Suivi commandes | État des commandes |
-| Facturation | Édition des factures |
-
-#### 2.3.4. Fonctionnalités administrateur
-
-<ul class="custom-list">
-  <li>
-    En plus des fonctionnalités visiteurs, clients, commerciales et administratives.
-  </li>
-</ul>
+#### 2.3.3. Fonctionnalités commerciales
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| Gestion utilisateurs | Administrer les comptes |
-| Gestion contenus  | Actualités, pages |
+| Gestion des produits | Ajouter, modifier, supprimer. |
+| Gestion des catégories | Organiser le catalogue. |
+| Validation des commandes | Validation et traitement des commandes. |
+| Suivi des commandes | État des commandes. |
+
+#### 2.3.4. Fonctionnalités comptables
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Facturation | Édition des factures. |
+| Suivi des commandes valides | Consultation des commandes validées. |
+
+#### 2.3.5. Fonctionnalités administrateur
+
+<div class="note">
+  L'administrateur dispose des fonctionnalités nécessaires à la gestion globale du site
+</div>
+
+| Fonctionnalité | Description |
+|----------------|-------------|
+| Gestion des utilisateurs | Administrer les comptes. |
+| Gestion des contenus | Gérer les actualités et les pages statiques. |
 
 <div class="page-break"></div>
 
@@ -349,7 +396,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
 
   <tbody>
     <tr>
-      <td>Catalogue produits</td>
+      <td>Catalogue des produits</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
@@ -361,7 +408,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       </td>
     </tr>
     <tr>
-      <td>Recherche produit</td>
+      <td>Recherche de produit</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
@@ -397,43 +444,37 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       </td>
     </tr>
     <tr>
-      <td>Gestion produit</td>
+      <td>Gestion des produits</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
     </tr>
     <tr>
-      <td>Gestion catégorie</td>
+      <td>Gestion des catégories</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
     </tr>
     <tr>
-      <td>Validation commande</td>
+      <td>Validation des commandes</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
     </tr>
     <tr>
-      <td>Paiement sécurisé</td>
+      <td>Gestion des utilisateurs</td>
       <td>
         <span class="badge badge--priority-critical">Critique</span>
       </td>
     </tr>
     <tr>
-      <td>Gestion utilisateur</td>
-      <td>
-        <span class="badge badge--priority-critical">Critique</span>
-      </td>
-    </tr>
-    <tr>
-      <td>Suivi commande</td>
+      <td>Suivi des commandes</td>
       <td>
         <span class="badge badge--priority-high">Haute</span>
       </td>
     </tr>
     <tr>
-      <td>Gestion contenu</td>
+      <td>Gestion des contenus</td>
       <td>
         <span class="badge badge--priority-high">Haute</span>
       </td>
@@ -445,7 +486,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       </td>
     </tr>
     <tr>
-      <td>Gestion profil</td>
+      <td>Gestion du profil</td>
       <td>
         <span class="badge badge--priority-medium">Moyenne</span>
       </td>
@@ -457,7 +498,7 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
       </td>
     </tr>
     <tr>
-      <td>Actualité</td>
+      <td>Actualités</td>
       <td>
         <span class="badge badge--priority-low">Faible</span>
       </td>
@@ -476,152 +517,156 @@ L'entreprise **cible principalement une population jeune âgée de 20 à 35 ans*
 #### 3.1.1. Qui est le visiteur ?
 
 Un utilisateur :
-- non connecté;
-- qui découvre la marque;
-- qui recherche éventuellement un produit;
-- qui n'a jamais acheté.
+- qui consulte le site sans être authentifié.
+- qui découvre la marque.
+- qui recherche éventuellement un produit.
   
 #### 3.1.2. Qui est le client ?
 
 Un utilisateur :
-- possédant un compte;
-- ayant déjà effectué ou souhaitant effectuer une commande;
-- pouvant accéder à son espace personnel;
+- possédant un compte.
+- ayant déjà effectué ou souhaitant passer une commande.
+- pouvant accéder à son espace personnel.
 - pouvant suivre ses commandes.
   
 #### 3.1.3. Qui est l'administrateur ?
 
 Un collaborateur interne :
-- disposant des droits complets d'administration;
-- responsable du bon fonctionnement du site;
-- chargé de la gestion du catalogue, du contenu et des utilisateurs.
+- disposant des droits complets d'administration.
+- responsable du bon fonctionnement du site.
+- chargé de la gestion des contenus, des comptes internes et des paramètres du site.
 
 #### 3.1.4. Qui est le commercial ?
 
 Un collaborateur interne :
-- chargé du traitement des ventes;
-- responsable du suivi des commandes;
-- en relation avec les clients et le service expédition.
+- chargé du traitement des ventes.
+- responsable du suivi des commandes.
+- en relation avec les clients et le service logistique.
   
 #### 3.1.5. Qui est le comptable ?
 
 Un collaborateur interne :
-- chargé du suivi financier;
-- responsable de la facturation;
+- chargé du suivi financier.
+- responsable de la facturation.
+- chargé de l'export des données comptables.
 
 <div class="page-break"></div>
 
 <div class="split-layout">
 
-  <div>
-    <h3>3.2. Tableau des points d'effort</h3>
-    <table class="custom-table custom-table--effort">
-      <colgroup>
-        <col class="col-number">
-        <col class="col-auto">
-        <col class="col-auto">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>Effort</th>
-          <th>Signification</th>
-          <th>Temporisation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-1">1</span>
-          </td>
-          <td>Très simple</td>
-          <td>Moins de 2 heures</td>
-        </tr>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-2">2</span>
-          </td>
-          <td>Simple</td>
-          <td>Une demi-journée</td>
-        </tr>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-3">3</span>
-          </td>
-          <td>Faible complexité</td>
-          <td>Jusqu'à 2 jours</td>
-        </tr>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-5">5</span>
-          </td>
-          <td>Complexité moyenne</td>
-          <td>Quelques jours</td>
-        </tr>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-8">8</span>
-          </td>
-          <td>Complexe</td>
-          <td>Environ une semaine</td>
-        </tr>
-        <tr>
-          <td>
-           <span class="badge badge--number badge--effort-13">13</span>
-          </td>
-          <td>Très complexe</td>
-          <td>Plus d'une semaine</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div>
 
-  <div>
-    <h3>3.3. Tableau des valeurs métier</h3>
-    <table class="custom-table custom-table--value">
-      <colgroup>
-        <col class="col-number">
-        <col class="col-auto">
-      </colgroup>
-      <thead>
-        <tr>
-          <th>Valeur</th>
-          <th>Signification</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <span class="badge badge--number badge--value-1">1</span>
-          </td>
-          <td>Faible</td>
-        </tr>
-        <tr>
-          <td>
-            <span class="badge badge--number badge--value-2">2</span>
-          </td>
-          <td>Peu utile</td>
-        </tr>
-        <tr>
-          <td>
-            <span class="badge badge--number badge--value-3">3</span>
-          </td>
-          <td>Utile</td>
-        </tr>
-        <tr>
-          <td>
-            <span class="badge badge--number badge--value-4">4</span>
-          </td>
-          <td>Importante</td>
-        </tr>
-        <tr>
-          <td>
-            <span class="badge badge--number badge--value-5">5</span>
-          </td>
-          <td>Critique</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+### 3.2. Tableau des points d'effort
+
+  <table class="custom-table custom-table--effort">
+    <colgroup>
+      <col class="col-number">
+      <col class="col-auto">
+      <col class="col-auto">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Effort</th>
+        <th>Signification</th>
+        <th>Durée indicative</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-1">1</span>
+        </td>
+        <td>Très simple</td>
+        <td>Moins de 2 heures</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-2">2</span>
+        </td>
+        <td>Simple</td>
+        <td>Une demi-journée</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-3">3</span>
+        </td>
+        <td>Faible complexité</td>
+        <td>Jusqu'à 2 jours</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-5">5</span>
+        </td>
+        <td>Complexité moyenne</td>
+        <td>Quelques jours</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-8">8</span>
+        </td>
+        <td>Complexe</td>
+        <td>Environ une semaine</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--effort-13">13</span>
+        </td>
+        <td>Très complexe</td>
+        <td>Plus d'une semaine</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+
+### 3.3. Tableau des valeurs métier
+
+  <table class="custom-table custom-table--value">
+    <colgroup>
+      <col class="col-number">
+      <col class="col-auto">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Valeur</th>
+        <th>Signification</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--value-1">1</span>
+        </td>
+        <td>Faible</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--value-2">2</span>
+        </td>
+        <td>Peu utile</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--value-3">3</span>
+        </td>
+        <td>Utile</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--value-4">4</span>
+        </td>
+        <td>Importante</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="badge badge--number badge--value-5">5</span>
+        </td>
+        <td>Critique</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 </div>
 
@@ -630,15 +675,15 @@ Un collaborateur interne :
 <table class="custom-table custom-table--epics">
   <colgroup>
     <col class="col-id">
-    <col class="col-auto">
+    <col style="width: 40%">
     <col class="col-role">
-    <col class="col-auto">
+    <col style="width: 60%">
   </colgroup>
   <thead>
     <tr>
       <th>ID</th>
       <th>EPIC</th>
-      <th>Acteurs principal</th>
+      <th>Acteur principal</th>
       <th>Objectif</th>
     </tr>
   </thead>
@@ -649,15 +694,15 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Découvrir les produits vendus par La Socketterie</td>
+      <td>Découvrir les produits vendus par La Socketterie.</td>
     </tr>
     <tr>
       <td>E-02</td>
-      <td>Recherche & navigation</td>
+      <td>Recherche et navigation</td>
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Trouver rapidement un produit précis</td>
+      <td>Trouver rapidement un produit précis.</td>
     </tr>
     <tr>
       <td>E-03</td>
@@ -665,7 +710,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Obtenir les informations détaillées d'un produit</td>
+      <td>Obtenir les informations détaillées d'un produit.</td>
     </tr>
     <tr>
       <td>E-04</td>
@@ -673,7 +718,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Découvrir l'histoire, les valeurs et les engagements de La Socketterie</td>
+      <td>Découvrir l'histoire, les valeurs et les engagements de La Socketterie.</td>
     </tr>
     <tr>
       <td>E-05</td>
@@ -681,15 +726,15 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Préparer une commande en ajoutant des produits</td>
+      <td>Préparer une commande en ajoutant des produits.</td>
     </tr>
     <tr>
       <td>E-06</td>
-      <td>Contact & assistance</td>
+      <td>Contact et assistance</td>
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Entrer en contact avec l'entreprise</td>
+      <td>Entrer en contact avec l'entreprise.</td>
     </tr>
     <tr>
       <td>E-07</td>
@@ -697,7 +742,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Consulter les informations réglementaires du site</td>
+      <td>Consulter les informations réglementaires du site.</td>
     </tr>
     <tr>
       <td>E-08</td>
@@ -705,7 +750,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td>Créer un compte client utilisateur</td>
+      <td>Créer un compte client.</td>
     </tr>
     <tr>
       <td>E-09</td>
@@ -713,7 +758,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td>Confirmer ou suivre une commande et acheter des produits</td>
+      <td>Confirmer ou suivre une commande et acheter des produits.</td>
     </tr>
     <tr>
       <td>E-10</td>
@@ -721,7 +766,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td>Gérer son espace personnel</td>
+      <td>Gérer son espace personnel.</td>
     </tr>
     <tr>
       <td>E-11</td>
@@ -729,7 +774,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td>Gérer les produits du catalogue</td>
+      <td>Gérer les produits du catalogue.</td>
     </tr>
     <tr>
       <td>E-12</td>
@@ -737,7 +782,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td>Traiter les commandes client</td>
+      <td>Traiter et suivre les commandes client.</td>
     </tr>
     <tr>
       <td>E-13</td>
@@ -745,15 +790,15 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-accounting">Comptable</span>
       </td>
-      <td>Gérer les factures et consulter la liste des commandes</td>
+      <td>Gérer les factures et consulter la liste des commandes.</td>
     </tr>
     <tr>
       <td>E-14</td>
-      <td>Gestion du contenu</td>
+      <td>Gestion des contenus</td>
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td>Gérer les pages publiques et les actualités</td>
+      <td>Gérer les pages publiques et les actualités.</td>
     </tr>
     <tr>
       <td>E-15</td>
@@ -761,7 +806,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td>Gérer les comptes d'accès interne : commerciaux, comptables, etc.</td>
+      <td>Gérer les comptes des utilisateurs internes : commerciaux, comptables, etc.</td>
     </tr>
     <tr>
       <td>E-16</td>
@@ -769,7 +814,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td>Paramétrer les catégories, modes de livraison et paramètres techniques</td>
+      <td>Paramétrer les catégories, les modes de livraison et les paramètres techniques.</td>
     </tr>
   </tbody>
 </table>
@@ -781,9 +826,9 @@ Un collaborateur interne :
 <table class="custom-table custom-table--us">
   <colgroup>
     <col class="col-id">
-    <col class="col-auto">
+    <col style="width: 30%">
     <col class="col-role">
-    <col class="col-auto">
+    <col style="width: 70%">
     <col class="col-number">
     <col class="col-number">
   </colgroup>
@@ -809,7 +854,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter le catalogue afin de découvrir les produits proposés</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter le catalogue afin de découvrir les produits proposés.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -822,13 +867,13 @@ Un collaborateur interne :
       <td rowspan="2" class="epic-column">
         <div class="stack-cell">
           <span class="epic-number">E-02</span>
-          <span>Recherche & navigation</span>
+          <span>Recherche et navigation</span>
         </div>
       </td>
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite rechercher un produit par mot-clé afin de trouver rapidement un article précis</td>
+      <td class="us-story">En tant que visiteur, je souhaite rechercher un produit par mot-clé afin de trouver rapidement un article précis.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -841,7 +886,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite filtrer les produits par catégorie afin d'affiner ma recherche</td>
+      <td class="us-story">En tant que visiteur, je souhaite filtrer les produits par catégorie afin d'affiner ma recherche.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -860,7 +905,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter la fiche détaillée d'un produit afin d'obtenir toutes les informations nécessaires avant un éventuel achat</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter la fiche détaillée d'un produit afin d'obtenir toutes les informations nécessaires avant un éventuel achat.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -873,7 +918,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite visualiser plusieurs photos d'un produit afin de voir le produit sous différents angles ou différentes couleurs</td>
+      <td class="us-story">En tant que visiteur, je souhaite visualiser plusieurs photos d'un produit afin de le découvrir sous différents angles.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -892,7 +937,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter la présentation de l'entreprise afin de découvrir son histoire et ses valeurs</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter la présentation de l'entreprise afin de découvrir son histoire et ses valeurs.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -905,7 +950,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter les actualités de l'entreprise afin de suivre son activité</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter les actualités de l'entreprise afin de suivre son activité.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -924,7 +969,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite ajouter un produit au panier afin de préparer une commande</td>
+      <td class="us-story">En tant que visiteur, je souhaite ajouter un produit au panier afin de préparer une commande.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -937,7 +982,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite modifier la quantité d'un produit afin d'ajuster ma future commande</td>
+      <td class="us-story">En tant que visiteur, je souhaite modifier la quantité d'un produit afin d'ajuster ma future commande.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -950,7 +995,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite supprimer un produit du panier afin de mettre à jour ma sélection</td>
+      <td class="us-story">En tant que visiteur, je souhaite supprimer un produit du panier afin de mettre à jour ma sélection.</td>
       <td>
         <span class="badge badge--number badge--effort-1">1</span>
       </td>
@@ -963,7 +1008,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter le contenu de mon panier afin de vérifier les produits sélectionnés avant de poursuivre ma commande</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter le contenu de mon panier afin de vérifier les produits sélectionnés avant de poursuivre ma commande.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -976,13 +1021,13 @@ Un collaborateur interne :
       <td class="epic-column">
         <div class="stack-cell">
           <span class="epic-number">E-06</span>
-          <span>Contact & assistance</span>
+          <span>Contact et assistance</span>
         </div>
       </td>
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite envoyer un message via le formulaire de contact afin d'obtenir une réponse à ma demande</td>
+      <td class="us-story">En tant que visiteur, je souhaite envoyer un message via le formulaire de contact afin d'obtenir une réponse à ma demande.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -992,7 +1037,7 @@ Un collaborateur interne :
     </tr>
     <tr>
       <td>US-V13</td>
-      <td rowspan="2" class="epic-column">
+      <td rowspan="3" class="epic-column">
         <div class="stack-cell">
           <span class="epic-number">E-07</span>
           <span>Informations légales</span>
@@ -1001,7 +1046,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter les mentions légales afin de connaître les informations réglementaires du site</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter les mentions légales afin de connaître les informations réglementaires du site.</td>
       <td>
         <span class="badge badge--number badge--effort-1">1</span>
       </td>
@@ -1014,7 +1059,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter les CGV afin de connaître les régles applicables aux achats</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter les CGV afin de connaître les règles applicables aux achats.</td>
       <td>
         <span class="badge badge--number badge--effort-1">1</span>
       </td>
@@ -1024,16 +1069,10 @@ Un collaborateur interne :
     </tr>
     <tr>
       <td>US-V15</td>
-      <td class="epic-column">
-        <div class="stack-cell">
-          <span class="epic-number">E-07</span>
-          <span>Informations légales</span>
-        </div>
-      </td>
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite consulter la politique de confidentialité afin de connaître l'utilisation de mes données personnelles</td>
+      <td class="us-story">En tant que visiteur, je souhaite consulter la politique de confidentialité afin de connaître l'utilisation de mes données personnelles.</td>
       <td>
         <span class="badge badge--number badge--effort-1">1</span>
       </td>
@@ -1052,7 +1091,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-visitor">Visiteur</span>
       </td>
-      <td class="us-story">En tant que visiteur, je souhaite créer un compte afin de pouvoir passer commande et suivre mes achats</td>
+      <td class="us-story">En tant que visiteur, je souhaite créer un compte afin de pouvoir passer commande et suivre mes achats.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -1071,7 +1110,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant que client, je souhaite valider une commande afin de finaliser mon achat</td>
+      <td class="us-story">En tant que client, je souhaite valider une commande afin de finaliser mon achat.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -1084,7 +1123,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant que client, je souhaite payer ma commande en ligne afin de confirmer mon achat</td>
+      <td class="us-story">En tant que client, je souhaite payer ma commande en ligne afin de confirmer mon achat.</td>
       <td>
         <span class="badge badge--number badge--effort-8">8</span>
       </td>
@@ -1097,7 +1136,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant que client, je souhaite recevoir une confirmation de commande afin d'être informé de la prise en compte de mon achat</td>
+      <td class="us-story">En tant que client, je souhaite recevoir une confirmation de commande afin d'être informé de la prise en compte de mon achat.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1116,7 +1155,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant client, je souhaite me connecter à mon compte afin d'accéder à mon espace personnel et à mes commandes</td>
+      <td class="us-story">En tant que client, je souhaite me connecter à mon compte afin d'accéder à mon espace personnel et à mes commandes.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -1129,7 +1168,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant que client, je souhaite modifier mes informations personnelles afin de maintenir mon profil à jour</td>
+      <td class="us-story">En tant que client, je souhaite modifier mes informations personnelles afin de maintenir mon profil à jour.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1142,7 +1181,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-customer">Client</span>
       </td>
-      <td class="us-story">En tant que client, je souhaite consulter l'historique de mes commandes afin de suivre mes achats passés</td>
+      <td class="us-story">En tant que client, je souhaite consulter l'historique de mes commandes afin de suivre mes achats passés.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1161,7 +1200,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite ajouter un nouveau produit au catalogue afin de proposer de nouveaux articles à la vente</td>
+      <td class="us-story">En tant que commercial, je souhaite ajouter un nouveau produit au catalogue afin de proposer de nouveaux articles à la vente.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1174,7 +1213,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite accéder au formulaire d'édition de produit afin de pouvoir modifier un article</td>
+      <td class="us-story">En tant que commercial, je souhaite modifier un produit afin de maintenir les informations du catalogue à jour.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -1187,7 +1226,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite supprimer un produit afin de retirer un article du catalogue</td>
+      <td class="us-story">En tant que commercial, je souhaite supprimer un produit afin de retirer un article du catalogue.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1200,7 +1239,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite organiser le catalogue par catégorie afin de faciliter la navigation des visiteurs</td>
+      <td class="us-story">En tant que commercial, je souhaite associer les produits aux catégories afin d'organiser le catalogue et de faciliter la navigation des visiteurs.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1219,7 +1258,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite consulter les commandes afin d'assurer leur suivi</td>
+      <td class="us-story">En tant que commercial, je souhaite consulter les commandes afin d'assurer leur suivi.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1232,7 +1271,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-sales">Commercial</span>
       </td>
-      <td class="us-story">En tant que commercial, je souhaite modifier le statut d'une commande afin de suivre son traitement et la mettre à jour</td>
+      <td class="us-story">En tant que commercial, je souhaite modifier le statut d'une commande afin de suivre l'avancement de son traitement.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1251,7 +1290,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-accounting">Comptable</span>
       </td>
-      <td class="us-story">En tant que comptable, je souhaite consulter les commandes validées afin de préparer les opérations de facturation</td>
+      <td class="us-story">En tant que comptable, je souhaite consulter les commandes validées afin de préparer les opérations de facturation.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1270,7 +1309,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-accounting">Comptable</span>
       </td>
-      <td class="us-story">En tant que comptable, je souhaite générer une facture afin de disposer d'un document comptable associé à une commande validée</td>
+      <td class="us-story">En tant que comptable, je souhaite générer une facture afin de disposer d'un document comptable associé à une commande validée.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1283,7 +1322,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-accounting">Comptable</span>
       </td>
-      <td class="us-story">En tant que comptable, je souhaite exporter les données comptables afin de les intégrer au système comptable de l'entreprise</td>
+      <td class="us-story">En tant que comptable, je souhaite exporter les données comptables afin de les intégrer au système comptable de l'entreprise.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
       </td>
@@ -1296,13 +1335,13 @@ Un collaborateur interne :
       <td rowspan="4" class="epic-column">
         <div class="stack-cell">
           <span class="epic-number">E-14</span>
-          <span>Gestion du contenu</span>
+          <span>Gestion des contenus</span>
         </div>
       </td>
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite créer une actualité afin d'informer les visiteurs du site</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite créer une actualité afin d'informer les visiteurs du site.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1315,7 +1354,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite modifier une actualité afin de mettre à jour les informations publiées</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite modifier une actualité afin de mettre à jour les informations publiées.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1328,7 +1367,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite supprimer une actualité afin de retirer une information obsolète</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite supprimer une actualité afin de retirer une information obsolète.</td>
       <td>
         <span class="badge badge--number badge--effort-1">1</span>
       </td>
@@ -1341,7 +1380,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite gérer les contenus statiques du site afin de maintenir les pages publiques à jour</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite gérer les contenus statiques du site afin de maintenir les pages publiques à jour.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1360,7 +1399,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite créer un compte interne afin de permettre l'accès aux collaborateurs autorisés</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite créer un compte interne afin de permettre l'accès aux collaborateurs autorisés.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1373,7 +1412,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite modifier un compte interne afin de maintenir les informations et les accès des utilisateurs interne à jour</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite modifier un compte interne afin de maintenir les informations et les accès des utilisateurs internes à jour.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1386,7 +1425,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite désactiver un compte interne afin de supprimer les accès d'un utilisateur</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite désactiver un compte interne afin d'empêcher l'accès d'un utilisateur au système.</td>
       <td>
         <span class="badge badge--number badge--effort-2">2</span>
       </td>
@@ -1396,7 +1435,7 @@ Un collaborateur interne :
     </tr>
     <tr>
       <td>US-A08</td>
-      <td rowspan="4" class="epic-column">
+      <td rowspan="2" class="epic-column">
         <div class="stack-cell">
           <span class="epic-number">E-16</span>
           <span>Paramétrage du site</span>
@@ -1405,7 +1444,7 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite paramétrer les catégories de produits afin d'organiser efficacement le catalogue</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite paramétrer les catégories de produits afin d'organiser efficacement le catalogue.</td>
       <td>
         <span class="badge badge--number badge--effort-3">3</span>
       </td>
@@ -1418,22 +1457,9 @@ Un collaborateur interne :
       <td>
         <span class="badge badge--role-admin">Administrateur</span>
       </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite paramétrer les modes de livraison disponibles afin de proposer différentes solutions d'expédition aux clients</td>
+      <td class="us-story">En tant qu'administrateur, je souhaite paramétrer les modes de livraison disponibles afin de proposer différentes solutions d'expédition aux clients.</td>
       <td>
         <span class="badge badge--number badge--effort-5">5</span>
-      </td>
-      <td>
-        <span class="badge badge--number badge--value-5">5</span>
-      </td>
-    </tr>
-    <tr>
-      <td>US-A10</td>
-      <td>
-        <span class="badge badge--role-admin">Administrateur</span>
-      </td>
-      <td class="us-story">En tant qu'administrateur, je souhaite accéder aux paramètres techniques du site afin d'assurer son bon fonctionnement</td>
-      <td>
-        <span class="badge badge--number badge--effort-3">3</span>
       </td>
       <td>
         <span class="badge badge--number badge--value-5">5</span>
@@ -1446,7 +1472,7 @@ Un collaborateur interne :
 
 #### 3.5.1. Estimation des User Stories selon la suite de Fibonacci
 
-Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 21...) afin de prendre en compte la complexité et l'incertitude croissance.
+Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13) afin de prendre en compte la complexité et l'incertitude croissantes.
 
 <table class="custom-table custom-table--fibo">
   <colgroup>
@@ -1478,7 +1504,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
           <span class="badge badge--small badge--role-admin">US-A03</span>
         </div>
       </td>
-      <td>US simple avec une complexité minimale.</td>
+      <td>User Story simple avec une complexité minimale.</td>
     </tr>
     <tr>
       <td>
@@ -1502,7 +1528,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
           <span class="badge badge--small badge--role-admin">US-A07</span>
         </div>
       </td>
-      <td>Un peu plus complexe. Fonctionnalité simple avec peu de dépendances.</td>
+      <td>Fonctionnalité simple présentant peu de dépendances.</td>
     </tr>
     <tr>
       <td>
@@ -1529,10 +1555,9 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
           <span class="badge badge--small badge--role-admin">US-A05</span>
           <span class="badge badge--small badge--role-admin">US-A06</span>
           <span class="badge badge--small badge--role-admin">US-A08</span>
-          <span class="badge badge--small badge--role-admin">US-A10</span>
         </div>
       </td>
-      <td>Complexité modérée avec quelques dépendances nécessitant quelques règles et interactions.</td>
+      <td>Complexité modérée avec quelques dépendances nécessitant plusieurs règles ou interactions.</td>
     </tr>
     <tr>
       <td>
@@ -1552,7 +1577,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
           <span class="badge badge--small badge--role-admin">US-A09</span>
         </div>
       </td>
-      <td>US complexe impliquant de multiples dépendances. Fonctionnalité complexe avec plusieurs règles métier.</td>
+      <td>Fonctionnalité impliquant de multiples dépendances et plusieurs règles métier.</td>
     </tr>
     <tr>
       <td>
@@ -1566,7 +1591,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
           <span class="badge badge--small badge--role-customer">US-C02</span>
         </div>
       </td>
-      <td>US très complexe ou à forte incertitude. Envisagez de la décomposer.</td>
+      <td>User Story très complexe ou présentant une forte incertitude, dont la décomposition peut être envisagée.</td>
     </tr>
     <tr>
       <td>
@@ -1576,7 +1601,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
         </div>
       </td>
       <td class="empty-cell">Aucune User Story estimée à ce niveau</td>
-      <td>Trop important ou trop risqué pour être estimé avec précision. Il faut le diviser en US plus petites.</td>
+      <td>Trop importante ou trop risqué pour être estimé avec précision. Elle doit être divisée en User Stories plus petites.</td>
     </tr>
   </tbody>
 </table>
@@ -1594,7 +1619,7 @@ Les User Stories sont estimées selon la suite de Fibonacci (1, 2, 3, 5, 8, 13, 
 
 #### 3.5.2. Matrice Valeur/Effort des User Stories
 
-La matrice Valeur / Effort permet de visualiser les User Stories selon deux critèes : leur **valeur métier** (axe vertical) et leur **effort de développement estimé** (axe horizontal, selon la suite Fibonacci). Cette représentation facilite la priorisation des fonctionnalités en mettant en évidence les tâches offrant le meilleur rapport entre valeur apportée et coût de réalisation.
+La matrice Valeur / Effort permet de visualiser les User Stories selon deux critères : leur **valeur métier** (axe vertical) et leur **effort de développement estimé** (axe horizontal, selon la suite de Fibonacci). Cette représentation facilite la priorisation des fonctionnalités en mettant en évidence les tâches offrant le meilleur rapport entre valeur apportée et coût de réalisation.
 
 ![Matrice Valeur/Effort](./docs/images/matrice-valeur-effort-us.png)
 
@@ -1607,12 +1632,12 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
   <span class="badge badge--small badge--role-admin">Administrateur</span>
 </div>
 
-<div class="bold underline" style="margin-top: 16px">Lecture de la la matrice</div>
+<div class="bold underline" style="margin-top: 16px">Lecture de la matrice</div>
 
-- Les User Stories situées en **haut à gauche** présentent une **forte valeur pour un faible effort**. Elles constituent les fonctionnalités à développer en priorité (Quick Wins).
-- Les User Stories **en haut à droite** aportent **une forte valeur** mais nécessitent **un effort important**. Elles représentent des investissements stratégiques à planifier.
-- Les User Stories **en bas à gauche** demandent **peu d'effort** mais apportent **une valeur limitée**. Elles peuvent être intégrées en fonction des ressources disponibles.
-- Les User Stories **en bas à droite** combinent **un effort élevé et une faible valeur**. Elles sont généralement reportées ou réévaluées.
+- Les User Stories situées en **haut à gauche** présentent une **forte valeur pour un faible effort**. Elles constituent les fonctionnalités à développer en priorité, qualifiées de **gains rapides (Quick Wins)**.
+- Les User Stories situées en **en haut à droite** apportent **une forte valeur** mais nécessitent **un effort important**. Elles représentent des investissements stratégiques à planifier.
+- Les User Stories situées **en bas à gauche** demandent **peu d'effort** mais apportent **une valeur limitée**. Elles peuvent être intégrées en fonction des ressources disponibles.
+- Les User Stories situées **en bas à droite** combinent **un effort élevé et une faible valeur**. Elles sont généralement reportées ou réévaluées.
 
 <div class="page-break"></div>
 
@@ -1655,7 +1680,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Les produits doivent être affichés sous forme de liste ou de grille.</li>
         <li>Chaque produit doit afficher au minimum son nom, sa catégorie, son prix et son image principale.</li>
         <li>Les produits indisponibles doivent être identifiables visuellement.</li>
-        <li>Les produits doivent être classés par catégorie.</li>
+        <li>Chaque produit doit être associé à une catégorie.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -1674,7 +1699,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <p>
             <span class="bold">Étant donné</span> qu'un produit est indisponible,<br>
             <span class="bold">lorsque</span> je consulte le catalogue,<br>
-            <span class="bold">alors</span> le produit apparaît comme indisponible mais sa fiche détaillée reste consultable sans pouvoir ajouter le produit au panier.
+            <span class="bold">alors</span> le produit apparaît comme indisponible et sa fiche détaillée reste consultable, mais il ne peut pas être ajouté au panier.
           </p>
         </div>
       </div>
@@ -1684,7 +1709,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>Fonction centrale du site.</li>
         <li>Première fonctionnalité utilisée par la majorité des visiteurs.</li>
-        <li>Sans catalogue : pas de découverte produit, pas d'achat et pas de chiffre d'affaires.</li>
+        <li>Sans catalogue, les visiteurs ne peuvent ni découvrir les produits ni effectuer d'achat.</li>
         <li>Complexité faible à moyenne : page catalogue, récupération des produits et affichage des cartes produits.</li>
       </ul>
     </div>
@@ -1719,7 +1744,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Description</h3>
       <p>
         En tant que <span class="bold">visiteur</span>,<br>
-        je souhaite rechercher un produit via un mot-clé<br>
+        je souhaite rechercher un produit par mot-clé<br>
         afin de trouver rapidement un article précis.
       </p>
     </div>
@@ -1739,7 +1764,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <p>
             <span class="bold">Étant donné</span> que je consulte le catalogue,<br>
             <span class="bold">lorsque</span> je saisis un mot-clé existant,<br>
-            <span class="bold">alors</span> les produits correspondant sont affichés.
+            <span class="bold">alors</span> les produits correspondants sont affichés.
           </p>
         </div>
         <div class="us-scenario">
@@ -1757,7 +1782,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>Fonction essentielle pour améliorer l'expérience utilisateur.</li>
         <li>Permet de trouver rapidement un produit sans parcourir tout le catalogue.</li>
-        <li>Fonction très utilisée sur les sites e-commerce comportant de nombreux articles.</li>
+        <li>Fonction couramment utilisée sur les sites e-commerce comportant de nombreux articles.</li>
         <li>Complexité moyenne : mise en place d'un champ de recherche, filtrage des produits, gestion des résultats et des cas sans correspondance.</li>
       </ul>
     </div>
@@ -1800,7 +1825,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Règles métier</h3>
       <ul class="custom-list">
         <li>Chaque produit possède une page détaillée.</li>
-        <li>La fiche produit affiche au minimum : le nom du produit, sa catégorie, sa description, ses images et son état de disponibilité.</li>
+        <li>La fiche produit affiche au minimum : le nom du produit, sa catégorie, sa description, son prix, ses images, les variantes disponibles et son état de disponibilité.</li>
         <li>Un produit indisponible doit être clairement identifié.</li>
       </ul>
     </div>
@@ -1828,7 +1853,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
     <div class="us-section">
       <h3 class="us-section__title">Justification</h3>
       <ul class="custom-list">
-        <li>Fonction indispensable avant achat.</li>
+        <li>Fonction indispensable au parcours d'achat.</li>
         <li>Permet au visiteur d'obtenir toutes les informations utiles sur un produit.</li>
         <li>Favorise la conversion en commande.</li>
         <li>Complexité faible à moyenne : création d'une page produit, affichage des informations détaillées et gestion de la disponibilité.</li>
@@ -1873,9 +1898,9 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Règles métier</h3>
       <ul class="custom-list">
         <li>Un produit disponible peut être ajouté au panier.</li>
-        <li>Le panier conserve les produits sélectionnés même après déconnexion.</li>
+        <li>Le panier conserve les produits sélectionnés entre les sessions de navigation.</li>
         <li>La quantité initiale est égale à 1.</li>
-        <li>La couleur initiale est celle paramétrée par défaut.</li>
+        <li>Les variantes obligatoires doivent être sélectionnées avant l'ajout au panier.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -1905,7 +1930,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Première étape du processus d'achat.</li>
         <li>Sans panier, aucune commande ne peut être préparée.</li>
         <li>Fonction centrale d'un site e-commerce.</li>
-        <li>Complexité moyenne : gestion du panier, ajout d'article et conservation des données utilisateur.</li>
+        <li>Complexité moyenne : gestion du panier, ajout d'article et conservation des données du panier.</li>
       </ul>
     </div>
 
@@ -1948,10 +1973,9 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Règles métier</h3>
       <ul class="custom-list">
         <li>Le panier affiche l'ensemble des produits ajoutés.</li>
-        <li>Le prix unitaire, les choix de couleurs, de taille et la quantité sont visibles.</li>
+        <li>Le prix unitaire, les variantes sélectionnées et la quantité sont visibles.</li>
         <li>Le montant total est calculé automatiquement.</li>
         <li>Le panier reste accessible à tout moment depuis le site.</li>
-        <li>Le panier s'affiche dans un panel.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2023,7 +2047,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>Une adresse email unique est obligatoire.</li>
         <li>Un mot de passe est requis.</li>
-        <li>Les informations obligatoires doivent être renseignées.</li>
+        <li>Les champs obligatoires du formulaire doivent être renseignés avant la création du compte.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2040,9 +2064,9 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une erreur survient,<br>
-            <span class="bold">lorsque</span> les informations sont invalides,<br>
-            <span class="bold">alors</span> la création de compte n'est pas exécutée et le formulaire de contact retourne un message explicite sur l'erreur.
+            <span class="bold">Étant donné</span> que je suis sur le formulaire d'inscription,<br>
+            <span class="bold">lorsque</span> je renseigne des informations invalides et soumets le formulaire,<br>
+            <span class="bold">alors</span> le compte n'est pas créé et un message explicite indique les erreurs à corriger.
           </p>
         </div>
       </div>
@@ -2095,7 +2119,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>L'utilisateur doit être authentifié.</li>
         <li>Le panier doit contenir au moins un produit.</li>
-        <li>Le montant total doit être calculé avant validation (TVA, frais de port, etc.).</li>
+        <li>Le montant total doit être calculé avant validation en intégrant la TVA et les frais de livraison applicables.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2106,7 +2130,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <p>
             <span class="bold">Étant donné</span> que je suis connecté et que mon panier contient des produits,<br>
             <span class="bold">lorsque</span> je valide ma commande,<br>
-            <span class="bold">alors</span> une commande est créée.
+            <span class="bold">alors</span> une commande est créée et enregistrée en attente de paiement.
           </p>
         </div>
         <div class="us-scenario">
@@ -2123,7 +2147,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Justification</h3>
       <ul class="custom-list">
         <li>Fonction critique du processus d'achat.</li>
-        <li>Transforme un panier en commande réelle.</li>
+        <li>Transforme un panier en commande enregistrée.</li>
         <li>Impact direct sur le chiffre d'affaires.</li>
         <li>Complexité moyenne : vérification métier, création de commande et gestion des états.</li>
       </ul>
@@ -2168,7 +2192,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>Le paiement est réalisé via Stripe.</li>
         <li>Le montant transmis correspond au total de la commande.</li>
-        <li>La commande n'est validée qu'après confirmation du paiement.</li>
+        <li>La commande n'est confirmée qu'après confirmation du paiement.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2177,17 +2201,17 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario principal</div>
           <p>
-            <span class="bold">Étant donné</span> que ma commande est prête,<br>
-            <span class="bold">lorsque</span> j'effectue un paiement valide,<br>
+            <span class="bold">Étant donné</span> que ma commande est en attente de paiement,<br>
+            <span class="bold">lorsque</span> le paiement est accepté par Stripe,<br>
             <span class="bold">alors</span> le paiement est accepté et la commande est confirmée.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une erreur survient,<br>
-            <span class="bold">lorsque</span> le paiement échoue,<br>
-            <span class="bold">alors</span> la commande n'est pas validée.
+            <span class="bold">Étant donné</span> que ma commande est en attente de paiement,<br>
+            <span class="bold">lorsque</span> le paiement est refusé ou échoue,<br>
+            <span class="bold">alors</span> la commande reste en attente de paiement et un message d'erreur est affiché.
           </p>
         </div>
       </div>
@@ -2197,7 +2221,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>Fonction indispensable à la vente en ligne.</li>
         <li>Permet l'encaissement des paiements.</li>
-        <li>Impact direct sur la rentabilité du projet.</li>
+        <li>Impact direct sur le chiffre d'affaires de l'entreprise.</li>
         <li>Complexité élevée : intégration Stripe, sécurisation des échanges et gestion des erreurs de paiement.</li>
       </ul>
     </div>
@@ -2258,8 +2282,8 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> que je saisis des identifiants incorrects,<br>
-            <span class="bold">lorsque</span> je tente de me connecter,<br>
+            <span class="bold">Étant donné</span> que je possède un compte,<br>
+            <span class="bold">lorsque</span> je saisis des indentifiants incorrects et tente de me connecter,<br>
             <span class="bold">alors</span> un message d'erreur explicite est affiché.
           </p>
         </div>
@@ -2269,8 +2293,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Justification</h3>
       <ul class="custom-list">
         <li>Permet l'accès aux fonctionnalités réservées aux clients.</li>
-        <li>Fonction indispensable à la gestion du compte et des commandes.</li>
-        <li>Fonction indispensable au processus d'achat afin de valider une commande.</li>
+        <li>Fonction indispensable à l'accès au compte client, au suivi des commandes et à la validation d'un achat.</li>
         <li>Complexité faible à moyenne : authentification, gestion des sessions et contrôle des accès.</li>
       </ul>
     </div>
@@ -2314,6 +2337,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>La création de produits est réservée aux commerciaux et aux administrateurs.</li>
         <li>Un produit possède au minimum un nom, une description, un prix, une catégorie et une image principale.</li>
+        <li>Le produit peut disposer de variantes, notamment de taille ou de couleur.</li>
         <li>Le produit est visible dans le catalogue après enregistrement.</li>
       </ul>
     </div>
@@ -2324,16 +2348,16 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <div class="us-scenario__title">Scénario principal</div>
           <p>
             <span class="bold">Étant donné</span> que je suis connecté en tant que commercial,<br>
-            <span class="bold">lorsque</span> je crée un produit avec des données valides,<br>
+            <span class="bold">lorsque</span> je créé un produit avec des données valides,<br>
             <span class="bold">alors</span> le produit est enregistré et apparaît dans le catalogue.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> que les champs obligatoires ne sont pas respectés,<br>
-            <span class="bold">lorsque</span> je valide la création du produit,<br>
-            <span class="bold">alors</span> un message d'erreur explicite est affiché.
+            <span class="bold">Étant donné</span> que je suis connecté en tant que commercial,<br>
+            <span class="bold">lorsque</span> je soumets le formulaire avec des données obligatoires manquantes ou invalides,<br>
+            <span class="bold">alors</span> le produit n'est pas créé et un message d'erreur explicite est affiché.
           </p>
         </div>
       </div>
@@ -2344,7 +2368,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Fonction essentielle à l'alimentation du catalogue.</li>
         <li>Permet de mettre de nouveaux produits à disposition des clients.</li>
         <li>Impact direct sur l'offre commerciale.</li>
-        <li>Complexité moyenne : formulaire d'administration, validation des données et gestion des images.</li>
+        <li>Complexité moyenne : formulaire de gestion, validation des données et gestion des images.</li>
       </ul>
     </div>
 
@@ -2387,6 +2411,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <ul class="custom-list">
         <li>L'édition des produits est réservée aux commerciaux et aux administrateurs.</li>
         <li>Un produit possède au minimum un nom, une description, un prix, une catégorie et une image principale.</li>
+        <li>Les variantes du produit peuvent être mises à jour.</li>
         <li>Le produit modifié est visible dans le catalogue après enregistrement.</li>
       </ul>
     </div>
@@ -2398,15 +2423,15 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <p>
             <span class="bold">Étant donné</span> que je suis connecté en tant que commercial,<br>
             <span class="bold">lorsque</span> je modifie un produit avec des données valides,<br>
-            <span class="bold">alors</span> le produit est enregistré et mis à jour dans le catalogue.
+            <span class="bold">alors</span> les modifications sont enregistrées et le catalogue est mis à jour.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> que les champs obligatoires ne sont pas respectés,<br>
-            <span class="bold">lorsque</span> j'enregistre les modifications,<br>
-            <span class="bold">alors</span> un message d'erreur explicite est affiché.
+            <span class="bold">Étant donné</span> que je modifie un produit existant,<br>
+            <span class="bold">lorsque</span> j'enregistre des données obligatoires manquantes ou invalides,<br>
+            <span class="bold">alors</span> les modifications ne sont pas enregistrées et un message d'erreur explicite est affiché.
           </p>
         </div>
       </div>
@@ -2414,7 +2439,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
     <div class="us-section">
       <h3 class="us-section__title">Justification</h3>
       <ul class="custom-list">
-        <li>Permet de maintenir les informations produits à jour.</li>
+        <li>Permet de maintenir les informations des produits à jour.</li>
         <li>Garantit la cohérence du catalogue.</li>
         <li>Évite la diffusion d'informations obsolètes.</li>
         <li>Complexité moyenne : chargement des données existantes, validation des modifications et mise à jour des informations.</li>
@@ -2462,7 +2487,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Une commande possède obligatoirement un statut.</li>
         <li>Seuls les utilisateurs autorisés peuvent modifier le statut d'une commande.</li>
         <li>Les statuts disponibles sont définis par l'entreprise.</li>
-        <li>Chaque modification est enregistrée.</li>
+        <li>Chaque modification de statut est enregistrée et horodatée.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2473,15 +2498,15 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <p>
             <span class="bold">Étant donné</span> qu'une commande existe,<br>
             <span class="bold">lorsque</span> je modifie son statut,<br>
-            <span class="bold">alors</span> le nouveau statut est enregistré.
+            <span class="bold">alors</span> le nouveau statut est enregistré et devient visible par le client.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'un client consulte son compte,<br>
-            <span class="bold">lorsque</span> le statut a été modifié,<br>
-            <span class="bold">alors</span> il visualise la nouvelle information.
+            <span class="bold">Étant donné</span> que le statut d'une commande a été modifié,<br>
+            <span class="bold">lorsque</span> le client consulte le suivi de sa commande,<br>
+            <span class="bold">alors</span> le nouveau statut est affiché.
           </p>
         </div>
       </div>
@@ -2492,7 +2517,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Fonction essentielle au suivi logistique.</li>
         <li>Permet d'informer les clients de l'avancement de leur commande.</li>
         <li>Améliore la traçabilité des commandes.</li>
-        <li>Complexité moyenne : gestion des états, historisation et mise à jour des informations client.</li>
+        <li>Complexité moyenne : gestion des états, historisation et synchronisation des informations de suivi de commande.</li>
       </ul>
     </div>
 
@@ -2527,16 +2552,17 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <p>
         En tant que <span class="bold">comptable</span>,<br>
         je souhaite générer une facture<br>
-        afin de disposer d'un document comptable associé à une commande validée.
+        afin de disposer d'un document comptable associé à une commande confirmée.
       </p>
     </div>
     <div class="us-section">
       <h3 class="us-section__title">Règles métier</h3>
       <ul class="custom-list">
-        <li>L'édition de factures est réservée aux comptables et aux administrateurs.</li>
-        <li>Une facture est liée à une commande.</li>
+        <li>La génération des factures est réservée aux comptables et aux administrateurs.</li>
+        <li>Une facture est liée à une commande confirmée.</li>
         <li>Chaque facture possède une référence unique.</li>
         <li>Les informations de facturation sont conservées.</li>
+        <li>Une commande ne peut être associées qu'à une seule facture active.</li>
         <li>Les mentions légales obligatoires sont présentes sur chaque facture.</li>
       </ul>
     </div>
@@ -2546,17 +2572,17 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario principal</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une commande a été validée,<br>
+            <span class="bold">Étant donné</span> qu'une commande a été confirmée,<br>
             <span class="bold">lorsque</span> je génère une facture,<br>
-            <span class="bold">alors</span> une facture est créée et enregistrée.
+            <span class="bold">alors</span> une facture est créée, enregistrée et associée à la commande.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une erreur survient,<br>
-            <span class="bold">lorsque</span> la création de la facture est effectuée,<br>
-            <span class="bold">alors</span> un message d'erreur explicite est affiché.
+            <span class="bold">Étant donné</span> qu'une facture active est déjà associée à une commande,<br>
+            <span class="bold">lorsque</span> je tente de générer une nouvelle facture pour cette commande,<br>
+            <span class="bold">alors</span> la génération est refusée et un message d'erreur explicite est affiché.
           </p>
         </div>
       </div>
@@ -2565,7 +2591,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
       <h3 class="us-section__title">Justification</h3>
       <ul class="custom-list">
         <li>Fonction indispensable à la gestion comptable.</li>
-        <li>Permet de produire un document officiel associé à une commande validée.</li>
+        <li>Permet de produire un document officiel associé à une commande confirmée.</li>
         <li>Facilite le suivi administratif et la traçabilité des ventes.</li>
         <li>Complexité moyenne : génération du document, association avec une commande et gestion des références uniques.</li>
       </ul>
@@ -2612,7 +2638,7 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
         <li>Une catégorie possède un nom unique.</li>
         <li>Une catégorie peut contenir plusieurs produits.</li>
         <li>Une catégorie peut être créée, modifiée ou désactivée.</li>
-        <li>Les produits peuvent être associés aux catégories lors de leur création.</li>
+        <li>Un produit peut être associé à une catégorie lors de leur création ou de leur modification.</li>
       </ul>
     </div>
     <div class="us-section">
@@ -2622,16 +2648,16 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <div class="us-scenario__title">Scénario principal</div>
           <p>
             <span class="bold">Étant donné</span> que je suis connecté en tant qu'administrateur,<br>
-            <span class="bold">lorsque</span> je crée ou modifie une catégorie,<br>
-            <span class="bold">alors</span> celle-ci est enregistrée et disponible dans le catalogue.
+            <span class="bold">lorsque</span> je créé ou modifie une catégorie avec des données valides,<br>
+            <span class="bold">alors</span> les informations de la catégorie sont enregistrées.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une catégorie possède déjà le même nom,<br>
-            <span class="bold">lorsque</span> je tente de la créer,<br>
-            <span class="bold">alors</span> un message d'erreur explicite est affiché.
+            <span class="bold">Étant donné</span> qu'une catégorie portant le même nom existe déjà,<br>
+            <span class="bold">lorsque</span> je tente de créer la catégorie,<br>
+            <span class="bold">alors</span> la création est refusée et un message d'erreur explicite est affiché.
           </p>
         </div>
       </div>
@@ -2696,16 +2722,16 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
           <div class="us-scenario__title">Scénario principal</div>
           <p>
             <span class="bold">Étant donné</span> que je suis connecté en tant qu'administrateur,<br>
-            <span class="bold">lorsque</span> je crée ou modifie un mode de livraison,<br>
-            <span class="bold">alors</span> celui-ci devient disponible pour les futures commandes.
+            <span class="bold">lorsque</span> je créé ou modifie un mode de livraison avec des données valides,<br>
+            <span class="bold">alors</span> les informations du mode de livraison sont enregistrées.
           </p>
         </div>
         <div class="us-scenario">
           <div class="us-scenario__title">Scénario secondaire</div>
           <p>
-            <span class="bold">Étant donné</span> qu'une donnée est invalide,<br>
-            <span class="bold">lorsque</span> j'enregistre le mode de livraison,<br>
-            <span class="bold">alors</span> un message d'erreur explicite est affiché.
+            <span class="bold">Étant donné</span> que je configure un mode de livraison,<br>
+            <span class="bold">lorsque</span> je tente d'enregistrer des données manquantes ou invalides,<br>
+            <span class="bold">alors</span> les informations ne sont pas enregistrées et un message d'erreur explicite est affiché.
           </p>
         </div>
       </div>
@@ -2724,86 +2750,11 @@ La matrice Valeur / Effort permet de visualiser les User Stories selon deux crit
 
 </div>
 
-<div class="us-card">
 
-  <div class="us-card__header">
-    US-A10 - Accéder aux paramètres techniques du site
-  </div>
-
-  <div class="us-card__meta">
-    <div class="us-card__meta-item">
-      <div class="us-card__meta-label">Acteur</div>
-      <span class="badge badge--role-admin">Administrateur</span>
-    </div>
-    <div class="us-card__meta-item">
-      <div class="us-card__meta-label">Effort</div>
-      <span class="badge badge--number badge--effort-3">3</span>
-    </div>
-    <div class="us-card__meta-item">
-      <div class="us-card__meta-label">Valeur</div>
-      <span class="badge badge--number badge--value-5">5</span>
-    </div>
-  </div>
-
-  <div class="us-card__body">
-    <div class="us-section">
-      <h3 class="us-section__title">Description</h3>
-      <p>
-        En tant qu'<span class="bold">administrateur</span>,<br>
-        je souhaite accéder aux paramètres techniques du site<br>
-        afin d'assurer son bon fonctionnement.
-      </p>
-    </div>
-    <div class="us-section">
-      <h3 class="us-section__title">Règles métier</h3>
-      <ul class="custom-list">
-        <li>Les paramètres techniques sont réservés aux administrateurs.</li>
-        <li>Seuls les administrateurs peuvent accéder à cette fonctionnalité.</li>
-        <li>Les paramètres sont centralisés dans un espace dédié.</li>
-        <li>Toute modification est enregistrée.</li>
-        <li>Les modifications sont traçables.</li>
-      </ul>
-    </div>
-    <div class="us-section">
-      <h3 class="us-section__title">Critères d'acceptation</h3>
-      <div>
-        <div class="us-scenario">
-          <div class="us-scenario__title">Scénario principal</div>
-          <p>
-            <span class="bold">Étant donné</span> que je suis connecté en tant qu'administrateur,<br>
-            <span class="bold">lorsque</span> j'accède aux paramètres techniques,<br>
-            <span class="bold">alors</span> je peux consulter et modifier les paramètres autorisés.
-          </p>
-        </div>
-        <div class="us-scenario">
-          <div class="us-scenario__title">Scénario secondaire</div>
-          <p>
-            <span class="bold">Étant donné</span> qu'un utilisateur non autorisé tente d'accéder à cette fonctionnalité,<br>
-            <span class="bold">lorsque</span> il consulte l'URL correspondante,<br>
-            <span class="bold">alors</span> l'accès lui est refusé.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="us-section">
-      <h3 class="us-section__title">Justification</h3>
-      <ul class="custom-list">
-        <li>Fonction importante pour l'administration avancée du site.</li>
-        <li>Permet de centraliser les paramètres nécessaires au bon fonctionnement de la plateforme.</li>
-        <li>Réservée aux administrateurs afin de sécuriser les réglages sensibles.</li>
-        <li>Complexité moyenne : gestion des droits d'accès, centralisation des paramètres et traçabilité des modifications.</li>
-      </ul>
-    </div>
-
-  </div>
-
-</div>
-
-<div class="page-break"></div>
 
 ### 3.6. Use Cases
 
-Les cas d'utilisation (Use Cases) décrivent les intéractions entre les différents acteurs et le système d'information de La Socketterie.
+Les cas d'utilisation (Use Cases) décrivent les interactions entre les différents acteurs et le système d'information de La Socketterie.
 
 Ils permettent de représenter les principales fonctionnalités offertes par l'application en précisant les actions réalisées par chaque utilisateur ainsi que les réponses attendues du système.
 
@@ -2813,9 +2764,11 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
 
 ![Diagrammes des cas d'utilisation](./docs/images/diagramme-use-cases.png)
 
+<div class="page-break"></div>
+
 #### 3.6.2. Description des cas d'utilisation
 
-<div class="layout-grid layout-grid--3">
+<div class="layout-grid layout-grid--2">
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-01</div>
@@ -2838,7 +2791,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le visiteur accède au catalogue.</li>
-          <li>Le système récupère les produits du catalogue.</li>
+          <li>Le système récupère les produits.</li>
           <li>Le catalogue est affiché.</li>
         </ol>
       </div>
@@ -2903,9 +2856,9 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le visiteur consulet le catalogue.</li>
+          <li>Le visiteur consulte le catalogue.</li>
           <li>Le visiteur sélectionne un produit.</li>
-          <li>Le système affiche la liste détaillée du produit.</li>
+          <li>Le système affiche la fiche détaillée du produit.</li>
         </ol>
       </div>
       <div class="use-case__section">
@@ -2936,7 +2889,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le visiteur sélectionne les options du produit.</li>
+          <li>Le visiteur sélectionne les variantes du produit.</li>
           <li>Le visiteur clique sur "Ajouter au panier".</li>
           <li>Le système ajoute le produit au panier.</li>
           <li>Le panier est mis à jour.</li>
@@ -2965,7 +2918,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Au moins un produit a été ajouté au panier.</p>
+        <p>Le panier est accessible depuis le site.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
@@ -3032,13 +2985,13 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le visiteur ne possède pas de compte (id unique via email).</p>
+        <p>Aucun compte n'est associé à l'adresse e-mail renseignée.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le visiteur accède au formulaire d'inscription.</li>
-          <li>Il renseigne les informations demandées.</li>
+          <li>Le visiteur renseigne les informations demandées.</li>
           <li>Le système vérifie les données.</li>
           <li>Le compte est créé.</li>
         </ol>
@@ -3073,13 +3026,13 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <ol class="use-case__steps">
           <li>Le client ouvre son panier.</li>
           <li>Le client vérifie le récapitulatif.</li>
-          <li>Le client confirme la commande.</li>
-          <li>Le système crée la commande.</li>
+          <li>Le client valide la commande.</li>
+          <li>Le système créé la commande et l'enregistre en attente de paiement.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>La commande est enregistrée et prête à être payée.</p>
+        <p>La commande est enregistrée en attente de paiement.</p>
       </div>
     </div>
   </div>
@@ -3105,9 +3058,9 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le client choisit le paiement par Stripe.</li>
+          <li>Le client choisit le paiement en ligne.</li>
           <li>Le client saisit ses informations de paiement.</li>
-          <li>Stripe valide le paiement.</li>
+          <li>Stripe traite et confirme le paiement.</li>
           <li>Le système confirme la commande.</li>
         </ol>
       </div>
@@ -3147,7 +3100,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le client est redirigé sur la dernière page ouverte avant connexion et les informations utilisateur sont affichées dans la barre de navigation.</p>
+        <p>Le client est authentifié et peut accéder à son espace personnel ainsi qu'à ses commandes.</p>
       </div>
     </div>
   </div>
@@ -3159,7 +3112,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
     </div>
     <div class="use-case__body">
       <div class="use-case__section">
-        <div class="use-case__label">User Story</div>
+        <div class="use-case__label">User Story associées</div>
         <p class="bold">US-C05 / US-C06</p>
       </div>
       <div class="use-case__section">
@@ -3173,14 +3126,14 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le client accède à son espace personnel via la barre de navigation.</li>
-          <li>Le système affiche les informations du compte.</li>
-          <li>Le client consulte ses informations et son historique.</li>
+          <li>Le client accède à son espace personnel.</li>
+          <li>Le système affiche les informations du compte et les fonctionnalités disponibles.</li>
+          <li>Le client consulte les informations de so compte.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le client accède à l'ensemble des informations de son compte.</p>
+        <p>Le client accède à son espace personnel et aux fonctionnalités associées à son compte.</p>
       </div>
     </div>
   </div>
@@ -3206,9 +3159,10 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le client accède à son espace personnel via la barre de navigation.</li>
+          <li>Le client accède à son espace personnel.</li>
           <li>Le système affiche les informations du compte.</li>
-          <li>Le client modifie ses informations et les enregistre.</li>
+          <li>Le client modifie ses informations personnelle.</li>
+          <li>Le client valide les modifications.</li>
           <li>Le système met à jour les informations du compte.</li>
         </ol>
       </div>
@@ -3222,7 +3176,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-13</div>
-      <div>Consulter son historique de commande</div>
+      <div>Consulter son historique de commandes</div>
     </div>
     <div class="use-case__body">
       <div class="use-case__section">
@@ -3240,15 +3194,14 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>Le client accède à son espace personnel via la barre de navigation.</li>
+          <li>Le client accède à son espace personnel.</li>
           <li>Le client ouvre son historique de commandes.</li>
           <li>Le système affiche les commandes et leur statut.</li>
-          <li>Le système met à jour les informations du compte.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le client consulte l'intégralité de ses commandes.</p>
+        <p>Le client consulte l'historique de ses commandes.</p>
       </div>
     </div>
   </div>
@@ -3275,7 +3228,8 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le commercial ouvre le formulaire de création d'un produit.</li>
-          <li>Le commercial renseigne les information du produit et valide le formulaire.</li>
+          <li>Le commercial renseigne les informations du produit.</li>
+          <li>Le commercial valide le formulaire.</li>
           <li>Le système enregistre le nouveau produit.</li>
         </ol>
       </div>
@@ -3302,14 +3256,14 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le commercial est authentifié et le produit existe.</p>
+        <p>Le commercial est authentifié, dispose des droits d'édition et le produit existe.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le commercial sélectionne un produit.</li>
           <li>Le commercial modifie les informations souhaitées.</li>
-          <li>Le commercial enregistre les modifications.</li>
+          <li>Le commercial valide les modifications.</li>
           <li>Le système met à jour le produit.</li>
         </ol>
       </div>
@@ -3336,7 +3290,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le commercial est authentifié et le produit existe.</p>
+        <p>Le commercial est authentifié, dispose des droits de suppression et le produit existe.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
@@ -3344,6 +3298,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
           <li>Le commercial sélectionne un produit.</li>
           <li>Le commercial lance la suppression.</li>
           <li>Le système demande une confirmation.</li>
+          <li>Le commercial confirme la suppression.</li>
           <li>Le système supprime le produit du catalogue.</li>
         </ol>
       </div>
@@ -3357,7 +3312,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
   <div class="use-case">
     <div class="use-case__header">
       <div>UC-17</div>
-      <div>Organiser le catalogue</div>
+      <div>Associer les produits aux catégories</div>
     </div>
     <div class="use-case__body">
       <div class="use-case__section">
@@ -3370,20 +3325,21 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le commercial est authentifié.</p>
+        <p>Le commercial est authentifié et dispose des droits de gestion du catalogue.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le commercial accède à la gestion du catalogue.</li>
-          <li>Le commercial organise les produits par catégorie.</li>
-          <li>Le commercial enregistre les modifications.</li>
+          <li>Le commercial accède sélectionne un ou plusieurs produits.</li>
+          <li>Le commercial associe le ou les produits à une catégorie existante.</li>
+          <li>Le commercial valide les modifications.</li>
           <li>Le système met à jour l'organisation du catalogue.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le catalogue est structuré par catégories.</p>
+        <p>Le ou les produits sont associés à la catégorie sélectionnée.</p>
       </div>
     </div>
   </div>
@@ -3404,7 +3360,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le commercial est authentifié.</p>
+        <p>Le commercial est authentifié et dispose des droits de gestion des commandes.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
@@ -3437,7 +3393,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le commercial est authentifié et la commande existe.</p>
+        <p>Le commercial est authentifié, dispose des droits de gestion des commandes et la commande existe.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
@@ -3450,7 +3406,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le nouveau statut est enregistré et est visible par le client.</p>
+        <p>Le nouveau statut de la commande est enregistré et visible par le client.</p>
       </div>
     </div>
   </div>
@@ -3471,7 +3427,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le comptable est authentifié.</p>
+        <p>Le comptable est authentifié et dispose des droits de consultation des commandes validées.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
@@ -3483,7 +3439,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Les commandes prêtes à être facturées sont consultables.</p>
+        <p>Le comptable peut consulter les commandes validées et identifier celles pouvant faire l'objet d'une facturation.</p>
       </div>
     </div>
   </div>
@@ -3504,15 +3460,15 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Précondition</div>
-        <p>Le comptable est authentifié et une commande valide existe.</p>
+        <p>Le comptable est authentifié, dispose des droits de génération de facture et une commande validée existe.</p>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>Le comptable sélectionne une commande validée.</li>
           <li>Le comptable lance la génération de la facture.</li>
-          <li>Le système crée la facture.</li>
-          <li>Le facture est enregistrée et affiliée à la commande de référence.</li>
+          <li>Le système créé la facture.</li>
+          <li>Le facture est enregistrée et associée à la commande de référence.</li>
         </ol>
       </div>
       <div class="use-case__section">
@@ -3546,7 +3502,7 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
           <li>Le comptable accède aux données comptables.</li>
           <li>Le comptable sélectionne les données à exporter.</li>
           <li>Le comptable lance l'export.</li>
-          <li>Le système génère le fichier d'export et le télécharge automatiquement.</li>
+          <li>Le système génère le fichier d'export et et déclenche sont téléchargement.</li>
         </ol>
       </div>
       <div class="use-case__section">
@@ -3555,7 +3511,6 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       </div>
     </div>
   </div>
-
 
   <div class="use-case">
     <div class="use-case__header">
@@ -3579,14 +3534,15 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>L'administrateur accède à la gestion du contenu.</li>
-          <li>L'administrateur crée ou sélectionne une page statique.</li>
-          <li>L'administrateur crée ou modifie le contenu puis enregistre.</li>
-          <li>Le système enregistre les modifications.</li>
+          <li>L'administrateur sélectionne un contenu statique existant.</li>
+          <li>L'administrateur modifie le contenu statique.</li>
+          <li>L'administrateur valide les modifications.</li>
+          <li>Le système met à jour le contenu statique.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le contenu statique du site est crée ou mis à jour.</p>
+        <p>Le contenu statique du site est mis à jour.</p>
       </div>
     </div>
   </div>
@@ -3613,13 +3569,14 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>L'administrateur ouvre le formulaire de création.</li>
-          <li>L'administrateur renseigne les informations du collaborateur et valide le formulaire.</li>
-          <li>Le système crée le compte.</li>
+          <li>L'administrateur renseigne les informations du collaborateur et lui attribue un rôle.</li>
+          <li>L'administrateur valide le formulaire.</li>
+          <li>Le système créé le compte interne.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le nouveau compte interne est disponible.</p>
+        <p>Le nouveau compte interne est créé et dispose des accès associés à son rôle.</p>
       </div>
     </div>
   </div>
@@ -3645,14 +3602,15 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>L'administrateur sélectionne un compte.</li>
-          <li>L'administrateur modifie les informations souhaitées et les enregistre.</li>
-          <li>Le système met à jour le compte.</li>
+          <li>L'administrateur sélectionne un compte interne.</li>
+          <li>L'administrateur modifie les informations ou le rôle du collaborateur.</li>
+          <li>L'administrateur valide les modifications.</li>
+          <li>Le système met à jour le compte et les accès associés.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Les informations du compte sont mises à jour.</p>
+        <p>Les informations et les accès du compte interne sont mis à jour.</p>
       </div>
     </div>
   </div>
@@ -3678,14 +3636,16 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
       <div class="use-case__section">
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
-          <li>L'administrateur sélectionne un compte.</li>
+          <li>L'administrateur sélectionne un compte interne.</li>
           <li>L'administrateur lance la désactivation.</li>
-          <li>Le système désactive le compte.</li>
+          <li>Le système demande une confirmation.</li>
+          <li>L'administrateur confirme la désactivation.</li>
+          <li>Le système désactive le compte interne.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Le compte ne peut plus accéder au système.</p>
+        <p>Le compte interne ne peut plus accéder au système.</p>
       </div>
     </div>
   </div>
@@ -3712,8 +3672,9 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>L'administrateur accède à la gestion des catégories.</li>
-          <li>L'administrateur crée, modifie ou désactive une catégorie et enregistre les modifications.</li>
-          <li>Le système met à jour le catalogue.</li>
+          <li>L'administrateur crée, modifie ou désactive une catégorie.</li>
+          <li>L'administrateur valide l'opération.</li>
+          <li>Le système enregistre les modifications apportées aux catégories.</li>
         </ol>
       </div>
       <div class="use-case__section">
@@ -3745,52 +3706,23 @@ Complémentaires aux User Stories, les Use Cases apportent une vision plus fonct
         <div class="use-case__label">Scénario nominal</div>
         <ol class="use-case__steps">
           <li>L'administrateur accède à la gestion des modes de livraison.</li>
-          <li>L'administrateur crée, modifie ou désactive un mode de livraison et enregistre les modifications.</li>
+          <li>L'administrateur crée, modifie ou désactive un mode de livraison.</li>
+          <li>L'administrateur valide l'opération.</li>
           <li>Le système met à jour les modes de livraison.</li>
         </ol>
       </div>
       <div class="use-case__section">
         <div class="use-case__label">Résultat</div>
-        <p>Les modes de livraison sont disponibles pour les futures commandes.</p>
+        <p>Les modes de livraison actifs sont disponibles pour les futures commandes.</p>
       </div>
     </div>
   </div>
 
-  <div class="use-case">
-    <div class="use-case__header">
-      <div>UC-29</div>
-      <div>Accéder aux paramètres techniques</div>
-    </div>
-    <div class="use-case__body">
-      <div class="use-case__section">
-        <div class="use-case__label">User Story</div>
-        <p class="bold">US-A10</p>
-      </div>
-      <div class="use-case__section">
-        <div class="use-case__label">Acteur</div>
-        <span class="badge badge--role-admin">Administrateur</span>
-      </div>
-      <div class="use-case__section">
-        <div class="use-case__label">Précondition</div>
-        <p>L'administrateur est authentifié et dispose des droits nécessaires.</p>
-      </div>
-      <div class="use-case__section">
-        <div class="use-case__label">Scénario nominal</div>
-        <ol class="use-case__steps">
-          <li>L'administrateur ouvre l'espace des paramètres techniques.</li>
-          <li>L'administrateur consulte ou modifie les paramètres autorisés et enregistre les modifications.</li>
-          <li>Le système applique les nouveaux paramètres.</li>
-        </ol>
-      </div>
-      <div class="use-case__section">
-        <div class="use-case__label">Résultat</div>
-        <p>Les paramètres techniques et la plateforme sont mis à jour.</p>
-      </div>
-    </div>
-  </div>
 </div>
 
 ---
+
+<div class="page-break"></div>
 
 ## 4. Sprint Backlog prévisionnel
 
@@ -3798,6 +3730,8 @@ Les User Stories ont été regroupées dans des sprints en suivant une démarche
 
 L'ordre de réalisation respecte la logique d'un Produit Minimum Viable (MVP) :
 Les fonctionnalités indispensables à la consultation du catalogue, à la préparation d'une commande et au paiement sont développées en priorité, tandis que les fonctionnalités d'administration et les contenus complémentaires sont planifiés dans les derniers sprint.
+
+Afin de garantir le fonctionnement des premiers incréments, certaines données nécessaires au système sont intégrées à la base de données lors de son initialisation avec des valeurs par défaut, notamment les catégories de produits, les modes de livraison et les comptes internes nécessaires aux différents profils métier. Elles sont exploitées par le back-end dès le developpement des fonctionnalités concernées. Les fonctionnalités d'administration planifiées dans les sprints ultérieurs permetttent ensuite de gérer dynamiquement ces données depuis l'application.
 
 ![Logique du sprint backlog](./docs/images/roadmap-developpement-agile-scrum.png)
 
@@ -3823,7 +3757,7 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
         </ul>
       </div>
     </div>
-    <div class="sprint-card__footer">7 US • 23 points d'effort</div>
+    <div class="sprint-card__footer">7 US • 20 points d'effort</div>
   </div>
 
   <div class="sprint-card">
@@ -3904,7 +3838,7 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
         </ul>
       </div>
     </div>
-    <div class="sprint-card__footer">6 US • 15 points d'effort</div>
+    <div class="sprint-card__footer">6 US • 17 points d'effort</div>
   </div>
 
   <div class="sprint-card">
@@ -3941,11 +3875,10 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
           <li>US-A07 — Désactiver un compte interne</li>
           <li>US-A08 — Paramétrer les catégories</li>
           <li>US-A09 — Paramétrer les modes de livraison</li>
-          <li>US-A10 — Accéder aux paramètres techniques</li>
         </ul>
       </div>
     </div>
-    <div class="sprint-card__footer">6 US • 19 points d'effort</div>
+    <div class="sprint-card__footer">5 US • 16 points d'effort</div>
   </div>
   
   <div class="sprint-card">
@@ -3996,9 +3929,7 @@ Les fonctionnalités indispensables à la consultation du catalogue, à la prép
 
 ## 5. Matrice de traçabilité fonctionnelle
 
-Cette matrice permet de faire le lien entre les Epics, les User Stories, les Use Cases
-et les sprints prévisionnels. Elle assure la cohérence entre les besoins fonctionnels
-identifiés et l'organisation du développement.
+Cette matrice permet de faire le lien entre les Epics, les User Stories, les Use Cases et les sprints prévisionnels. Elle assure la cohérence entre les besoins fonctionnels identifiés et l'organisation du développement.
 
 <table class="custom-table custom-table--traceability">
   <colgroup>
@@ -4126,7 +4057,7 @@ identifiés et l'organisation du développement.
         </div>
       </td>
       <td>
-        UC-08 ─ Valider une commmande<br>
+        UC-08 ─ Valider une commande<br>
         UC-09 ─ Payer une commande
       </td>
       <td>Sprint 4</td>
@@ -4238,13 +4169,11 @@ identifiés et l'organisation du développement.
         <div class="stack-cell cell-center">
           <span class="badge badge--small badge--role-admin">US-A08</span>
           <span class="badge badge--small badge--role-admin">US-A09</span>
-          <span class="badge badge--small badge--role-admin">US-A10</span>
         </div>
       </td>
       <td>
         UC-27 ─ Paramétrer les catégories de produits<br>
-        UC-28 ─ Paramétrer les modes de livraison<br>
-        UC-29 ─ Accéder aux paramètres techniques
+        UC-28 ─ Paramétrer les modes de livraison
       </td>
       <td>Sprint 7</td>
     </tr>
@@ -4253,6 +4182,8 @@ identifiés et l'organisation du développement.
 
 ---
 
+<div class="page-break"></div>
+
 ## 6. Architecture technique
 
 ### 6.1. Architecture générale
@@ -4260,7 +4191,7 @@ identifiés et l'organisation du développement.
 | Couche | Rôle |
 |--------|------|
 | Front-end | Afficher l'interface utilisateur et permettre les interactions |
-| Back-end | Gérér la logique métier, les règles de sécurité et l'API |
+| Back-end | Gérer la logique métier, les règles de sécurité et l'API |
 | Base de données | Stockage des données : utilisateurs, produits, commandes et factures |
 | Services tiers | Gérer les fonctionnalités externes comme le paiement |
 
@@ -4270,7 +4201,7 @@ identifiés et l'organisation du développement.
 |--------|-------------|---------------|
 | Front-end | React + Vite | Interface dynamique adaptée à un site e-commerce |
 | Back-end | Node.js + Express | Création d'une API REST légère et maintenable |
-| ORM | Sequelize | Communication strcuturée avec la base MySQL |
+| ORM | Sequelize | Communication structurée avec la base MySQL |
 | Base de données | MySQL | Données relationnelles adaptées aux produits, clients et commandes |
 | Paiement | Stripe | Solution de paiement en ligne sécurisée |
 
@@ -4280,12 +4211,16 @@ identifiés et l'organisation du développement.
 
 | Entité | Description |
 |--------|-------------|
-| Utilisateur | Compte client |
+| Utilisateur | Compte client ou compte interne associé à un rôle |
 | Produit | Article vendu sur la boutique |
 | Catégorie | Classement des produits |
 | Commande | Achat réalisé par un client |
-| DétailCommande | Détail des produits achetés par un client |
-| Facture | Document lié à une commande validée |
+| DétailCommande | Produits et quantités associés à une commande |
+| StatutCommande | État de traitement d'une commande |
+| ModeLivraison | Solution de livraison proposée au client |
+| Facture | Document comptable lié à une commande validée |
+| Actualité | Contenu d'actualité publié sur le site |
+| Contenu statique | Contenu éditorial des pages institutionnelles |
 
 <div class="page-break"></div>
 
@@ -4297,7 +4232,7 @@ Le schéma ci-dessous représente le flux de données entre les composants du sy
 
 <div class="note">
 Le front-end envoie des requêtes à l’API REST via HTTP/HTTPS.
-L’API traite la logique métier, interagit avec la base de données pour enregistrer ou récupérer les informations et communique avec Stripe pour gérer les paiements. Stripe renvoie ensuite la confirmation de paiement à l’API qui renvoie la réponse au front-end.
+L’API traite la logique métier, interagit avec la base de données pour enregistrer ou récupérer les informations et communique avec Stripe pour gérer les paiements. Stripe transmet la confirmation du paiement à l’API, qui traite l'information puis renvoie une réponse au front-end.
 </div>
 
 <div class="page-break"></div>
@@ -4308,9 +4243,43 @@ Le schéma ci-dessous représente l'architecture technique générale du systèm
 
 ![Schéma d'architecture](./docs/images/schema-architecture.png)
 
----
-
 <div class="page-break"></div>
+
+### 6.6. Démarche d'écoconception
+
+Le projet intégrera une démarche d'écoconception visant à limiter les ressources nécessaires au fonctionnement de l'application et à réduire les traitements et transferts de données inutiles.
+
+<div class="layout-grid layout-grid--2">
+  <div class="card card--variant-2">
+    <div class="card__title">Optimisation des ressources</div>
+    <div class="card__text">
+      Les images seront optimisées et servies dans des formats adaptés au Web. Les ressources chargées par l'application seront limitées aux besoins des différentes pages.
+    </div>
+  </div>
+
+  <div class="card card--variant-2">
+    <div class="card__title">Dépendances maîtrisées</div>
+    <div class="card__text">
+      Les dépendances Front-end et Back-end seront limitées aux besoins fonctionnels du projet afin d'éviter l'ajout de bibliothèques ou de ressources inutiles.
+    </div>
+  </div>
+
+  <div class="card card--variant-2">
+    <div class="card__title">Échanges de données</div>
+    <div class="card__text">
+      Les échanges entre le Front-end et l'API seront conçus afin de limiter les requêtes et les volumes de données transférés aux informations nécessaires.
+    </div>
+  </div>
+
+  <div class="card card--variant-2">
+    <div class="card__title">Contrôle des performances</div>
+    <div class="card__text">
+      Les performances de l'application seront contrôlées à l'aide de Lighthouse afin d'identifier les axes d'amélioration et d'appliquer les optimisations nécessaires avant la mise en production.
+    </div>
+  </div>
+</div>
+
+---
 
 ## 7. Hébergements et services tiers
 
@@ -4322,10 +4291,12 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
 | Couche | Besoin identifié |
 |--------|------------------|
 | Front-end | Hébergement rapide, HTTPS, CDN, déploiement automatisé depuis GitHub |
-| Back-end | Exécution d'une API Node.js/Express | variables d'environnement, logs, évolutivité |
+| Back-end | Exécution d'une API Node.js/Express, variables d'environnement, logs, évolutivité |
 | Base de données | Stockage relationnel persistant, sauvegardes, sécurité, montée en capacité possible |
 | Paiement | Paiement sécurisé, conformité, gestion des confirmations de paiement |
-| Maintenance | Supervision, mises à jour, possibilité dévolution selon le trafic réel |
+| Maintenance | Supervision, mises à jour, possibilité d'évolution selon le trafic réel |
+
+<div class="page-break"></div>
 
 ### 7.2. Comparaison des solutions
 
@@ -4354,7 +4325,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>
         <span class="badge badge--small badge--layer-frontend">Front-end</span>
       </td>
-      <td>Déploiement GitHub automatique, CDN mondial, SSL intégré | Peu adapté à l'exécution de services back-end</td>
+      <td>Déploiement GitHub automatique, CDN mondial, SSL intégré</td>
       <td>Peu adapté à l'exécution de services back-end</td>
     </tr>
     <tr>
@@ -4380,7 +4351,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Hébergement d'applications et bases de données managées</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--layer-backend">Backend</span>
+          <span class="badge badge--small badge--layer-backend">Back-end</span>
           <span class="badge badge--small badge--layer-database">DataBase</span>
         </div>
       </td>
@@ -4403,7 +4374,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         <span class="badge badge--small badge--layer-database">DataBase</span>
       </td>
       <td>Très haute disponibilité</td>
-      <td>Plus complexe pour un projet de taille moyenne |</td>
+      <td>Plus complexe pour un projet de taille moyenne</td>
     </tr>
     <tr>
       <td>Amazon RDS</td>
@@ -4448,7 +4419,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>
         <span class="badge badge--small badge--layer-frontend">Netlify</span>
       </td>
-      <td>Déploiement automatisé, CDN mondial et excellente compatiilité React</td>
+      <td>Déploiement automatisé, CDN mondial et excellente compatibilité avec React</td>
     </tr>
     <tr>
       <td>Back-end</td>
@@ -4478,20 +4449,78 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
 
 ---
 
+<div class="page-break"></div>
+
 ## 8. Organisation du projet
 
 ### 8.1. Équipe projet et répartition des rôles
 
-| Collaborateur | Rôle | Missions principales | Disponibilité |
-|---------------|------|----------------------|---------------|
-| Cédric | Chef de projet / Développeur Full Stack | Coordination du projet, développement des fonctionnalités, intégration, tests | 100% |
-| David | Développeur Front-end | Interfaces utilisateur (UI), intégration HTML/CSS/JS, responsive | 80% |
-| Jonathan | Développeur Back-end | API, database, logique métier, sécurité, déploiement | 80% |
-| Jack | UX Designer | Analyse des besoins utilisateurs, conception de parcours utilisateurs, réalisation des wireframes, validation de l'UX | Intervention ponctuelle |
-| Rose | UI Designer | Création des maquettes graphiques, Définition de l'identité visuelle, Design Système, création des composants graphiques | Intervention ponctuelle |
-| Omar | Développeur freelance Full Stack | Intégration du paiement Stripe Front-end et Back-end, pages réglementaires | 5 jours maximum |
-| Fred | Développeur freelance Full Stack | Conformité Web, RGPD, obligations légales, SEO, accessibilité, performances et responsive design | 5 jours maximum |
-| Lead developer | Validation technique & relation client | Validation des livrables, arbitrage technique et relation client | Selon les besoins |
+<table>
+  <colgroup>
+    <col style="width: 20%"/>
+    <col style="width: 30%"/>
+    <col style="width: 30%"/>
+    <col style="width: 20%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Collaborateur</th>
+      <th>Rôle</th>
+      <th>Missions principales</th>
+      <th>Disponibilité</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cédric</td>
+      <td>Chef de projet / Développeur Full Stack</td>
+      <td>Coordination du projet, développement des fonctionnalités, intégration, tests.</td>
+      <td>100%</td>
+    </tr>
+    <tr>
+      <td>David</td>
+      <td>Développeur Front-end</td>
+      <td>Interfaces utilisateur (UI), développement React, intégration HTML/CSS/JS, responsive design.</td>
+      <td>80%</td>
+    </tr>
+    <tr>
+      <td>Jonathan</td>
+      <td>Développeur Back-end</td>
+      <td>API, database, logique métier, sécurité, déploiement.</td>
+      <td>80%</td>
+    </tr>
+    <tr>
+      <td>Jack</td>
+      <td>UX Designer</td>
+      <td>Analyse des parcours utilisateurs, conception des parcours utilisateurs, réalisation des wireframes, validation de l'UX.</td>
+      <td>80%</td>
+    </tr>
+    <tr>
+      <td>Rose</td>
+      <td>UI Designer</td>
+      <td>Création des maquettes graphiques, définition de l'identité visuelle, conception du design système, création des composants graphiques.</td>
+      <td>Intervention ponctuelle</td>
+    </tr>
+    <tr>
+      <td>Omar</td>
+      <td>Développeur freelance Full Stack</td>
+      <td>Intégration du paiement Stripe Front-end et Back-end.</td>
+      <td>5 jours maximum</td>
+    </tr>
+    <tr>
+      <td>Fred</td>
+      <td>Développeur freelance Full Stack</td>
+      <td>Conformité Web, RGPD, obligations légales, SEO, accessibilité, performances et responsive design.</td>
+      <td>5 jours maximum</td>
+    </tr>
+    <tr>
+      <td>Lead developer</td>
+      <td>Validation technique & relation client</td>
+      <td>Validation des livrables, arbitrage technique et relation client.</td>
+      <td>Selon les besoins</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="page-break"></div>
 
@@ -4602,7 +4631,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W1-7</td>
       <td>Valider la faisabilité technique</td>
-      <td>Vérifier la cohérence fonctionnelle avant le lancement de la conception UX.</td>
+      <td>Vérifier la faisabilité technique des besoins et la cohérence fonctionnelle avant le lancement de la conception UX.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
@@ -4625,7 +4654,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -4636,8 +4665,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         <ul>
           <li>Personas</li>
           <li>Backlog fonctionnel</li>
-          <li>User stories</li>
-          <li>Use cases</li>
+          <li>User Stories</li>
+          <li>Use Cases</li>
           <li>Besoins fonctionnels validés</li>
         </ul>
       </td>
@@ -4646,6 +4675,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
   </tbody>
 </table>
 
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -4680,7 +4710,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W2-1</td>
       <td>Créer le dépôt Git</td>
-      <td>Initialiser le dépôt GitHub et définir les stratégie de branches.</td>
+      <td>Initialiser le dépôt GitHub et définir les stratégies de branches.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
@@ -4703,7 +4733,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W2-3</td>
-      <td>Configurer le dépôt GitGub</td>
+      <td>Configurer le dépôt GitHub</td>
       <td>Créer les labels, milestones, templates d'issues, templates de Pull Requests, GitHub Project et les protections de branches.</td>
       <td>
         <div class="stack-cell">
@@ -4763,7 +4793,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W2-8</td>
-      <td>Valider l'envionnement technique</td>
+      <td>Valider l'environnement technique</td>
       <td>Vérifier que tout l'environnement est opérationnel avant le développement.</td>
       <td>
         <div class="stack-cell">
@@ -4775,7 +4805,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -4798,6 +4828,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -4856,7 +4888,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W3-3</td>
       <td>Réaliser les wireframes mobiles</td>
-      <td>Réaliser les wireframes basse fidélité des écrans en approche Mobile First.</td>
+      <td>Réaliser les wireframes basse fidélité des écrans selon une approche Mobile First.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ux">Jack</span>
@@ -4868,7 +4900,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W3-4</td>
       <td>Adapter les wireframes tablette</td>
-      <td>Adapter les wireframes aux contraintes ergonomique des écrans tablette.</td>
+      <td>Adapter les wireframes aux contraintes ergonomiques des écrans tablette.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ux">Jack</span>
@@ -4880,7 +4912,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W3-5</td>
       <td>Adapter les wireframes desktop</td>
-      <td>Adapter les wireframes aux écran desktop en conservant la cohérence des parcours utilisateurs.</td>
+      <td>Adapter les wireframes aux écrans desktop en conservant la cohérence des parcours utilisateurs.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ux">Jack</span>
@@ -4892,7 +4924,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W3-6</td>
       <td>Vérifier la cohérence UX</td>
-      <td>Vérifier la cohérence des parcours, la hierarchie des informations et l'ergonomie générale.</td>
+      <td>Vérifier la cohérence des parcours, la hiérarchie des informations et l'ergonomie générale.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
@@ -4907,7 +4939,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td>Vérifier que les wireframes sont exploitables pour les équipes de développement.</td>
       <td>
         <div class="stack-cell">
-          <span class="badge badge--small badge--colleague-lead">lead dev.</span>
+          <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
         </div>
       </td>
       <td>W3-6</td>
@@ -4927,7 +4959,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -4948,6 +4980,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -5018,7 +5052,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W4-4</td>
       <td>Adapter les maquettes tablettes</td>
-      <td>Adapter les maquettes aux contraintes ergonomiques des écrans tablette.</td>
+      <td>Adapter les maquettes aux contraintes ergonomiques des écrans de tablette.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-ui">Rose</span>
@@ -5077,7 +5111,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5086,7 +5120,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td colspan="4" class="cell-left cell-list cell-highlight">
         <ul>
-          <li>Design System enrichi (tokens, composants, variaantes, styles, règles d'utilisation...)</li>
+          <li>Design System enrichi (tokens, composants, variantes, styles, règles d'utilisation...)</li>
           <li>Maquettes mobiles</li>
           <li>Maquettes tablettes</li>
           <li>Maquettes desktop</li>
@@ -5167,7 +5201,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W5-4</td>
       <td>Concevoir le MLD</td>
-      <td>Transfomer le MCD en Modèle Logique de Données.</td>
+      <td>Transformer le MCD en Modèle Logique de Données.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
@@ -5191,7 +5225,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W5-6</td>
       <td>Tester la base de données</td>
-      <td>Vérifier l'intégrité référentielle, les contraintes, les relations, et le bon fonctionnement des scripts SQL.</td>
+      <td>Vérifier l'intégrité référentielle, les contraintes, les relations et le bon fonctionnement des scripts SQL.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
@@ -5214,7 +5248,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5281,7 +5315,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W6-2</td>
       <td>Développer l'API d'authentification</td>
-      <td>Mettre en place l'inscription, la connexion, JWT, bcrypt, la gestion des rôles et des accès.</td>
+      <td>Mettre en place l'inscription, la connexion, l'authentification JWT, bcrypt, la gestion des rôles et des accès.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
@@ -5292,7 +5326,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W6-3</td>
-      <td>Développer l'API Catalogue</td>
+      <td>Développer l'API catalogue</td>
       <td>Développer les endpoints permettant de consulter les produits, les catégories et d'effectuer des recherches.</td>
       <td>
         <div class="stack-cell">
@@ -5304,7 +5338,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W6-4</td>
-      <td>Développer l'API Panier</td>
+      <td>Développer l'API panier</td>
       <td>Développer les fonctionnalités d'ajout, de modification et de suppression des produits du panier.</td>
       <td>
         <div class="stack-cell">
@@ -5316,7 +5350,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W6-5</td>
-      <td>Développer l'API Commandes</td>
+      <td>Développer l'API commandes</td>
       <td>Développer la création des commandes, leur validation et leur consultation par le client.</td>
       <td>
         <div class="stack-cell">
@@ -5340,7 +5374,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td>W6-7</td>
-      <td>Développer l'API Contact</td>
+      <td>Développer l'API contact</td>
       <td>Développer l'endpoint de contact permettant l'envoi sécurisé des messages utilisateurs avec validation des données et traitement des demandes.</td>
       <td>
         <div class="stack-cell">
@@ -5359,7 +5393,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W6-7</td>
+      <td>W6-2 à W6-7</td>
       <td>0,75 j</td>
     </tr>
     <tr>
@@ -5388,7 +5422,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5399,10 +5433,10 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
         <ul>
           <li>Modèles Sequelize</li>
           <li>API d'authentification</li>
-          <li>API Catalogue</li>
-          <li>API Panier</li>
-          <li>API Commandes</li>
-          <li>API Contact</li>
+          <li>API catalogue</li>
+          <li>API panier</li>
+          <li>API commandes</li>
+          <li>API contact</li>
           <li>Intégration Stripe</li>
           <li>Documentation OpenAPI</li>
           <li>Collection Postman</li>
@@ -5459,7 +5493,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W7-2</td>
       <td>Développer le catalogue</td>
-      <td>Développer la page catalogue (accueil) avec fonctionnalité de recherche et la page fiche produit.</td>
+      <td>Développer la page catalogue (accueil) avec une fonctionnalité de recherche et la page fiche produit.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-frontend">David</span>
@@ -5495,7 +5529,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W7-5</td>
       <td>Développer le tunnel de commande</td>
-      <td>Développer les écrans de validation de commande et l'intégration du paiement Stripe côté Front-end</td>
+      <td>Développer les écrans de validation de commande et l'intégration du paiement Stripe côté Front-end.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-freelance">Omar</span>
@@ -5566,7 +5600,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5585,7 +5619,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Front-end MVP validé</li>
         </ul>
       </td>
-      <td colspan="2" class="bold duration-cell cell-highlight">12,50 J</td>
+      <td colspan="2" class="bold duration-cell cell-highlight">12,50 j</td>
     </tr>
   </tbody>
 </table>
@@ -5629,7 +5663,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W6-9, W7-9</td>
+      <td>W6-10, W7-10</td>
       <td>0,50 j</td>
     </tr>
     <tr>
@@ -5658,7 +5692,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5678,6 +5712,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -5760,7 +5796,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W9-5</td>
       <td>Développer les API d'administration interne</td>
-      <td>Développer la gestion des utilisateurs, des rôles, des paramètres et des contenus administratifs.</td>
+      <td>Développer la gestion des utilisateurs, des rôles, des modes de livraison et des contenus administratifs.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
@@ -5807,7 +5843,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -5830,6 +5866,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -5912,7 +5950,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W10-5</td>
       <td>Développer l'interface de gestion de la facturation</td>
-      <td>Concevoir l'interface permettat de consulter les commandes validées, consulter et éditer les factures puis exporter les données comptables au format CSV.</td>
+      <td>Concevoir l'interface permettant d'afficher la liste des commandes validées, consulter et éditer les factures puis exporter les données comptables au format CSV.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-frontend">David</span>
@@ -5924,7 +5962,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W10-6</td>
       <td>Développer l'interface d'administration interne</td>
-      <td>Concevoir l'interface de gestion des utilisateurs, des rôles, des paramètres du site et des contenus statiques.</td>
+      <td>Concevoir l'interface de gestion des utilisateurs, des rôles, des modes de livraison et des contenus statiques.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-frontend">David</span>
@@ -5971,7 +6009,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -6017,7 +6055,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
   <tbody>
     <tr class="table-section">
       <td colspan="4" class="table-section--label">
-        W11 ─ Développer les pages règlementaires
+        W11 ─ Développer les pages réglementaires
       </td>
       <td colspan="2" class="table-section--phase">
         <div class="badge badge--small badge--white">
@@ -6075,7 +6113,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -6085,7 +6123,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
       <td colspan="4" class="cell-left cell-list cell-highlight">
         <ul>
           <li>Page Mentions légales</li>
-          <li>Page Conditions Générales de vente</li>
+          <li>Page Conditions Générales de Vente</li>
           <li>Page Politique de confidentialité</li>
           <li>Validation client</li>
         </ul>
@@ -6134,7 +6172,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>0,50 j</td>
     </tr>
     <tr>
@@ -6146,7 +6184,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -6158,7 +6196,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -6170,7 +6208,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>0,25 j</td>
     </tr>
     <tr>
@@ -6182,19 +6220,19 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>1 j</td>
     </tr>
     <tr>
       <td>W12-6</td>
       <td>Optimiser les performances, l'accessibilité et les bonnes pratiques</td>
-      <td>Corriger les points d'amélioration identifiés par Lighthouse afin d'optimiser les performances, l'accessibilité, le SEO et les bonnes pratiques.</td>
+      <td>Corriger les points d'amélioration identifiés par Lighthouse afin d'optimiser les performances, l'accessibilité et les bonnes pratiques.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
         </div>
       </td>
-      <td>W11-4</td>
+      <td>W10-9, W11-4</td>
       <td>0,75 j</td>
     </tr>
     <tr>
@@ -6212,7 +6250,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W12-8</td>
       <td>Tester le responsive design</td>
-      <td>Vérifier le bon fonctionnement et l'affichage du site sur les principaux format d'écran (mobile, tablette et desktop).</td>
+      <td>Vérifier le bon fonctionnement et l'affichage du site sur les principaux formats d'écran (mobile, tablette et desktop).</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-freelance">Fred</span>
@@ -6235,7 +6273,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -6250,7 +6288,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <li>Rapport Lighthouse</li>
           <li>Validation W3C</li>
           <li>Validation de l'accessibilité</li>
-          <li>Validation Responsive</li>
+          <li>Validation du responsive design</li>
           <li>Validation finale qualité</li>
         </ul>
       </td>
@@ -6258,6 +6296,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -6298,7 +6338,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
           <span class="badge badge--small badge--colleague-backend">Jonathan</span>
         </div>
       </td>
-      <td>W10-9, W9-8, W11-4, W12-9</td>
+      <td>W12-9</td>
       <td>0,50 j</td>
     </tr>
     <tr>
@@ -6328,7 +6368,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W13-4</td>
       <td>Réaliser la recette client</td>
-      <td>Présenter la version finale, recueillir ses retours et obtenir sa validation avant la mise en service officielle.</td>
+      <td>Présenter la version finale au client, recueillir ses retours et obtenir sa validation avant la mise en service officielle.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-lead">Lead dev.</span>
@@ -6340,7 +6380,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W13-5</td>
       <td>Mise en service de l'application</td>
-      <td>Baculer la version validée en exploitation, vérifier les derniers points de contrôle et ouvrir officiellement l'application aux utilisateurs.</td>
+      <td>Basculer la version validée en exploitation, vérifier les derniers points de contrôle et ouvrir officiellement l'application aux utilisateurs.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
@@ -6351,7 +6391,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -6372,6 +6412,8 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
   </tbody>
 </table>
+
+<div class="page-break"></div>
 
 <table class="custom-table custom-table--wbs">
   <colgroup>
@@ -6442,7 +6484,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     <tr>
       <td>W14-4</td>
       <td>Former les utilisateurs</td>
-      <td>Présenter le fonctionnement du Back-office, accompagner les utilisateurs dans sa prise en main et répondre à leurs questions.</td>
+      <td>Présenter le fonctionnement du Back-office, accompagner les utilisateurs dans leur prise en main et répondre à leurs questions.</td>
       <td>
         <div class="stack-cell">
           <span class="badge badge--small badge--colleague-manager">Cédric</span>
@@ -6465,7 +6507,7 @@ Les choix d'hébergement sont donc réalisés sur la base d'un besoin évolutif,
     </tr>
     <tr>
       <td colspan="4" class="cell-left cell-highlight--primary">
-        <span class="underline">Livrables </span>:
+        <span class="underline">Livrables</span> :
       </td>
       <td colspan="2" class="bold underline duration-cell cell-highlight--primary">
         Charge de travail
@@ -6507,7 +6549,7 @@ L'utilisation conjointe de ces deux vues permet ainsi de suivre l'état d'avance
 
 ---
 
-## 9 Diagramme de Gantt
+## 9. Diagramme de Gantt
 
 Le diagramme de Gantt a été réalisé à partir des tâches définies dans le WBS et planifiées dans GitHub Project. Les dates présentées constituent une planification prévisionnelle du projet et tiennent compte des dépendances entre les tâches, de leur durée estimée et de la disponibilité des différents collaborateurs.
 
@@ -6536,7 +6578,7 @@ GitHub Project utilisant des dates calendaires sans permettre de représenter pr
 
 <div class="section-label">Capacité de renfort</div>
 
-Les développeurs freelances disposent d'une capacité maximale d'intervention de 5 jours chacun. Une partie de cette capacité est mobilisée dès la lanification prévisionnelle sur des travaux ciblés correspondant aux besoins du projet. La capacité résiduelle constitue une marge de renfort mobilisable en cas de dérive du planning ou de surcharge ponctuelle.
+Les développeurs freelances disposent d'une capacité maximale d'intervention de 5 jours chacun. Une partie de cette capacité est mobilisée dès la planification prévisionnelle sur des travaux ciblés correspondant aux besoins du projet. La capacité résiduelle constitue une marge de renfort mobilisable en cas de dérive du planning ou de surcharge ponctuelle.
 
 <div class="layout-grid layout-grid--2">
   <div class="card card--variant-2">
@@ -6583,7 +6625,7 @@ L'estimation financière du projet repose sur les charges prévisionnelles défi
   <div class="card__title">Estimation détaillée des coûts</div>
   <div class="card__text">
     Le détail des estimations, des charges et des coûts du projet est disponible
-    dans le <a href="">tableur d'estimation des coûts</a> disponible dans les sources du projet.
+    dans le <a href="https://github.com/pixseed/kernec-cedric-devoir-9-planifier-le-developpement-d-un-site-de-vente/blob/main/docs/sources/estimation-couts.xlsx">tableur d'estimation des coûts</a> disponible dans les sources du projet.
   </div>
 </div>
 
@@ -6739,7 +6781,7 @@ Les coûts sont estimés sur la base des tarifs publics en vigueur au moment de 
       <th class="cell-center">Fournisseur</th>
       <th>Coût mensuel</th>
       <th>Coût annuel</th>
-      <th>Convers°</th>
+      <th>Conversion (€)</th>
       <th>Justification</th>
     </tr>
   </thead>
@@ -6876,7 +6918,7 @@ Leur coût peut être nul au lancement ou évoluer en fonction de l'activité.
 
 Une enveloppe annuelle de maintenance est prévue afin d'assurer la pérennité, la sécurité et l'évolution mineure de l'application après sa mise en production.
 
-La maintenance est estimée sur la base d'un TJM de 500€/jour correspondant au coût moyen d'un développeur freelance retenu pour le projet. Un contrat de maintenance préventive et corrective de 8 jours par an a été considéré.
+La maintenance est estimée sur la base d'un TJM de 500 € correspondant au coût moyen d'un développeur freelance retenu pour le projet. Un contrat de maintenance préventive et corrective de 8 jours par an a été considéré.
 
 La surveillance de l'infrastructure, le certificat SSL et les services d'hébergement sont pris en charge par Netlify, Render et Railway. L'estimation de maintenance concerne uniquement les interventions de développement (maintenance corrective, préventive et évolutive).
 
@@ -7026,4 +7068,104 @@ La surveillance de l'infrastructure, le certificat SSL et les services d'héberg
 
 ---
 
+<div class="page-break"></div>
+
 ## 11. Conclusion
+
+La planification du projet **La Socketterie** a permis de transformer les besoins exprimés par le client en une organisation structurée et exploitable pour le développement du futur site e-commerce.
+
+<div class="section-label">Une démarche structurée autour des besoins</div>
+
+<div class="layout-grid layout-grid--2">
+  <div class="card card--variant-2">
+    <div class="card__title">Périmètre fonctionnel</div>
+
+L'analyse des acteurs et de leurs besoins a permis de définir les fonctionnalités attendues et de les organiser dans un **Product Backlog**.
+
+Les User Stories ont été priorisées selon leur **valeur métier** et leur **effort prévisionnel** afin d'organiser leur planification en sprints de manière cohérente avec les objectifs du projet.
+
+  </div>
+
+<div class="card card--variant-2">
+  <div class="card__title">Solution technique</div>
+
+L'application reposera sur une architecture séparant le **Front-end React et Vite**, le **Back-end Node.js et Express** et la base de données relationnelle **MySQL avec Sequelize**.
+
+**Stripe** assurera la gestion des paiements en ligne et les solutions d'hébergement retenues répondent aux besoins techniques identifiés.
+
+  </div>
+</div>
+
+<div class="section-label">Une organisation prévisionnelle du développement</div>
+
+<div class="card card--variant-1">
+
+La **Work Breakdown Structure**, le **Kanban** et le **diagramme de Gantt** permettent de décomposer les travaux, de répartir les responsabilités et de visualiser les dépendances entre les tâches.
+
+</div>
+
+La planification prévisionnelle a été construite en tenant compte d'une contrainte majeure du projet : le tournage d'un reportage trois mois après le lancement du développement, suivi de sa diffusion un mois plus tard.
+
+Afin de respecter cette échéance, le développement est organisé selon une logique de Produit Minimum Viable (MVP). Les fonctionnalités essentielles à la découverte des produits, à la préparation d'une commande et à la finalisation d'un achat sont développées en priorité afin de disposer d'une première version fonctionnelle et validée pour le tournage.
+
+<div class="layout-grid layout-grid--3">
+
+  <div class="card card--variant-2">
+    <div class="card__title">Contrainte temporelle</div>
+    <div class="card__text">
+      Le reportage est tourné <span class="bold">trois mois après le lancement du développement</span> et diffusé <span class="bold">un mois plus tard</span>.
+    </div>
+  </div>
+
+  <div class="card card--variant-2">
+    <div class="card__title">MVP pour le tournage</div>
+    <div class="card__text">
+      Les fonctionnalités essentielles à la découverte des produits et à la finalisation d'un achat sont <span class="bold">développées en priorité</span>.
+    </div>
+  </div>
+
+  <div class="card card--variant-2">
+    <div class="card__title">Finalisation du projet</div>
+    <div class="card__text">
+      Après le tournage, le développement se poursuit avec les fonctionnalités de <span class="bold">gestion, de conformité et de préparation à la production</span>.
+    </div>
+  </div>
+
+</div>
+
+<div class="note">
+  Le projet est planifié du <strong>13 juillet 2026 au 16 octobre 2026</strong> afin de disposer d'un MVP fonctionnel et validé pour le tournage, puis d'une version complète mise en service avant la diffusion du reportage.
+</div>
+
+<div class="page-break"></div>
+
+<div class="section-label">Une vision financière du projet</div>
+
+<div class="key-figures">
+    <div class="key-figure">
+        <div class="key-figure__label">Investissement initial</div>
+        <div class="key-figure__value">16 210,75 €</div>
+    </div>
+    <div class="key-figure">
+        <div class="key-figure__label">Fonctionnement annuel</div>
+        <div class="key-figure__value">4 323,00 €</div>
+    </div>
+    <div class="key-figure key-figure--primary">
+        <div class="key-figure__label">Budget de première année</div>
+        <div class="key-figure__value">20 533,75 €</div>
+    </div>
+</div>
+
+L'estimation des ressources humaines, des coûts techniques et de la maintenance permet d'établir une vision financière globale du projet. Les frais liés aux transactions **Stripe** restent variables et dépendront du volume de ventes réalisé sur la plateforme.
+
+<div class="section-label">Une base de référence pour le développement</div>
+
+<div class="note">
+
+Cette phase de planification constitue une **base de référence pour le lancement du développement de La Socketterie**.
+
+L'équipe projet dispose désormais d'un périmètre fonctionnel identifié, d'une architecture technique définie, d'une répartition des responsabilités et d'un calendrier prévisionnel **construit autour des échéances du tournage et de la diffusion du reportage**.
+
+La planification pourra évoluer en fonction des retours du client et des contraintes rencontrées au cours du projet, tout en maintenant comme objectifs prioritaires **la disponibilité du MVP pour le tournage et la mise en service de la plateforme avant la diffusion du reportage**.
+
+</div>
